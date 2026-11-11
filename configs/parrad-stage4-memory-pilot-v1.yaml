@@ -1,0 +1,26 @@
+stage4:
+  frontend_config: configs/parrad-md-gru-stage3-sequence-v2.yaml
+  stage3_checkpoint: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage3_transition_sequence_v2/best_verify.pt
+  threshold_artifact: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage3_transition_sequence_v2/timeout-reject-ablation-shards-v1/merged/validation_thresholds.json
+  output_dir: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage4_memory_pilot_v1
+  subjects: [subject_02]
+  sensors: [TI_xWR14xx]
+  seed: 42
+  steps: 100
+  learning_rate: 0.0001
+  retain_weight: 1.0
+  compressor:
+    internal_dim: 1024
+    heads: 8
+    layers: 2
+    summary_tokens: 4
+    dropout: 0.1
+  memory:
+    l0_capacity: 8
+    l1_capacity: 8
+    l2_capacity: 32
+    group_size: 4
+  replay_recordings: 1
+  queries:
+    - Describe the person's activities in chronological order based on the event memory.
+    - Did the person get into bed or get out of bed? Use the event memory as evidence.

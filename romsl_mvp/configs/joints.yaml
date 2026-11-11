@@ -1,0 +1,65 @@
+{
+  "verified": true,
+  "candidate": "Human3.6M-style 17-joint order",
+  "left_hip": 4,
+  "right_hip": 1,
+  "torso_edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      9,
+      10
+    ],
+    [
+      8,
+      11
+    ],
+    [
+      8,
+      14
+    ]
+  ],
+  "evidence": "E01 S01-S06 only. Joint 0 coincides with the midpoint of joints 1 and 4 (p99 distance rounds to zero). The expected wrist moves more in all 24 labeled left/right raise/wave recordings. Median arm segments are 0.252 coordinate units and median leg segments are 0.384-0.386. Visual review passed on 10 E01 S01/S02 recordings, 5 times each. Indices match limb connections and known unilateral actions.",
+  "groups": {
+    "left_arm": [
+      11,
+      12,
+      13
+    ],
+    "right_arm": [
+      14,
+      15,
+      16
+    ],
+    "left_leg": [
+      4,
+      5,
+      6
+    ],
+    "right_leg": [
+      1,
+      2,
+      3
+    ]
+  },
+  "reviewed_by": "Codex visual review, 2026-11-05",
+  "review_plot": "reports/romsl_p0/joint_review.png"
+}

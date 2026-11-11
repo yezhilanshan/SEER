@@ -1,0 +1,17 @@
+model: {}
+data:
+  train_manifest: data/train-stage1.jsonl
+training:
+  seed: 42
+  device: auto
+  output_dir: outputs/stage1
+  batch_size: 8
+  num_workers: 4
+  epochs: 50
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  grad_clip_norm: 1.0
+  amp: true
+llm: {}
+stage:
+  velocity_weight: 1.0

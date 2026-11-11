@@ -1,0 +1,4841 @@
+[
+  {
+    "path": "docs/candidate-filterability-results-2026-10-09.md",
+    "bytes": 13451,
+    "sha256": "b4f225599e4e588f292de2ccd867a6b7f32bd76463e96f9e3218aa8e2c51dfb7",
+    "headings": [
+      "固定双源候选池：候选可过滤性诊断\r",
+      "锁定配置与信息边界\r",
+      "主方法的三种校准策略\r",
+      "全部18组点级结果（共同完整6-update队列）\r",
+      "全部18组事件结果（主校准策略）\r",
+      "主方法8个subject×sensor\r",
+      "候选组成与截尾\r",
+      "主方法为什么未达到过滤门槛\r",
+      "时间与物理起点核验\r",
+      "核验与原始证据\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/experiment-retrospective-2026-10-09.md",
+    "bytes": 21079,
+    "sha256": "e348441d68077c0e78edd5cd1a40a1c9185bc5777a266ca84f1f3d27ea5cf735",
+    "headings": [
+      "训练与诊断复盘（2026-09-29 ～ 2026-10-09）",
+      "0 文档性质与范围",
+      "1 总体判断",
+      "2 实验线地图",
+      "3 必须固化的实验纪律",
+      "4 负结果台账（已否方案）",
+      "5 当前对模型与数据的判断",
+      "6 引用历史数字的口径陷阱",
+      "7 远程训练与核验的工程经验",
+      "8 归档内部矛盾与需修正项",
+      "9 下一步判据（沿用日志中已写明的门槛）",
+      "10 来源清单"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/experiment2-reset-results-2026-11-06.md",
+    "bytes": 4690,
+    "sha256": "777a2cd74e8d59dfe300a93cb3be8781d92309751d5517921a5a7ed8e7cfb122",
+    "headings": [
+      "实验二：重复随机边界与 No Reset\r",
+      "结果解释\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/harrad-alignment-modulation-progress-2026-10-21.md",
+    "bytes": 7814,
+    "sha256": "1313a76bf1f6f50ba80123979234c5de5c9e69f2e76407339cfecb0eb0541e66",
+    "headings": [
+      "HARrad语义对齐 × 事件引导调制：实施与启动记录",
+      "已完成：2026-10-22 10:39",
+      "历史进度：2026-10-22 10:24",
+      "历史进度：2026-10-21 20:00",
+      "历史进度：2026-10-21 19:10",
+      "本轮回答的问题",
+      "如何改造DSA-Net思想",
+      "预检与修复证据",
+      "位置与复核"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/harrad-alignment-modulation-results-2026-10-22.md",
+    "bytes": 7335,
+    "sha256": "18106d2b693eeb982a752b0d1254939ddcf085b5d3329514ff9965b2e461663a",
+    "headings": [
+      "HARrad语义对齐 × 事件引导调制：三seed结果",
+      "固定预算主结果",
+      "比相对改善更重要：继续训练没有保住初值",
+      "对齐目标确实学到了，分类收益有限",
+      "调制在推理时贡献很小",
+      "核验与证据",
+      "下一步判断"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/harrad-boundary-baseline-2026-10-17.md",
+    "bytes": 7451,
+    "sha256": "755ae0d2719182e1cc023a9351105d81f5e01938b78f3f2e1789508db9da1938",
+    "headings": [
+      "HARrad连续监督边界基线",
+      "输入与训练范围",
+      "标注、实时解码与评价",
+      "已完成结果",
+      "验收、修复和证据"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/harrad-cif-lif-implementation-2026-10-27.md",
+    "bytes": 4628,
+    "sha256": "ea54edc3539e82d58510e6ddc46edc5ffe9eb5dc7e676712ce3ae1a1f55eedfe",
+    "headings": [
+      "HARrad CIF/LIF首版实现与验收",
+      "交付",
+      "旧模型保护",
+      "测试证据",
+      "独立审阅与修复",
+      "后续真实数据运行的边界"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/harrad-cif-lif.md",
+    "bytes": 8092,
+    "sha256": "e669ee08785fc74f2e7d7023cfce189b56d8482f463e2c19edfceef247a92f88",
+    "headings": [
+      "想法六：HARrad CIF/LIF事件门",
+      "数据与结果的含义",
+      "本地运行",
+      "真实HARrad准备",
+      "训练与阶段转换",
+      "评测",
+      "在线推理"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/harrad-event-warmup-progress-2026-10-17.md",
+    "bytes": 7228,
+    "sha256": "0794d6fe1101675c6417ebcd5b46965bdd30b384547712115356abefacdb95f3",
+    "headings": [
+      "HARrad第1、2步：流式前端与EventFormer语义预热",
+      "完成结果",
+      "使用的新权重与接口",
+      "已通过的检查",
+      "首轮语义训练设置",
+      "源码与证据"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/harrad-format-audit-2026-10-16.md",
+    "bytes": 12068,
+    "sha256": "eec79a4741824a8708dd557a29e16903e6811d795fd41073bee29d6be8037a23",
+    "headings": [
+      "HARrad 格式、动作标注与重训接入检查（2026-10-16）",
+      "1. 实际数据格式",
+      "2. 标注确实是实例区间，仍应保留未知区域",
+      "3. 默认划分与连续状态泄漏",
+      "4. 官方预处理的小样实测",
+      "5. 接入现有代码需要改什么",
+      "6. 建议的重训顺序",
+      "7. 核验与可复查文件"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/harrad-joint-prediction-progress-2026-10-17.md",
+    "bytes": 6121,
+    "sha256": "fa9692ad760de1a9fe0af075e3c865526b2edfe32fdbf211aa8a528defa940ea",
+    "headings": [
+      "HARrad Dynamics与语义联合预训练：启动与进度",
+      "训练范围",
+      "数据与公平性",
+      "已通过的检查",
+      "运行与证据",
+      "首批实际进度"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/harrad-joint-prediction-results-2026-10-18.md",
+    "bytes": 7502,
+    "sha256": "8f22846d4aa45c6ebd597f092607417a1f26cfb56545f6e66cec166f75cf4031",
+    "headings": [
+      "HARrad Dynamics / Semantic联合预训练结果",
+      "同协议三seed比较",
+      "跨边界与未知区域",
+      "本轮实际训练了什么",
+      "验收证据",
+      "下一步判断"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/harrad-oracle-start-replay-2026-10-17.md",
+    "bytes": 5519,
+    "sha256": "ee179e08ff86d1cd7e297be3469a0cff9d8da3f8085ce2ba9b2c4a441ac76897",
+    "headings": [
+      "HARrad完整录制与官方起点重置回放",
+      "固定协议",
+      "当前状态",
+      "结果与严格验收",
+      "四个分歧实例的受控数值检查",
+      "下载与复核证据"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/harrad-reset-closed-loop-progress-2026-10-22.md",
+    "bytes": 7086,
+    "sha256": "c6b2d71e075dda5dd4cd8f03f0c0a31f37533ef09f2836a4e157ecc5b4794753",
+    "headings": [
+      "HARrad Stage2–3 Reset闭环验证：启动记录",
+      "后续检查：10月22日16:40后",
+      "当前证据",
+      "训练安排",
+      "本轮修正和评价限制",
+      "路径和溯源"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/harrad-saef-mvp.md",
+    "bytes": 6189,
+    "sha256": "6b0b8b95e0a657610a3544bddf8e870917571c7678e36ca17daf6b69d1be277e",
+    "headings": [
+      "方案六 SAEF-MVP：连续自然录制有监督事件形成",
+      "实现范围",
+      "命令",
+      "产物与判读",
+      "2026-10-29补全"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/harrad-semantic-baseline-progress-2026-10-17.md",
+    "bytes": 4116,
+    "sha256": "6bd33c5d6c38b69378bf4ae678ade8796e09215da5a7f14b19a017b48aa42c27",
+    "headings": [
+      "HARrad 片段语义基线启动记录（2026-10-17）",
+      "已核实",
+      "固定实验设置",
+      "后续恢复位置"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/harrad-semantic-baseline-results-2026-10-17.md",
+    "bytes": 4321,
+    "sha256": "edd7e35014680861a1864bf959cfc438f3cab1eb439fa23ed8b9b4265cb9185c",
+    "headings": [
+      "HARrad 首轮语义基线结果（2026-10-17）",
+      "验证集结果",
+      "核验",
+      "结论范围",
+      "证据与路径"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/harrad-stage1-diagnostic-results-2026-11-05.md",
+    "bytes": 12783,
+    "sha256": "a8b4622cd55f0bb389986cb2c12b0aedccd12b8e23b1d57046a83b4d61d1b40f",
+    "headings": [
+      "HARrad Stage 1 Diagnostic 结果\r",
+      "A：分场景表现\r",
+      "B：Seed 与录制来源\r",
+      "NLL 与方差\r",
+      "C：正确与随机重置\r",
+      "证据与范围\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/harrad-stage1-event-prediction-results-2026-11-05.md",
+    "bytes": 3461,
+    "sha256": "85c888cb16c1e74411515f6c52164478540394abd25e8349cc8954ea57ec686d",
+    "headings": [
+      "HARrad Stage 1 冻结事件状态预测结果"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/idea3-idea6-harrad-evaluation-proposal-2026-11-05.md",
+    "bytes": 15692,
+    "sha256": "2a582a7b1fb7fcb5111a17b5b66ebea53a7f4bb5ecde79992d3ca3c0a7941993",
+    "headings": [
+      "想法三与想法六 HARrad 统一评价方案",
+      "已核对的实验",
+      "比较分成两个实验面板",
+      "现有系统重评分",
+      "相同输入与读出的机制比较",
+      "数据划分和结果使用",
+      "所有方法的统一输出",
+      "统一指标",
+      "部分标注下的事件计分",
+      "相同操作成本下的比较",
+      "比较优缺点的实验矩阵",
+      "验收和执行顺序",
+      "2026-11-05 执行记录"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/idea3-idea6-harrad-unified-results-2026-11-05.md",
+    "bytes": 5126,
+    "sha256": "695433f421bf4358eb37ae3aa3c515f4b5e115abf4db931725453214823435f8",
+    "headings": [
+      "HARrad 统一前端与评价指标的模型比较结果",
+      "比较范围",
+      "主要事件结果",
+      "跨人复核中的其他取舍",
+      "相同 EventFormer 读出",
+      "证据与限制"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/idea6-implementation-readiness-2026-10-26.md",
+    "bytes": 6823,
+    "sha256": "b61090ca829a37183968f606f6a26f9624b2907eb30a842f5940b6feb949dab8",
+    "headings": [
+      "想法六：实现前核对与推荐范围",
+      "1. 本次阅读范围",
+      "2. 现有基础与复用边界",
+      "3. 编码前必须明确的技术修正",
+      "4. 评测数值核对",
+      "5. 两种可行的首轮范围",
+      "A. PARrad事件门原型（推荐）",
+      "B. S0–S3全链路",
+      "6. 本地环境核验"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/latent-memory-implementation-2026-10-18.md",
+    "bytes": 8953,
+    "sha256": "ff3b75569b26f6dac41ca73fce33aba872f9afe147c15dfc232d7a38385f6785",
+    "headings": [
+      "无显式动作分段：独立 latent_memory 实现",
+      "已实现",
+      "默认配置的含义",
+      "服务器使用",
+      "仅在明确实验预算后执行；train 不接受省略 --steps。",
+      "恢复至总共200次成功更新，使用新的输出目录，保留原运行。",
+      "监督与评价边界",
+      "验证"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/md-gru-transition-signal-results-2026-10-09.md",
+    "bytes": 17299,
+    "sha256": "8a5af40fdfa2fd36f7dc5496dcf225c75664959ddb076aa2dd0e01a81f1364c8",
+    "headings": [
+      "MD-GRU动作转换信号分层诊断（2026-10-09）\r",
+      "本轮结论\r",
+      "数据、范围和核验\r",
+      "小Probe：每层线性与MLP全部结果\r",
+      "同一因果peak触发器的事件比较\r",
+      "无训练变化量：原始距离排序\r",
+      "MLP逐受试者/传感器（预算8，完整披露）\r",
+      "解释限制与下一步\r",
+      "原始证据\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/offline-radar-to-text.md",
+    "bytes": 16835,
+    "sha256": "e8be477d526132f223b55c78ce63f9c9f5730731b9eeb9994a5905ccb4e72a81",
+    "headings": [
+      "离线 Radar-to-Text MVP",
+      "环境与测试",
+      "准备 PARrad",
+      "训练",
+      "1. 双分支雷达侧预训练，有效帧交叉熵",
+      "2. 冻结 LLM，只训练 encoder + projector",
+      "3. 对齐收敛后继续 LoRA（环境需要 PEFT）",
+      "独立受试者评估与无标签推理",
+      "当前验收边界",
+      "RD-only X-Fi 迁移入口"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/parrad-expanded-preparation-2026-10-11.md",
+    "bytes": 9478,
+    "sha256": "ec33b3d7f2c6173be8bc93f54156f2b14917099042d741ee145730f15e26d691",
+    "headings": [
+      "PARrad 新下载数据准备（2026-10-11）",
+      "可用入口",
+      "RD-only模型取batch['rd']，并按lengths屏蔽padding。",
+      "受试者库存",
+      "验证与来源"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/parrad-expanded-split-2026-10-11.md",
+    "bytes": 3167,
+    "sha256": "0f95c57e08f0566c9f443ccf02391bc907e0ab9dc7889926fa5dca3175e35f1e",
+    "headings": [
+      "PARrad扩充数据受试者划分 v1\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/parrad-preprocessing-assessment-2026-10-13.md",
+    "bytes": 5420,
+    "sha256": "24993352ba7ab56788a4ac40656caed569664977ab44b4abfb00a12d860ffb81",
+    "headings": [
+      "PARrad预处理现状与下一步建议",
+      "已确认的现状",
+      "推荐顺序",
+      "最小受控消融"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/proposal-readout-matched-results-2026-10-09.md",
+    "bytes": 21318,
+    "sha256": "fdd9f6d95c35e112a9770622f3987aab14abf479155ef74f8ec7418df6e5d5b2",
+    "headings": [
+      "Proposal读取位置与状态/变化消融结果（2026-10-09）\r",
+      "结论与下一步\r",
+      "预注册判断\r",
+      "同一消融模式内的全部读取位置比较（辅助分析）\r",
+      "全部九组与旧Head参照\r",
+      "六档预算的实际误报、密度与延迟\r",
+      "全部受试者×传感器单元（fit上限8）\r",
+      "匹配方式、核验与限制\r",
+      "原始证据\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/radar+gru融合方案.md",
+    "bytes": 13351,
+    "sha256": "722126de4824ef4f2076135d72a46afd5d1e926c1ef70719233c07535b2f8d46",
+    "headings": [
+      "下一阶段总目标\r",
+      "第一阶段：Physical Onset Audit\r",
+      "第二阶段：建立双源 Candidate Pool\r",
+      "第三阶段：先搜索 Candidate Pool 的合理 operating point\r",
+      "第四阶段：Candidate Filterability Diagnostic\r",
+      "Candidate 的标签\r",
+      "第五阶段：不要直接把所有特征拼起来\r",
+      "第六阶段：我建议这样定义 Candidate 状态\r",
+      "第七阶段：先做 Probe，不立刻做 Sequential Accumulator\r",
+      "第八阶段：为 Candidate Verify 设一个真正有意义的成功条件\r",
+      "第九阶段：只有 diagnostic 成功，才正式训练 Sequential Verify\r",
+      "最终的分流逻辑\r",
+      "我认为现在最值得让 Codex 先执行的任务\r"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/radar-gru-two-diagnostics-results-2026-10-09.md",
+    "bytes": 8292,
+    "sha256": "40431ed287834e3bf8b6282e8e41b85c7cb1d394c36359f13bfe3c4843190357",
+    "headings": [
+      "Radar + GRU：onset导出与双源候选池诊断\r",
+      "A：Physical Onset Audit 数据导出\r",
+      "B：双源 Candidate Pool\r",
+      "主点：8个subject×sensor全部结果\r",
+      "判断与边界\r",
+      "复核与证据\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/radar-text-align-readout-p0-2026-10-11.md",
+    "bytes": 11927,
+    "sha256": "ed7a36014583d615a39c34443a4358af4850683de9fc24e532440b4dc42d9d3c",
+    "headings": [
+      "P0：冻结Align Encoder的分类与语言读出公平对比（2026-10-11）\r",
+      "1. 固定协议与选择顺序\r",
+      "2. 相同完整12秒窗口：独立validation阈值主结果\r",
+      "3. 原484窗口与共同阈值敏感性\r",
+      "4. Align是否提高线性可读性\r",
+      "5. 逐类Recall与配对错误\r",
+      "6. 结论与适用范围\r",
+      "7. 核验与产物\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/radar-text-error-attribution-2026-10-11.md",
+    "bytes": 18381,
+    "sha256": "cd29f7b13fa2a676dc1513a36cf24e06d2573584309045cf79c46cc10ffb29ac",
+    "headings": [
+      "Radar-to-Text 系统性错误归因报告（2026-10-11）\r",
+      "评价口径与数据限制\r",
+      "1. Stage1 逐帧分类\r",
+      "2. 冻结特征线性探针\r",
+      "3. 三组对照\r",
+      "A. 平滑分类模板\r",
+      "B. 无雷达语言先验\r",
+      "C. 样本错配、同步时间打乱与真实异序配对\r",
+      "4. 文本动作未覆盖的结构化分解\r",
+      "窗口内可见时长\r",
+      "窗口位置（实例中点划三等分）\r",
+      "截断类型\r",
+      "窗口动作数量\r",
+      "按完整标注区间长度复核\r",
+      "按14类统计\r",
+      "文本抽查与人工复核边界\r",
+      "5. 瓶颈定位与下一步优先级\r",
+      "6. 产物与验证\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/radar-text-head-ablation-2026-10-11.md",
+    "bytes": 12655,
+    "sha256": "d4ea2de6ea6bf28d868c8de574f6a1b808babf4c09ee24c1a75479ca095d0c6c",
+    "headings": [
+      "Stage1 冻结分类头受控消融（2026-10-11）\r",
+      "1. 两个复现端点\r",
+      "2. 受控设置与解释范围\r",
+      "3. H0–H4结果\r",
+      "original_optimizer\r",
+      "probe_replay\r",
+      "4. 概率质量与校准\r",
+      "5. 全类别读出与短动作边界\r",
+      "6. 瓶颈判定与下一步\r",
+      "7. 产物、复现和核验\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/radar-text-p1-evidence-count-2026-10-11.md",
+    "bytes": 17610,
+    "sha256": "d1d3ea86c808cd0aef48f437ab1b0effdb706a1aacf2651ebb1f2c0724c20b00",
+    "headings": [
+      "P1：动作证据保留与动作数量校准诊断（2026-10-11）\r",
+      "1. 协议与不可变性\r",
+      "2. P1-A：数量、类别/顺序与编辑错误\r",
+      "3. P1-B：H→Z→P轻量读出\r",
+      "4. P1-C：概率、先验与预测数量校准\r",
+      "5. 数量分布与事后多数基线\r",
+      "6. Oracle Count：仅诊断\r",
+      "7. 原始484窗口补充\r",
+      "8. 瓶颈定位与下一步\r",
+      "9. 复核与产物\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/radar-text-server-pilot-2026-10-10.md",
+    "bytes": 9394,
+    "sha256": "f82e7526a3b98e355d820d4aa76e998de597eadac385fa9f56abab01cf60d1fa",
+    "headings": [
+      "Radar-to-Text 真实数据首轮 pilot 结果",
+      "实际资源及设置",
+      "训练与权重",
+      "自由生成结果与分类模板对照",
+      "主要错误",
+      "雷达错配诊断",
+      "核验与产物",
+      "建议的下一轮"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/radar-text-strong-baselines-2026-10-11.md",
+    "bytes": 11127,
+    "sha256": "324ab0ba5173491462b8abd71bcefd5472225d152802677f79dd06074a5f4eaf",
+    "headings": [
+      "更强分类到文本基线：同滑动窗口对照（2026-10-11）\r",
+      "1. 对齐协议与选择约束\r",
+      "2. 共同阈值：完整12秒窗口\r",
+      "3. 原协议全部窗口：直接复核25%\r",
+      "4. 独立validation阈值和无平滑补充\r",
+      "5. 配对错误与分组\r",
+      "6. 如何更新研究结论\r",
+      "7. 复现、产物和界限\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/rd-only-xfi-transfer-2026-10-11.md",
+    "bytes": 7943,
+    "sha256": "64b084cf1f23b6941fcb4b79788d0e9c8eba53bb788590dd962a2f0c75778297",
+    "headings": [
+      "RD-only X-Fi 冻结骨干迁移实验（2026-10-11）\r",
+      "协议与可解释范围\r",
+      "验证集选择\r",
+      "独立受试者逐帧结果\r",
+      "动作序列与数量\r",
+      "同结构配对比较\r",
+      "结论边界与下一步\r",
+      "复现与核验\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/rd-resnet18-scratch-results-2026-10-13.md",
+    "bytes": 7047,
+    "sha256": "4c53f4fad55a2c60d293f306b5b094c2d07fa249bd1512e338fcbe8a111bd4a3",
+    "headings": [
+      "RD-only ResNet18从头训练结果核验",
+      "完成状态与选优",
+      "逐帧识别结果",
+      "收敛与错误模式",
+      "与旧实验如何比较",
+      "独立验证与交付"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/rd-resnet18-scratch-training-2026-10-11.md",
+    "bytes": 5831,
+    "sha256": "f657e7aa2836e7073e6253c96008bbb6918e26d4db5c51432a1b11daa209b7e7",
+    "headings": [
+      "RD-only ResNet18从头训练\r",
+      "正式训练已启动\r"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/server-dataset-inventory-2026-10-06.md",
+    "bytes": 7530,
+    "sha256": "a1fc9f946735cc1f2a3ee44a6cbc43c9ab9826c0e6945bb8d980cfd56bbbfc69",
+    "headings": [
+      "服务器数据集盘点，2026-10-06",
+      "主要结论",
+      "PARrad：原始文件与未完成下载",
+      "PARrad：格式与标签",
+      "PARrad：当前canonical划分",
+      "其他雷达数据",
+      "早期MD子集",
+      "pyRadar系列",
+      "其他目录与搜索边界",
+      "对训练提案的影响"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/split-birnn-preparation-results-2026-10-14.md",
+    "bytes": 10013,
+    "sha256": "73dc79013ad7ae0aeba154636e9d5e2f072febb902568d0c01b2f93890a90579",
+    "headings": [
+      "Split BiRNN 实现准备与验收结果",
+      "本轮修正",
+      "数据与时间审计",
+      "参数与计算图",
+      "吞吐量探针",
+      "Gate 与交付等级",
+      "验证与产物"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/split-birnn-training-results-2026-10-14.md",
+    "bytes": 17031,
+    "sha256": "bcbb558c65da2cd03ab7316bd775a734117bb62140cc976120713452ba97f58d",
+    "headings": [
+      "Split BiRNN 五折训练结果与完成检查（2026-10-14）\r",
+      "1. 实际完成状态与验收\r",
+      "2. 固定训练与评价协议\r",
+      "3. 训练收敛与 BN\r",
+      "4. 逐类结果与后向修正收益\r",
+      "5. 标签可靠性诊断（不用于选点）\r",
+      "6. 修正等待时间\r",
+      "7. 数据分组、采样和受试者差异\r",
+      "8. 复现范围与产物\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-candidate-shadow-diagnostic-2026-09-29.md",
+    "bytes": 5748,
+    "sha256": "faf1c6b5caa5774f7be9f9e1f32600bba2599ee2b15c716bbfaf64f0553900a9",
+    "headings": [
+      "Stage 3 Candidate/Shadow 无学习诊断（2026-09-29）",
+      "范围与口径",
+      "轨迹一致性与样本",
+      "无学习特征 AUROC（干净等长子集）",
+      "同录音在线 hard-pair",
+      "判断与下一步",
+      "溯源与测试"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-forced-horizon-probe-2026-09-29.md",
+    "bytes": 4506,
+    "sha256": "c64c2fb33d616890aecf2d42927b0e37bc7571f3d11bdf385abef59a023ce3a2",
+    "headings": [
+      "Stage 3 Candidate 强制延长诊断（2026-09-29）",
+      "问题与方法",
+      "一致性与覆盖",
+      "等长候选集结果",
+      "判断",
+      "溯源"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-fork-init-gate-ablation-2026-09-30.md",
+    "bytes": 6316,
+    "sha256": "f1bed9a64fb5dd73d4303d1958f7468264195efced94408d57faf69e42af21c1",
+    "headings": [
+      "Stage 3 Fork 初始化 × maturity 门控消融（validation-only）",
+      "设计与完整性",
+      "主要结果",
+      "State / projection 漂移",
+      "判断与下一步",
+      "产物与校验"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-fork-layer-localization-2026-09-30.md",
+    "bytes": 5448,
+    "sha256": "3022b2d18d1a7fd0a02aa6f63729283e0ca37d76552a7fab611c86a85dc907d0",
+    "headings": [
+      "Stage 3 Fork 分层定位：gate、Event State、Semantic Key",
+      "完整性",
+      "真/假 Proposal 排序（相同的 970 个候选）",
+      "判断与建议",
+      "产物与测试"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-frozen-layer-decodability-2026-10-01.md",
+    "bytes": 15033,
+    "sha256": "beff9a9044e3e3ba39e5bc9382208d1a48cf6395942bf8f58d47b5b8023a424a",
+    "headings": [
+      "Frozen Layer Decodability Audit — execution status",
+      "Protocol",
+      "Verification so far",
+      "Remote locations",
+      "结果分析：主要结论",
+      "1. 完整性、样本和收敛",
+      "2. 主要任务：当前 GT run 是否已不同于 Frozen Active reference",
+      "3. 哪一段最值得怀疑",
+      "4. 为什么前几轮 cosine 很差，却仍能线性解码",
+      "5. 年龄和闭环生命周期是实质限制",
+      "6. 两种 sensor 与数值尖峰",
+      "7. 下一步建议：先换证据读出，不立即重训大模型"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-frozen-short-horizon-sequential-2026-10-02.md",
+    "bytes": 6686,
+    "sha256": "109d6b821fbc37cff1032065711ed2226252502e693988b21e4bb96c70fdba1c",
+    "headings": [
+      "Frozen Short-Horizon Sequential Audit — Implementation and Run Record",
+      "Implemented",
+      "Verification",
+      "Deployment and source integrity",
+      "Run contract/status",
+      "Implementation rulings"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage3-frozen-short-horizon-sequential-results-2026-10-02.md",
+    "bytes": 9430,
+    "sha256": "cc53d7bd9f2830adb3de887b2768902f500ecf7df4868d6e4c2a5ca66a9a7c61",
+    "headings": [
+      "Frozen Short-Horizon Sequential Audit — Results",
+      "Completion and integrity",
+      "Primary task and aggregation",
+      "Natural fixed-age AUROC: one update → three updates",
+      "Actual natural terminal endpoints",
+      "Confounding and generalization checks",
+      "Low-FPR operating-point sensitivity, no refitting",
+      "Late horizon and secondary Proposal task",
+      "Interpretation and next-step recommendation"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-radar-readout-pilot-2026-10-02.md",
+    "bytes": 10321,
+    "sha256": "fdf1d6da96733a60b8024b05280166a0faf02df4695c4708a087787ddc0901ba",
+    "headings": [
+      "Frozen Radar Readout Pilot — approved Experiment 1",
+      "Scope and fixed protocol",
+      "Implementation",
+      "Verification/status",
+      "Deployment verification",
+      "Live launch",
+      "Completed results checked 2026-10-02 19:23–19:27CST"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-semantic-physical-complementarity-pilot-2026-10-02.md",
+    "bytes": 5924,
+    "sha256": "459683531f22c9d4cf4fb259499bbf9510f7aaa2bcaf5e0a75cc7026c0d7d907",
+    "headings": [
+      "Frozen Semantic–Physical Complementarity Pilot",
+      "目标与边界",
+      "预先固定的实验矩阵",
+      "拟合与独立标定",
+      "Provenance 与判读",
+      "当前实现验证"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage3-semantic-physical-complementarity-results-2026-10-02.md",
+    "bytes": 11788,
+    "sha256": "af50a4d3defa6e96ba04a2dc31bdff096a70dc1fe535eecd6fb2b28257275439",
+    "headings": [
+      "Frozen Semantic–Physical Complementarity Pilot：结果与下一步",
+      "结论",
+      "完成、范围和完整性",
+      "统计口径",
+      "1. Natural实际终止点：F整体排序最好，F+E只有局部尾部增益",
+      "2. 实际决策年龄：age4弱，age6/7 F较强；融合未稳定超过最佳单路",
+      "3. 跨受试者标定失配：macro隐藏了严重风险",
+      "4. 预测重叠：E并非完全冗余，但新正例伴随新误报",
+      "5. K3/K8并未提供可靠时序收益",
+      "6. Forced只是晚期/删失对照",
+      "下一步建议（本报告不授权自动实施）"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-transition-aware-budget-ablation-2026-10-04.md",
+    "bytes": 4905,
+    "sha256": "8a946b2f4225ff50f775f013b9859c2bac5b805f78aea220e30b63bb92f9a925",
+    "headings": [
+      "固定训练预算诊断方案，2026-10-04",
+      "数据、训练与顺序",
+      "评价和预先声明的判断",
+      "完整性与产物"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage3-transition-aware-budget-results-2026-10-04.md",
+    "bytes": 10241,
+    "sha256": "6d34e232faa188b1dba46d0fce51d0540d12da7e13aa184c9eaac03c6c098926",
+    "headings": [
+      "固定训练预算小实验结果，2026-10-04\r",
+      "固定预算比较\r",
+      "每折的绝对AUROC与AP\r",
+      "第三折补齐与拟合/泛化现象\r",
+      "原检索与动作语义\r",
+      "逐年龄/受试者诊断\r",
+      "完整性、范围和下一步\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-transition-aware-primary-pilot-2026-10-03.md",
+    "bytes": 2932,
+    "sha256": "59976f166b8da3d68fe85147ec16c9e1ea3432ad94ac275029c73917a4524894",
+    "headings": [
+      "Primary-age Projection pilot, preregistered 2026-10-03"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage3-transition-aware-primary-replication-2026-10-03.md",
+    "bytes": 3202,
+    "sha256": "1acf22bc40859f56c2b42737f3fc5393dc2e3af6cb48a6e45f9ada334a1c44b3",
+    "headings": [
+      "Primary recipe replication preregistration, 2026-10-03",
+      "Fixed new run",
+      "Seed interpretation and success criteria"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage3-transition-aware-primary-replication-progress-2026-10-03.md",
+    "bytes": 5406,
+    "sha256": "01531e566e51f6d0dc03856f92ff435c05aec2e2dba9deed7832f2e24e623a86",
+    "headings": [
+      "主任务训练方法复核：已完成并核验，原始下载已补齐",
+      "已固定的实验",
+      "种子的解释已修正",
+      "实现和验证",
+      "恢复入口"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage3-transition-aware-primary-replication-results-2026-10-03.md",
+    "bytes": 6037,
+    "sha256": "9a21ebfeee83af9de6e000215a61515b156a7db95642e848c99a1cc5c8cd8cff",
+    "headings": [
+      "新数据折复核结果",
+      "主任务与固定检查点",
+      "与第一折的配对对照",
+      "完成和完整性核验",
+      "10月4日补齐的语义差值和分组分析",
+      "下一步建议"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-transition-aware-primary-results-2026-10-03.md",
+    "bytes": 8342,
+    "sha256": "d0a31b79d654774a4d7fc428c00c25df24e429e93c3fd9eaca31f1c43b7e9a23",
+    "headings": [
+      "主年龄转换目标小实验结果",
+      "1. 本轮实际修改",
+      "2. 原评估下的成绩",
+      "3. 检索是否保留",
+      "4. 权重和分类头核对",
+      "5. 验证、边界和证据",
+      "6. 下一步判断"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-transition-aware-projection-plan-review-2026-10-02.md",
+    "bytes": 9555,
+    "sha256": "b953a5c4dc48be8d00ec7671c315eef4bd9a98fe34d7f532eefd0fa1ebc2d6e8",
+    "headings": [
+      "Transition-aware Semantic Projection Pilot 方案审查",
+      "1. E > z 支持干预假设，但没有证明信息被 Projection 丢掉",
+      "2. Projection 同时投影文本，事件 anchor 不足以覆盖它的职责",
+      "3. 临时 relational head 与最终 probe 的信息接口不同",
+      "4. Candidate 基础等权不等于最终等权",
+      "5. 必须区分 Projection 划分与最终 probe 划分",
+      "6. Go/No-Go 尚未真正预注册，held 也不是全模型未见数据",
+      "可直接保留的部分与执行可行性"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage3-transition-aware-projection-recovery-2026-10-03.md",
+    "bytes": 5417,
+    "sha256": "762006fcf1151015d201dc204e435e7e439afa29712682b89e674c63295eba5b",
+    "headings": [
+      "Projection pilot 中断后的处理建议",
+      "已确认的事实",
+      "1. 先修评估失败的诊断与处理",
+      "2. 先做一个折、一个种子的有限诊断",
+      "3. 用语义门槛决定是否扩大预算",
+      "4. 原模型继续保留"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage3-transition-aware-projection-recovery-results-2026-10-03.md",
+    "bytes": 3872,
+    "sha256": "490cc3422858aba092ef88d7202af7efe9df95a43563c9563b33a7de98cf60b7",
+    "headings": [
+      "Projection 恢复诊断结果",
+      "结论",
+      "原故障重放",
+      "三个独立epoch0初始化条件",
+      "梯度证据与冻结检查",
+      "验证与可追溯性"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-transition-aware-projection-remedies-2026-10-02.md",
+    "bytes": 12071,
+    "sha256": "b5b208af8ccea1c2c81a69fb373cc51c11a593ab18c0b18fccae3dd977a129f7",
+    "headings": [
+      "Transition-aware Projection Pilot：问题解决方法",
+      "1. 用配对实验检验 Projection，不把 E 当理论上界",
+      "2. 缓存三类语义输入，保护共享空间",
+      "3. 用最终 probe 的接口提供 transition 梯度",
+      "4. 明确配权取舍：优先 Candidate 最终等权",
+      "5. 三种划分分别实现，避免直接复用旧 fold_masks",
+      "6. 在训练前固定有限预算与 Go/No-Go",
+      "实施顺序"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage3-transition-aware-rehearsal-audit-2026-10-03.md",
+    "bytes": 5724,
+    "sha256": "42187fc5bd95ba5eb68f8abd3dfca577eefbacd5f8ffd64c2f0b0442312fb405",
+    "headings": [
+      "Semantic rehearsal 输入与目标核查",
+      "已查明的结果",
+      "缓存本身可以重现",
+      "数值精度带来小幅batch差异",
+      "rehearsal并非原Stage2语义目标的等价复现",
+      "受控梯度诊断",
+      "下一步建议",
+      "原始证据"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-transition-aware-relational-pilot-2026-10-03.md",
+    "bytes": 3117,
+    "sha256": "c017220b30ab7dfda1c62d9186c12438aa36d68e92b2aab58b1f9f69786eb91a",
+    "headings": [
+      "Teacher关系保留小实验 v1"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage3-transition-aware-relational-results-2026-10-03.md",
+    "bytes": 6151,
+    "sha256": "fbbc9db4e568245a3b0013fddbe7b74e0e425a0d85c0e44c5427561e1f5c4fd9",
+    "headings": [
+      "Teacher关系保留小实验结果",
+      "结论",
+      "原协议dev结果",
+      "未通过完整门槛的原因",
+      "新目标与冻结检查",
+      "验证和证据"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-transition-aware-subject-balance-2026-10-04.md",
+    "bytes": 4408,
+    "sha256": "27f53a56f530405c95e8a9dad07c9358a0e191300f4be5a7c02d54af9e33bf05",
+    "headings": [
+      "受试者均衡50步开发实验",
+      "唯一改动与对照",
+      "判断与报告",
+      "完整性与执行"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage3-transition-aware-subject-balance-results-2026-10-04.md",
+    "bytes": 9982,
+    "sha256": "9418632118b1b5682e2af09d088328660b3c11fd821b1fcea6ddf5102631bb23",
+    "headings": [
+      "受试者均衡50步小实验结果，2026-10-04\r",
+      "固定50步的主要比较\r",
+      "每折20/50步的AUROC与AP\r",
+      "全部局部分组，固定50步\r",
+      "全部50步检索/动作指标\r",
+      "完整性和适用范围\r",
+      "后续建议\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-transition-objective-audit-2026-10-03.md",
+    "bytes": 9003,
+    "sha256": "23cca69e9722c652c462949510711b6a7dfc831c86a65f089774edf805dcfeb6",
+    "headings": [
+      "转换训练目标与评估衔接核查",
+      "核查结论",
+      "1. 已保存评估可以精确重现",
+      "2. 多数训练权重落在主评估之外",
+      "3. 固定表示的配对分类器诊断",
+      "4. 临时head尚未拟合充分",
+      "5. 年龄梯度存在折衷，不能夸大为持续反向破坏",
+      "6. 归一化不是目前最明确的问题",
+      "下一步调整顺序",
+      "原始证据与边界"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage3-upstream-audit-2026-09-29.md",
+    "bytes": 8554,
+    "sha256": "97683c086e483e2a705237a911d0893e14416f6af8054e8fb12c599691976d3a",
+    "headings": [
+      "Stage 3 上游信号诊断（2026-09-29）",
+      "范围与方法",
+      "Proposal：Radar 头与 OR 融合降低边界排序",
+      "Semantic Difference：换成 oracle key 也不恢复",
+      "可定位的训练／在线配对分布差异",
+      "排除 Proposal 选择偏差的相邻 oracle 对照",
+      "下一步决策",
+      "验证与溯源"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3-verify-candidate-audit-2026-09-29.md",
+    "bytes": 8187,
+    "sha256": "8d1651bf025fb44cd3264646decb4d2e3a837dc566c91216ebd11e52379f4bb5",
+    "headings": [
+      "Stage 3 Verify 候选级诊断（2026-09-29）",
+      "范围与不可变条件",
+      "闭环复标定：hard-negative Verify 变差",
+      "一候选一记录的审计",
+      "原定义：proposal 时间距 GT 边界",
+      "代理定义：GT 游程在候选生命期发生切换",
+      "决策与下一步",
+      "复现与验证"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3a-proposal-loss-ablation-results-2026-10-08.md",
+    "bytes": 13932,
+    "sha256": "8cb3fba960059f378280a7715b8f2ce5ae88d124c8bbb533f5381f31927a12a7",
+    "headings": [
+      "Stage3A：weighted vs unweighted Gaussian BCE，500步严格对照\r",
+      "实验可信度\r",
+      "分数排序：分数压低，但区分能力没有提升\r",
+      "高分平台：共同0.6阈值不能用于宣布成功\r",
+      "全部9个预算对照\r",
+      "全部锁定配置与fit表现\r",
+      "预算8的逐受试者×传感器结果（完整24单元）\r",
+      "下一步判断与建议\r",
+      "归档与可追溯文件\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3a-proposal-supervision-diagnostic-results-2026-10-08.md",
+    "bytes": 15005,
+    "sha256": "65aca44c435ae94360d8106eb301e97ac64987a2579ed15ac50f5dcb0a2aea07",
+    "headings": [
+      "Stage3A 固定500步监督诊断结果（2026-10-08）\r",
+      "1. 实验范围与核验\r",
+      "2. 现有触发器究竟在哪里漏检\r",
+      "3. 实际训练曝光是否不足\r",
+      "4. 输入中有没有简单可用的变化信号\r",
+      "5. 标签与物理变化时刻是否错位\r",
+      "6. 推荐下一轮：只加入边界与困难稳定负例的排序约束\r",
+      "7. 完整证据与可复查入口\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3a-window-peak-ablation-results-2026-10-09.md",
+    "bytes": 16652,
+    "sha256": "d8419c31c6bb9bdd4603e782879394740e7e377c5bbf755b5d7b1d7074bd1c8c",
+    "headings": [
+      "Stage3A 窗口分布监督500步 A/B结果（2026-10-09）\r",
+      "原始结果核验\r",
+      "Score本身（dev）\r",
+      "事件级（fit锁定后一次性dev比较）\r",
+      "失败类型与同一GT迁移\r",
+      "逐受试者/传感器（dev完整8 cells）\r",
+      "下一步建议\r",
+      "证据位置\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3ag-residual-fusion-results-2026-10-09.md",
+    "bytes": 26640,
+    "sha256": "d832d5ef7ac5c420892f009f421a6fc4853cdea8a1ce68713404c232a0637b1a",
+    "headings": [
+      "Stage3A-G：冻结 GRU × 旧 Radar residual fusion 结果\r",
+      "实验配置与来源\r",
+      "Zero-update 与实际更新核验\r",
+      "点级结果（开发集）\r",
+      "Proposal 结果（每个阈值只在 fit 选择）\r",
+      "全部8个 subject×sensor\r",
+      "Radar/GRU 零更新互补矩阵与 Oracle union\r",
+      "Failure decomposition\r",
+      "Rescue / Harm\r",
+      "B的 True/False peak 分数分析\r",
+      "预注册门槛与判断\r",
+      "完整证据\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3b-oracle-proposal-domain-gap-results-2026-10-10.md",
+    "bytes": 14479,
+    "sha256": "50d374e5ced578a1bf90e367abf6208aa48590fa881db16d8395ebe5409e6358",
+    "headings": [
+      "Stage3B：Oracle → Proposal 域差诊断（2026-10-10）\r",
+      "1. 三组比较的定义与边界\r",
+      "2. 原始分布结果（dev）\r",
+      "3. 动作配对与录制匹配后的结果\r",
+      "4. 时间、方向与事件实例\r",
+      "5. 交换输入、cosine 与分数塌缩\r",
+      "6. 八个 subject×sensor（dev）\r",
+      "7. 标签覆盖与解释范围\r",
+      "8. 冻结、数值与独立读回\r",
+      "9. 下一步建议与执行边界\r",
+      "10. 原始证据与身份\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage3b-semantic-pilot-results-2026-10-09.md",
+    "bytes": 12450,
+    "sha256": "74a76b2f612d8171d33309db754cbdc81fee8811e7c210e1ffbf002bcb1c5f33",
+    "headings": [
+      "Stage3B：冻结完整 semantic key 的 50 步 Oracle pilot\r",
+      "实际预算、配置与三层结论\r",
+      "第一层：Oracle semantic discrimination\r",
+      "第二层：干净Proposal回放的语义判别\r",
+      "第三层：事件级诊断过滤\r",
+      "八个开发cell全部披露\r",
+      "核验结果与未通过项目\r",
+      "判断与下一步边界\r",
+      "证据与SHA\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage4-chat-qa-pilot-2026-10-04.md",
+    "bytes": 2326,
+    "sha256": "d5c1fd1a7af3b583a37315d5f56ccee5f8be547b8bd8a1b83f5b985465cfc2f8",
+    "headings": [
+      "Stage4 chat与事件问答训练"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-chat-qa-pilot-results-2026-10-04.md",
+    "bytes": 7951,
+    "sha256": "8206213f3f46ab24208fb2300917bbb58e6962b460860cfcb7cc52c0a175d570",
+    "headings": [
+      "Stage4混合记忆问答实验：500步及整链完成，可靠问答仍未达到",
+      "实际训练与评价方式",
+      "从实际生成回答重算的结果",
+      "真实雷达在线回放",
+      "原检索保留与结论",
+      "验证与原始证据"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage4-decoder-repair-2026-10-05.md",
+    "bytes": 5403,
+    "sha256": "05e76eae2c5c38ad4c16c1aa2cf33a71d71d04b6afc3f87ca8d6f72e92427875",
+    "headings": [
+      "Stage4 问答修复与完整复测",
+      "定位与改动",
+      "完整fit复测",
+      "证据与保护",
+      "独立文字QA修复方案"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage4-event-boundary-qa-2026-10-05.md",
+    "bytes": 3105,
+    "sha256": "90f118ce21bec880109861b65a3ed88d9e883bfcf5687c125e4492a571577548",
+    "headings": [
+      "事件编号QA：已授权的两组固定预算对照"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-event-boundary-qa-results-2026-10-05.md",
+    "bytes": 11375,
+    "sha256": "d88d3bcca851bb4be505cbcd968c6f65a885614389b117cbe98572cd2f5c554b",
+    "headings": [
+      "事件编号QA：单事件总体保留，多事件方案未达标\r",
+      "执行与公平对照\r",
+      "单事件保留与逐类结果\r",
+      "多事件与编号效果\r",
+      "2事件\r",
+      "4事件\r",
+      "正反证据、文字对照与真实错误\r",
+      "锁定门槛与后续范围\r",
+      "验证、来源与限制\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage4-memory-pilot-2026-10-04.md",
+    "bytes": 3624,
+    "sha256": "03ca2c9b83bb7868c788b0ef230f767a3e3308dd3734f053c3751f7122ef10da",
+    "headings": [
+      "Stage4 分层记忆首轮训练",
+      "目标和使用",
+      "首轮数据和固定预算",
+      "实际在线流程",
+      "必要验证和当前状态"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-memory-pilot-results-2026-10-04.md",
+    "bytes": 6667,
+    "sha256": "dfed875215a8014c0717ad8f5a4ffdb4da1322408e331293b39157dee0520948",
+    "headings": [
+      "Stage4 首轮结果：代码、训练与整链完成，事件问答未达标",
+      "实现与训练",
+      "开发集数值",
+      "真实在线流程",
+      "生成对照与结论边界",
+      "调试与最终产物"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage4-radar-semantic-alignment-2026-10-06.md",
+    "bytes": 3563,
+    "sha256": "7bd8e6db88800e8a628abaf0be78c357717320ae6ab4ad87cf5cf8e3fee18fbd",
+    "headings": [
+      "单事件雷达接入新QA：固定预算答案/蒸馏对照"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-radar-semantic-alignment-progress-2026-10-06.md",
+    "bytes": 5391,
+    "sha256": "8f2a2dc1635a1c71ecddb32e0eda76d6811a4d8a3a99a9628059d9dda4cf9ab6",
+    "headings": [
+      "单事件语义适配执行记录"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-radar-semantic-alignment-results-2026-10-06.md",
+    "bytes": 4495,
+    "sha256": "efc2160d5e63cd4d2644e4b3125200743e296718d42e99ac002a0b8e8889fae8",
+    "headings": [
+      "单事件雷达语义适配：文字教师门槛阻塞",
+      "全量文字预测复算",
+      "证据与保留情况",
+      "建议的下一步"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage4-radar-semantic-alignment-v2-2026-10-06.md",
+    "bytes": 7086,
+    "sha256": "41799654cd13753f87c65fa744e6c2debf37614d0dca4efb0e03eac7a8cac63a",
+    "headings": [
+      "单事件雷达语义适配v2：文字门槛改为诊断",
+      "执行记录"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-radar-semantic-alignment-v2-results-2026-10-06.md",
+    "bytes": 6920,
+    "sha256": "e165718875b5a16c4879d9b0d469ec207edaa4237f7c78a8d388b54782d39a9a",
+    "headings": [
+      "单事件雷达语义适配v2结果\r",
+      "固定开发集对比\r",
+      "训练集与证据交换\r",
+      "逐动作召回与实质错例\r",
+      "预算、冻结与原检索\r",
+      "后续方向\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage4-reader-fusion-2026-10-06.md",
+    "bytes": 2697,
+    "sha256": "3f176b2e0236bacf841c80af6c7b1e7fd69838163565047a175a30fdff597ab0",
+    "headings": [
+      "新文字QA reader与雷达多事件融合：固定预算三组"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-reader-fusion-progress-2026-10-06.md",
+    "bytes": 12010,
+    "sha256": "e21b7d486fef0412f873f45ef422337fc959b588b80aa4937b45be6081c0ed07",
+    "headings": [
+      "新文字QA reader接回雷达融合实验进度"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-reader-fusion-results-2026-10-06.md",
+    "bytes": 9505,
+    "sha256": "608af98624a39f51b82d79152a585a7997f9d224d4917ed85f008c75290c4ac4",
+    "headings": [
+      "新文字QA接回雷达：500步三组结果",
+      "固定条件与执行状态",
+      "开发结果",
+      "错误表现与解释边界",
+      "单事件与检索保留",
+      "两项实际故障及修复",
+      "原始证据与复算",
+      "建议的下一步"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage4-short-context-qa-2026-10-05.md",
+    "bytes": 2851,
+    "sha256": "7cb7bde7d50ab51ccf6ce5388424458d8f1d5fa1e96c665eb73f7bee265e0bf0",
+    "headings": [
+      "短上下文QA固定预算与L1匹配对照"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-short-context-qa-results-2026-10-05.md",
+    "bytes": 9395,
+    "sha256": "122498ec955cf3ea42c5638505bd6bdb03e2562183d330ddc70031877c44bf6e",
+    "headings": [
+      "短上下文QA结果：单事件明显提升，多事件顺序仍未学会",
+      "本轮实际执行",
+      "有限失败分析与单事件结果",
+      "双事件和四事件",
+      "同源L1匹配对照",
+      "保留检索与证据"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage4-single-event-qa-2026-10-05.md",
+    "bytes": 2738,
+    "sha256": "e96e4fefca61a6149634a96606831fd193a31e2b3ebf434842eb9124b0a2776e",
+    "headings": [
+      "单事件QA适配层固定预算实验"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-single-event-qa-results-2026-10-05.md",
+    "bytes": 7974,
+    "sha256": "1ee6793f3acdbd61d6ecd08718e284d56043bfc0f03c59dba2e28b0d35e50730",
+    "headings": [
+      "单事件QA适配层：500步完成，出现证据收益，尚未达到开发目标",
+      "训练实际做了什么",
+      "保存的实际回答独立重算",
+      "逐动作结果与失败",
+      "保留检索与实现范围",
+      "验证与来源"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage4-temporal-qa-2026-10-05.md",
+    "bytes": 5066,
+    "sha256": "4a4837f0c7e42802c1efcb498b7711532da04c985dc317b2450fd819f082797f",
+    "headings": [
+      "Stage4 事件位置与相对时间编码对照",
+      "模型与公平对照",
+      "文本诊断及任务",
+      "数据与预算",
+      "验证和结论范围"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-temporal-qa-progress-2026-10-05.md",
+    "bytes": 4888,
+    "sha256": "9715077c20a625592621e688d4953ffe6323688ac1e4824e8d629923e1ab565d",
+    "headings": [
+      "位置与时间编码执行记录",
+      "用户授权修复后的 v2"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-temporal-qa-results-2026-10-05.md",
+    "bytes": 6227,
+    "sha256": "af6f1b1ed67a28ecfa5b993454504e5adfb8c4487afebb21256f50ecbaa99c2d",
+    "headings": [
+      "位置／时间编码已实现，纯文字门槛未通过，实际训练0步",
+      "实际实现",
+      "纯文字fit诊断",
+      "一个只读引用探针",
+      "测试、归档与真实限制"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/stage4-text-decoder-progress-2026-10-05.md",
+    "bytes": 6594,
+    "sha256": "f6d94baba5c643761e8fa84d742f3d8d284cbc6968138667b960f7001d7a38db",
+    "headings": [
+      "Execution ledger: docs/stage4-decoder-repair-2026-10-05.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/stage4-text-decoder-results-2026-10-05.md",
+    "bytes": 7090,
+    "sha256": "1a7e87ba6a2d4cfcf029332c4e0f8de251abd99fd5e74a201f50f0c729cf41ff",
+    "headings": [
+      "独立文字QA LoRA：规定门槛通过，额外压力检查仍有一例错误",
+      "训练了什么",
+      "实际生成结果",
+      "额外文字压力检查",
+      "实际步数、权重与归档核验",
+      "结论范围与下一阶段"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/superpowers/plans/2026-09-17-parrad-front-end.md",
+    "bytes": 21333,
+    "sha256": "a25b45ea25362c1aa694b27d3dfb0d4f35573903a7afeea2c72d3dec39d5d050",
+    "headings": [
+      "PARrad Front-End Foundation Implementation Plan",
+      "Global Constraints",
+      "File Map",
+      "Task 1: PARrad Configuration and Data Contract",
+      "Task 2: Dataset Audit CLI and Synthetic Fixtures",
+      "Task 3: MD-Guided PARrad Streaming Encoder",
+      "Task 4: PARrad Stage P1 Closed-Set Pretraining",
+      "Task 5: PARrad Stage P2 Event Token Alignment Adapter",
+      "Task 6: Documentation and Full Foundation Verification"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-09-17-remote-training-bootstrap.md",
+    "bytes": 6452,
+    "sha256": "bb8a7afc26a8ff34173aa7c3c4b4981f4e176d409ed9830608aedac77b727b17",
+    "headings": [
+      "Remote Training Bootstrap Implementation Plan",
+      "Global Constraints",
+      "Task 1: Deployment Configuration and Ignore Rules",
+      "Task 2: Isolated Python/CUDA Environment",
+      "Task 3: Repository Initialization",
+      "Task 4: Runnable Validation Without Fabricated Production Data",
+      "Self-Review"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-09-20-parrad-label-run-streaming-progress.md",
+    "bytes": 4680,
+    "sha256": "3b3ef7d7c8bac5e75e371d814beb292c6ec9dbce967172cd5dce037cf20be3f9",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-09-20-parrad-label-run-streaming.md"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/superpowers/plans/2026-09-20-parrad-label-run-streaming.md",
+    "bytes": 7646,
+    "sha256": "23d5e35de038c9f87ea1a5c2c9f71fc154b876a0a0f54d8757c8c7178172c923",
+    "headings": [
+      "PARrad Label-Run and Streaming Training Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Task 1: Label-run windows",
+      "Task 2: Stateful chunk continuation",
+      "Task 3: TBPTT training and continuous evaluation",
+      "Task 4: Two-phase entry and production configuration",
+      "Task 5: Verification and deployment preparation",
+      "Task 6: Minimum label-run duration",
+      "Task 7: Recording-continuous streaming training",
+      "Task 8: Phase schedules, early stopping, and metrics"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-09-23-stage2-event-former-bootstrap.md",
+    "bytes": 15692,
+    "sha256": "fe631bea346890bff9b8ee14e99e0ad45b11abdb49ec3d6012c45b7d353b8760",
+    "headings": [
+      "Stage 2 Event Former Bootstrap Repair Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Task 1: Stable radar injection and bounded event-state updates",
+      "Task 2: Truthful AMP step accounting and a safe initial scale",
+      "Task 3: Action-supervised Event Token warmup and false-negative-safe alignment",
+      "Task 4: Phase runner, diagnostics, and stop gates"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-09-24-parrad-stage3-transition.md",
+    "bytes": 41002,
+    "sha256": "2d17a3ed2d1f11a9b3fcf35a49ffe95c1ef5c2ef5d0aed576428012991298cf5",
+    "headings": [
+      "PARrad Stage P3 Continuous Transition Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Task 1: Continuous transition targets and audit",
+      "Task 2: Physical and semantic transition primitives",
+      "Task 3: Fingerprinted frozen feature cache",
+      "Task 4: Stage P3 supervised datasets and losses",
+      "Task 5: Stage P3 runner, checkpoints, and configuration",
+      "Task 6: Fork-and-Shadow controller",
+      "Task 7: Continuous evaluation and validation-only calibration",
+      "Task 8: Integration regression and remote staged rollout",
+      "Plan Self-Review"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-09-27-stage3-training-corrections.md",
+    "bytes": 2141,
+    "sha256": "f89f24554e79cba21da5e5314c6af09c0a5c27b1c68bce5612905afa49b802b1",
+    "headings": [
+      "Stage P3 Training Corrections Plan",
+      "Constraints",
+      "Task 1: Semantic pair coverage",
+      "Task 2: Chronological physical supervision",
+      "Task 3: Verify train/inference consistency",
+      "Task 4: Integration and remote smoke"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-09-29-stage3-proposal-component-ablation.md",
+    "bytes": 4492,
+    "sha256": "852d62526427024c08a84d099594a578733992891f185446499d95898a5d7723",
+    "headings": [
+      "Stage 3 Proposal Component Ablation Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Task 1: Diagnostic component suppression",
+      "Task 2: Matched validation-only closed-loop replay",
+      "Task 3: Verification and handoff"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-09-29-stage3-semantic-hard-pair-pilot.md",
+    "bytes": 5444,
+    "sha256": "5fbee055d77f3ed922691cca0c63837aaba8e9237d415e50833167d4d58a37bc",
+    "headings": [
+      "Stage 3 Semantic Hard-Pair Pilot Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Task 1: Deterministic same-session hard pairs",
+      "Task 2: Semantic-only short pilot and frozen validation gate",
+      "Task 3: Verification and handoff"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-09-29-stage3-verify-candidate-audit.md",
+    "bytes": 6771,
+    "sha256": "d654112cd19eac5ea60979523d8578cd529ec6fbd970be15d56a8b75c72e86fc",
+    "headings": [
+      "Stage 3 Verify Candidate-Level Diagnostic Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Task 1: Close the existing post-training calibration",
+      "Task 2: Audit one independent Candidate per proposal",
+      "Task 3: Measure decision-time information, then decide"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-09-30-parrad-frozen-layer-decodability-progress.md",
+    "bytes": 6520,
+    "sha256": "48c80941064b27094bdfc5083ae8d4fee2617655bc6fbb601bbbb01315e7b5e4",
+    "headings": [
+      "Execution ledger — 2026-09-30-parrad-frozen-layer-decodability.md",
+      "Review fixes and remote verification — 2026-10-01",
+      "Full audit and interpretation completed — 2026-10-01"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-09-30-parrad-frozen-layer-decodability.md",
+    "bytes": 6649,
+    "sha256": "f151dede9d93970b2c6f50f52e11d9910a040dcff8b393e3ee44eab6fe014a9c",
+    "headings": [
+      "PARrad Frozen Layer Decodability Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Task 1: Diagnostic Event Former trace",
+      "Task 2: Strict reference and label contract",
+      "Task 3: Train-only natural and forced extraction",
+      "Task 4: Capacity-matched linear probe",
+      "Task 5: Full frozen audit and interpretation"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-02-parrad-frozen-short-horizon-sequential-progress.md",
+    "bytes": 5311,
+    "sha256": "53457ee888f715707deb82dd80cc788e02ea7848f5a049b604d9c3fa99584c4d",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-02-parrad-frozen-short-horizon-sequential.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-02-parrad-frozen-short-horizon-sequential.md",
+    "bytes": 19715,
+    "sha256": "246fc6c2ef012a7afb68cedc765346715d4dc1f54659c2d3c0e32dce26c49ec6",
+    "headings": [
+      "Frozen Short-Horizon Sequential Decodability Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "File map",
+      "Task 1: Continuous frozen trace profile",
+      "Task 2: Checked endpoint and contiguous-history indexing",
+      "Task 3: Streaming capacity-matched relational history features",
+      "Task 4: Fixed experiment matrix, predictions and paired reporting",
+      "Task 5: Remote verification, smoke and formal diagnostic chain",
+      "Plan review and execution gate"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-03-transition-aware-projection-progress.md",
+    "bytes": 39479,
+    "sha256": "7c852f1c0f8f66860ead51fea354b817bceebeeef4ed693df52be8db7c82e339",
+    "headings": [
+      "Execution ledger: Transition-aware Semantic Projection Pilot",
+      "Fixed scope",
+      "Rulings",
+      "Tasks",
+      "Implementation and independent review",
+      "Validation and connectivity evidence",
+      "Connectivity restored and server deployment (2026-10-03)",
+      "Live smoke acceptance and formal launch evidence",
+      "Progress inspection at 2026-10-03 11:11 +0800",
+      "Authorized bounded recovery implementation",
+      "Recovery deployment and launch",
+      "Recovery completed",
+      "Authorized rehearsal fidelity/objective audit",
+      "Rehearsal audit initial results and paired follow-up",
+      "Rehearsal investigation completed",
+      "Authorized teacher-relation small experiment",
+      "Authorized transition objective audit",
+      "Authorized primary-age objective correction",
+      "Authorized primary recipe replication"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-04-stage4-chat-qa-pilot.md",
+    "bytes": 3997,
+    "sha256": "0f394dd57d5956a3b9cf260ece13f9cc2aa09fb815dac25418b84300d83de42a",
+    "headings": [
+      "Stage4 chat and evidence QA pilot",
+      "Locked experiment choices",
+      "Tasks",
+      "Review focus"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-04-stage4-memory-pilot.md",
+    "bytes": 3728,
+    "sha256": "c575e166686c904ebe3b4f6cf07bdd0aaebbf7cc59c43f195bb487dbab374f01",
+    "headings": [
+      "Stage4 memory training and end-to-end pilot",
+      "Explicit pilot choices",
+      "Tasks",
+      "Review focus"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-04-transition-aware-budget-progress.md",
+    "bytes": 12094,
+    "sha256": "72b95b2eb5a305d6201f9a0431e176ab392a659b18cc21c8ba0e8c99fe210731",
+    "headings": [
+      "执行记录：固定训练预算诊断",
+      "当前验证",
+      "中断恢复与审查修复",
+      "最新停点（10月4日09:38）",
+      "用户恢复连接并要求上传（10月4日18:15起）",
+      "用户授权定时检查（10月4日）",
+      "定时检查结果：实验完成并报告"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-04-transition-aware-subject-balance-progress.md",
+    "bytes": 7622,
+    "sha256": "7cc91d355fe5fe2143b3a34262782c05e9c59c1579cade85c6a42bd34783877a",
+    "headings": [
+      "执行记录：受试者均衡50步",
+      "已启动（10月4日19:38）",
+      "20:00定时检查：训练完成，正在下载原始证据",
+      "完成核验与报告"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-05-stage4-event-boundary-qa.md",
+    "bytes": 2032,
+    "sha256": "725c830492ad0959f1afb1f4019d58c5df46ac39a077489526b591ded299b2fc",
+    "headings": [
+      "Event Boundary QA Implementation Plan",
+      "Global Constraints",
+      "Review Focus"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-05-stage4-short-context-qa.md",
+    "bytes": 1749,
+    "sha256": "adf7c64235f700222ba4b9f241e605b2e15cb9cf0e0a3b63c2316658e6b78f13",
+    "headings": [
+      "Stage4 Short Context QA Implementation Plan",
+      "Global Constraints",
+      "Tasks"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-05-stage4-single-event-qa.md",
+    "bytes": 2313,
+    "sha256": "592a60f1b3c05bcfb5f8249ac4e3d2898abb3dba49e6da5926c3e0aa197e7746",
+    "headings": [
+      "Stage4 Single Event QA Implementation Plan",
+      "Global Constraints",
+      "Tasks",
+      "Review Focus"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-06-v25-online-modules-progress.md",
+    "bytes": 3936,
+    "sha256": "0a96a4186dc2c2d57a98ac3aa1853ce3e1b5b8a3f4ec9c84f64ff437d4d784ac",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-06-v25-online-modules.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-06-v25-online-modules.md",
+    "bytes": 2902,
+    "sha256": "b5b816461366134fef891cfdcd2cb2898d5d7f0844620f537cbb1ad469964610",
+    "headings": [
+      "v2.5 在线模块补全",
+      "Task 1: 可学习模块与顺序证据",
+      "Task 2: 在线分支、边界与异步重建",
+      "Task 3: Commit/Memory/QA及显式checkpoint集成"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-06-v25-review-package.md",
+    "bytes": 1071,
+    "sha256": "2dd245f889e44512bfc13781fbd5c59735255019cc8d8ab389faab4ec5588405",
+    "headings": [
+      "v2.5 最终只读审查包"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-06-v25-training-dataset-v2-progress.md",
+    "bytes": 11156,
+    "sha256": "63445a4a9cb5ef8d13b4eda5cde3a53955645d531da49522eddfaf5e88615f0d",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-06-v25-training-plan-dataset-v2.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-06-v25-training-plan-dataset-v2.md",
+    "bytes": 34201,
+    "sha256": "96c9d7efabf995515b11304d590132588d7570c06afa643cda111fcb37d34fa5",
+    "headings": [
+      "v2.5 第一轮真实雷达训练与整链验证计划（数据修订v2）",
+      "Global Constraints",
+      "Review Focus",
+      "1. 本轮回答的问题与范围",
+      "2. 数据、标签与对照（修订内容）",
+      "固定分区：新增数据既用于训练，也保留整人评估",
+      "来源准备、转换与严格隔离",
+      "数据采样与对照集合",
+      "其他已下载数据的用途",
+      "Evidence标签的数据依据",
+      "两类基线与统一评分",
+      "解封顺序与结果称谓",
+      "3. 固定预算与训练顺序",
+      "A 的损失及检索保护",
+      "D 的样本构造，避免循环依赖",
+      "4. 校准不是新网络训练",
+      "5. 预注册门槛：建议值，批准后锁定",
+      "6. 批准后必须补的训练入口与可测试任务",
+      "Task 1：固定分区与Evidence监督",
+      "Task 2：Stage2固定预算迁移",
+      "Task 3：Evidence/物理头与真实Candidate数据",
+      "Task 4：当前head probe与有限校准",
+      "Task 5：整链回放、留出、重复和交付",
+      "7. 输出、安全恢复与时间预估",
+      "8. 审阅结论与批准范围"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-06-v25-training-plan.md",
+    "bytes": 26090,
+    "sha256": "cee634f5a7d828b9077917062854e8b07b26cee149e3422c67670b9e89ac90b1",
+    "headings": [
+      "v2.5 第一轮真实雷达训练与整链验证计划",
+      "Global Constraints",
+      "Review Focus",
+      "1. 本轮回答的问题与范围",
+      "2. 数据、标签与对照",
+      "固定分区",
+      "Evidence 标签的两条明确路径",
+      "两类基线",
+      "3. 固定预算与训练顺序",
+      "A 的损失及检索保护",
+      "D 的样本构造，避免循环依赖",
+      "4. 校准不是新网络训练",
+      "5. 预注册门槛：建议值，批准后锁定",
+      "6. 批准后必须补的训练入口与可测试任务",
+      "Task 1：固定分区与Evidence监督",
+      "Task 2：Stage2固定预算迁移",
+      "Task 3：Evidence/物理头与真实Candidate数据",
+      "Task 4：当前head probe与有限校准",
+      "Task 5：整链回放、留出、重复和交付",
+      "7. 输出、安全恢复与时间预估",
+      "8. 审阅结论与批准范围"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-07-v25-compatible-evidence-implementation.md",
+    "bytes": 4311,
+    "sha256": "a8760ef4b804b225fad0921679fe02e7a013258c342827d73b4daca3ff4a5714",
+    "headings": [
+      "Compatible gate Evidence500 implementation plan",
+      "锁定设计与训练",
+      "Task1：正式架构和bundle身份",
+      "Task2：独立Evidence入口与监督/读回",
+      "Task3：服务器训练与证据"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-07-v25-compatible-evidence-progress.md",
+    "bytes": 9068,
+    "sha256": "2273efe84b5ce317d4ea2de8196a557de419c0c80b2934733bb3ab16278e9e51",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-07-v25-compatible-evidence-implementation.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-07-v25-gate-migration-implementation.md",
+    "bytes": 4372,
+    "sha256": "87c48af9eda7f3f7b05c94a257d2b5be09708b6b18f1296e8a05192c38125547",
+    "headings": [
+      "v2.5 gate迁移实施计划",
+      "固定准备与停止规则",
+      "Task 1：零步诊断及权重变换",
+      "Task 2：指标与覆盖契约",
+      "Task 3：服务器零步实验",
+      "Task 4：有条件的迁移训练"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-07-v25-gate-migration-progress.md",
+    "bytes": 6226,
+    "sha256": "865bc169217517625d3a17621f8797f5fd5b0b251c11618a15f57e1a79d1f0c6",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-07-v25-gate-migration-implementation.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-07-v25-physical-proposal-implementation.md",
+    "bytes": 4774,
+    "sha256": "5e8767a691323ebb6f1bab4065378f5c54a49213704b315d4d0ef3e1735a3861",
+    "headings": [
+      "Stage 3A: Physical Proposal Learning",
+      "Locked data and supervision",
+      "Locked evaluation",
+      "Tasks"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-07-v25-physical-proposal-progress.md",
+    "bytes": 4185,
+    "sha256": "1be368031532b2b7d32d5d152e067d9f55fdd823607fd50e46ffba963fa72f6e",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-07-v25-physical-proposal-implementation.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-08-v25-proposal-causal-trigger-progress.md",
+    "bytes": 4303,
+    "sha256": "21172cdb521f57b189893a6ea1695934e1ecf1fa0741eaf60d32ea646c3e287f",
+    "headings": [
+      "Frozen causal-trigger experiment progress"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-08-v25-proposal-causal-trigger.md",
+    "bytes": 4734,
+    "sha256": "fe0715e90a477e03784c3517a9eeada1f80b3d56584c14408270bdcd22672ca5",
+    "headings": [
+      "Stage3A frozen causal-trigger experiment",
+      "Locked before fit-score inspection",
+      "Execution and evidence"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-08-v25-proposal-loss-ablation-progress.md",
+    "bytes": 5778,
+    "sha256": "a92459142e0f84d879fcbde5d43f9f9d8b9043f451fd6b6edeedcdead8e352e9",
+    "headings": [
+      "Progress — plan: 2026-10-08-v25-proposal-loss-ablation.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-08-v25-proposal-loss-ablation.md",
+    "bytes": 5757,
+    "sha256": "5d499c9d06d13e61fe97b9ff7207684ea76848d62d97b7ad2cecd60cec5576a2",
+    "headings": [
+      "Stage3A loss-only500-step A/B experiment",
+      "Frozen design",
+      "Locked analyses (no Trigger development)",
+      "Tasks"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-08-v25-proposal-supervision-diagnostic-progress.md",
+    "bytes": 4063,
+    "sha256": "204edec6c58a2ca279ebe88b5498736835c62219d31e0afe962ccdfbccf4858b",
+    "headings": [
+      "Progress — plan: 2026-10-08-v25-proposal-supervision-diagnostic.md",
+      "Completion evidence"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-08-v25-proposal-supervision-diagnostic.md",
+    "bytes": 5991,
+    "sha256": "a788f25bb41f1b28c44fe0a592b3866910de3a7fef2b3b0d04ca6934d88eaeae",
+    "headings": [
+      "Stage3A zero-update supervision diagnostic Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Task1: causal failure trace and exposure",
+      "Task2: verified CPU feature export",
+      "Task3: fit-lock, complete analysis and recommendation"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-08-v25-proposal-window-peak-ablation-progress.md",
+    "bytes": 7602,
+    "sha256": "491aa8bb4114ce7dddd9d1e351cc3f488d0e51b44142c0cb0b189eefc955e059",
+    "headings": [
+      "Progress — plan: 2026-10-08-v25-proposal-window-peak-ablation.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-08-v25-proposal-window-peak-ablation.md",
+    "bytes": 6135,
+    "sha256": "8b43191f926fe75ea8d3868ab30a4f61ac7b66df174e882eb490926b11112d0a",
+    "headings": [
+      "Stage3A window-peak supervision paired500 implementation plan",
+      "Locked design",
+      "Tasks and completion contracts"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-08-v25-proposal-zero-diagnostic-progress.md",
+    "bytes": 6508,
+    "sha256": "52fc7d1a5751c5c2bab93155ddadee3cd8980aa808dd87a5f010397521cc8a1c",
+    "headings": [
+      "Ledger:2026-10-08-v25-proposal-zero-diagnostic.md",
+      "Resolved after user restored connectivity, 2026-10-08"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-08-v25-proposal-zero-diagnostic.md",
+    "bytes": 3992,
+    "sha256": "0c3f1814e32b7de1dff53eb3bac723d0819d1fe7f0dc7939276ebc3eb0bfc0a1",
+    "headings": [
+      "Stage3A:500/1000-step zero-update diagnosis",
+      "Definitions locked before reading score arrays",
+      "Work"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-09-candidate-filterability-progress.md",
+    "bytes": 5353,
+    "sha256": "a6c8b20cdfb7e7090d75cc749739b89a5688b67c7d0a69431903281b77e4034e",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-09-candidate-filterability.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-09-candidate-filterability.md",
+    "bytes": 5651,
+    "sha256": "1f6b95c39b7f5ba5e861139a4f1f182347d63edf91721a5c5fd28e644f50545d",
+    "headings": [
+      "Candidate Filterability Diagnostic Implementation Plan",
+      "Locked design",
+      "Tasks",
+      "Review focus"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-09-md-gru-transition-signal-diagnostic.md",
+    "bytes": 5759,
+    "sha256": "06a4d334ed18dd98502300b4f45aaa901c21b35ba2c0a009187b63a0aca19651",
+    "headings": [
+      "MD-GRU transition signal diagnostic implementation plan",
+      "Global constraints",
+      "Review focus",
+      "Task1: Causal capture and feature tests",
+      "Task2: Extraction, probes and analysis",
+      "Task3: Readback and recommendation"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-09-md-gru-transition-signal-progress.md",
+    "bytes": 5994,
+    "sha256": "24de962f45bab1391d3ec3ce89ed076384fae5020017eeaa715f29efd385df4f",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-09-md-gru-transition-signal-diagnostic.md",
+      "Completed readback and recommendation"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-09-proposal-readout-matched-ablation-progress.md",
+    "bytes": 7568,
+    "sha256": "c07e3de84acae566edbe13b3b9ac9be4118d8215df6bc1e50b6292f036f165a9",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-09-proposal-readout-matched-ablation.md",
+      "Completed experiment and delivery"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-09-proposal-readout-matched-ablation.md",
+    "bytes": 6789,
+    "sha256": "aa1f33e424aabd2a3026998928f787b27f331654dec6164326a45aae8dbb8025",
+    "headings": [
+      "Frozen Proposal readout matched A/B and dynamics ablation",
+      "Locked design",
+      "Task1 — matched core",
+      "Task2 — capsule and execution",
+      "Task3 — independent readback and report"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-09-radar-gru-two-diagnostics-progress.md",
+    "bytes": 4234,
+    "sha256": "744003f20ba7785ae39762d136458a7a347b419b8dc61b2868e205187d0c40c3",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-09-radar-gru-two-diagnostics.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-09-radar-gru-two-diagnostics.md",
+    "bytes": 3903,
+    "sha256": "2aedf2b5127323b7c18dd4a45292b262fc7200850f563716b49656685560594d",
+    "headings": [
+      "Radar + GRU two zero-update diagnostics",
+      "Rulings and interfaces",
+      "Tasks"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-09-stage3ag-residual-fusion-progress.md",
+    "bytes": 4219,
+    "sha256": "c47d305dee474848ab8ccbb609f0c9baba1cb4df2fd7acb4b3a88244f3cebd8b",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-09-stage3ag-residual-fusion.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-09-stage3ag-residual-fusion.md",
+    "bytes": 7331,
+    "sha256": "fe2ab5e40bfff9162c475ab87ff8686f29b6d55508fc07ac509790f7a221dafa",
+    "headings": [
+      "Stage3A-G frozen GRU × weighted500 Radar residual fusion",
+      "Locked constraints and provenance",
+      "Task1 — pure analysis and residual core",
+      "Task2 — frozen interfaces and two arms",
+      "Task3 — delivery"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-09-stage3b-semantic-pilot-progress.md",
+    "bytes": 6108,
+    "sha256": "9f35f023a520a09b4d04646407231ed5a8f6f55152c9c6409bf8d99b7c7e4d64",
+    "headings": [
+      "Ledger — plan: docs/superpowers/plans/2026-10-09-stage3b-semantic-pilot.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-09-stage3b-semantic-pilot.md",
+    "bytes": 6682,
+    "sha256": "6effbba1367e2916c7f384a26eddc3809a24d427ba60a4e6d6a3430df8346a62",
+    "headings": [
+      "Stage3B Semantic Difference Pilot Implementation Plan",
+      "Global constraints",
+      "Review focus",
+      "Task 1: Core labels/pairing/gates and plan",
+      "Task 2: Frozen extraction and training runner",
+      "Task 3: Execution, independent verification and report"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-10-offline-radar-text.md",
+    "bytes": 3079,
+    "sha256": "173eeb7b1f3bf34f36ea51a19a1e952578d59edaa436380bae271754f218247e",
+    "headings": [
+      "Offline Radar-to-Text implementation plan",
+      "完成记录（2026-10-10）"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-10-oracle-proposal-domain-gap-progress.md",
+    "bytes": 4511,
+    "sha256": "6e7e7683ef93713a83e1deb53fcf1787f33eeaa6d9c5fd9283bb98575587f827",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-10-oracle-proposal-domain-gap.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-10-oracle-proposal-domain-gap.md",
+    "bytes": 4053,
+    "sha256": "12cf4877bf20cb4809f1f4945f7db8a875b5ca7fbb0dd0e5fea82eb7dae72410",
+    "headings": [
+      "Oracle → Proposal domain-gap diagnostic (approved 0-update execution)",
+      "Locked methods",
+      "Tasks / completion contracts"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-10-radar-text-error-attribution.md",
+    "bytes": 7400,
+    "sha256": "73cfdb043f69b82745b1be1d27374f3a3ff2d610ad5dc50df1e580ee65911074",
+    "headings": [
+      "Radar-to-Text Error Attribution Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Tasks",
+      "Ledger"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-10-radar-text-server-pilot.md",
+    "bytes": 4758,
+    "sha256": "82c07a833c43f485bbe52888ca9590603dee4918c8df8bd9a67f39c19f2dcd68",
+    "headings": [
+      "Radar-to-Text first real-data server pilot",
+      "预检记录",
+      "完成核验"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-11-radar-text-align-readout-p0.md",
+    "bytes": 6746,
+    "sha256": "ed6f4131208bb27142a353afd2dae6af1ec9832a030a8307c7be35a157ba55df",
+    "headings": [
+      "P0 frozen Align encoder readout comparison"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-11-radar-text-head-ablation.md",
+    "bytes": 6040,
+    "sha256": "e0bc22c30571aa49a6c72a1125e55af24f3428e4af5af06840370e4ac2fbaf8e",
+    "headings": [
+      "Frozen Stage1 Readout Ablation Implementation Plan",
+      "Definitions and rulings",
+      "Tasks",
+      "Ledger"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-11-radar-text-p1-evidence-count.md",
+    "bytes": 5867,
+    "sha256": "42adf5fd8501de62f25c1c6539aaf9a714fcd5696a271f9855cd673e30ac6da9",
+    "headings": [
+      "P1 Action Evidence Retention & Count Calibration"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-11-radar-text-strong-baselines.md",
+    "bytes": 6195,
+    "sha256": "6f7ca14a1e600a7acbbe1a2fc9c2206b7e97ee4d70e848ff1ca1ee69c4764d98",
+    "headings": [
+      "Matched Sliding-Window Classification-to-Text Baselines",
+      "Fixed decisions",
+      "Tasks",
+      "Ledger"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-11-rd-only-xfi-transfer.md",
+    "bytes": 9260,
+    "sha256": "e04a38073d5cfcabfff75d2d39cb5c3dd76a9e1d34a0a391083604d8b1e940e3",
+    "headings": [
+      "RD-only X-Fi Transfer Implementation Plan",
+      "Global Constraints",
+      "Tasks / completion contract",
+      "Review Focus",
+      "Ledger"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-14-split-birnn-controlled-training-progress.md",
+    "bytes": 7791,
+    "sha256": "564dc8314d02b76d2249bf83483125317d05f2dbae1a70f5016e39923f8c7f99",
+    "headings": [
+      "Ledger: 2026-10-14-split-birnn-controlled-training.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-14-split-birnn-controlled-training.md",
+    "bytes": 4093,
+    "sha256": "72aa0072195e7a69667293db7d1705790a0462824a8c4c2cb03b64e046d1cc2d",
+    "headings": [
+      "Split BiRNN Controlled Training Plan",
+      "Frozen method decisions",
+      "Tasks"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-14-split-birnn-preparation-progress.md",
+    "bytes": 6963,
+    "sha256": "dca3ca156d1bb7137bac5c5e99f26d352ffd4a98f9861eedfca4f4a4ceab6434",
+    "headings": [
+      "Ledger: 2026-10-14-split-birnn-preparation.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-14-split-birnn-preparation.md",
+    "bytes": 6539,
+    "sha256": "3ba9cb767dbccbae1fa9968fe7449b0686bc1f01a601788ab1e9b55ff580f6d0",
+    "headings": [
+      "Split BiRNN Implementation Preparation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Tasks",
+      "Task 1: Source and temporal audit",
+      "Task 2: Structural and loss correctness",
+      "Task 3: Streaming correction semantics",
+      "Task 4: Native verification and throughput"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-14-v26-p0-p1-prediction.md",
+    "bytes": 13818,
+    "sha256": "f32d4a3e3b7d97437441c23b0bb5eeeddc4db5e89c4647c966f1722a97993c0c",
+    "headings": [
+      "PSEM v2.6 P0/P1 Prediction Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "冻结的预实验提案",
+      "Task 1: 来源、划分与冻结前端加载",
+      "Task 2: 连续缓存、命令代理与未来目标",
+      "Task 3: 预测对照与损失",
+      "Task 4: 固定预算pilot与独立读回",
+      "当前执行状态与交接"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-15-v261-joint-pretraining.md",
+    "bytes": 12131,
+    "sha256": "4011956b318e5bcf5eb14f40e87aad46ac86f4446be836ee42c438103db851f0",
+    "headings": [
+      "v2.6.1 Joint Pretraining Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "File structure",
+      "Task 1：训练数据契约与不可变目标",
+      "Task 2：共享 Adapter 与双状态因果前向",
+      "Task 3：损失、固定样本表与训练核验",
+      "Task 4：公平评价、共享探针与独立复算",
+      "Task 5：一次性准备入口、原生资源检查与交付",
+      "Verification commands",
+      "Self-review and current state"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-16-harrad-semantic-baseline.md",
+    "bytes": 5874,
+    "sha256": "10bb126f1bbecc4796515955b076b9c0af0e09171f380cbedf976c6df5ecafa3",
+    "headings": [
+      "HARrad 片段语义基线实施计划\r",
+      "固定协议\r",
+      "Review focus\r",
+      "Tasks\r"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-17-harrad-boundary-baseline.md",
+    "bytes": 5990,
+    "sha256": "30ac0a9ceb4178e67b155d6cbd95ba330f14ca22a101df2ef51ea4cf4abed36b",
+    "headings": [
+      "HARrad连续监督边界基线 Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Tasks",
+      "Execution ledger"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-17-harrad-joint-prediction.md",
+    "bytes": 3188,
+    "sha256": "97d9ab0caa56cfc17ead214eb85dc480751ba3b99bb8b3245f03947635d2921c",
+    "headings": [
+      "HARrad Joint Prediction Implementation Plan",
+      "Constraints / review focus",
+      "Tasks",
+      "Verification ledger"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-17-harrad-streaming-event-warmup.md",
+    "bytes": 5424,
+    "sha256": "9f6d3734eb914878440c3007485461f9d1c1cce2088d833191efcc9a51197ec8",
+    "headings": [
+      "HARrad流式接口与EventFormer语义预热",
+      "固定设计",
+      "文件与实施检查"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-21-harrad-alignment-modulation.md",
+    "bytes": 6262,
+    "sha256": "1301519de841e216bd13b3e4517de5b77cac8667dbec66baa5a214fbfd72080b",
+    "headings": [
+      "HARrad Alignment / Modulation Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Task 1: Modules and causal semantic model",
+      "Task 2: Data, training and independent evaluation",
+      "Task 3: Production capsule, real preflight and launch",
+      "Ledger"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-22-harrad-reset-closed-loop.md",
+    "bytes": 5380,
+    "sha256": "4c5c05593e96f07035fef81e5f55dd191acccff0575806fba087e1b984d011f1",
+    "headings": [
+      "HARrad Reset Closed-loop Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Task 1: Partial-label data and evaluation",
+      "Task 2: Actual resettable dual-state model",
+      "Task 3: Training and persistent runner",
+      "Task 4: Native verification and execution",
+      "Ledger"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-27-harrad-cif-lif-progress.md",
+    "bytes": 2394,
+    "sha256": "461972ba64142d6a12b93a44daf272bc7ad1473e4119853beb566ef2378f3793",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-27-harrad-cif-lif.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-27-harrad-cif-lif.md",
+    "bytes": 4613,
+    "sha256": "1568d9e24bf005fc080cef3a6ae2abd43fa795ddb387362caf59189c9f9037a5",
+    "headings": [
+      "HARrad CIF/LIF Implementation Plan",
+      "Global Constraints",
+      "Review Focus",
+      "Task 1: Integration-independent gate mechanics",
+      "Task 2: Model and bounded stream",
+      "Task 3: HARrad adapter and partial-label evaluation",
+      "Task 4: Train, checkpoints, CLI and documentation"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-28-saef-mvp.md",
+    "bytes": 3301,
+    "sha256": "48f47beb1f5795b86582559a286138cda69418fedacc2c6d6b1a9c01265ac4dc",
+    "headings": [
+      "SAEF-MVP implementation plan"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-29-saef-mvp-completion.md",
+    "bytes": 2828,
+    "sha256": "5c91505ab9e07770806463686162a11ada5f709432f15da018a321de3a41f4ee",
+    "headings": [
+      "SAEF-MVP completion implementation plan"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-11-04-idea3-harrad-reproduction.md",
+    "bytes": 1873,
+    "sha256": "c7cdc8f979760341348547d9d00bcf42a69a2cd8b7bf0fb9863ce6bf3001cfbe",
+    "headings": [
+      "想法三 HARrad 重跑执行计划"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-11-05-harrad-stage1-diagnostic.md",
+    "bytes": 3790,
+    "sha256": "4d8d603b568e93a1a29208f5cd3f8f7bb55562907200777e4cae98dece18fe76",
+    "headings": [
+      "HARrad Stage 1 Diagnostic 执行约定",
+      "A 场景定义",
+      "B 配对统计",
+      "C 随机重置"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-11-05-harrad-stage1-event-prediction.md",
+    "bytes": 3286,
+    "sha256": "08e6b4012ae6557805a06c53068586f4626b85a75afb1a35cf4a320a34e81169",
+    "headings": [
+      "HARrad Stage 1 Event State 未来运动预测实验"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/plans/2026-11-06-experiment2-resets.md",
+    "bytes": 1955,
+    "sha256": "2994970d66c096344971762015005a393204a975864eb07af210607b38ef51b0",
+    "headings": [
+      "实验二：GT / 十份约束随机排列 / No Reset"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-09-17-parrad-adaptation-design.md",
+    "bytes": 22465,
+    "sha256": "9853763f7fee9a0d502d3d36b8016164c9c330458057952682415f67f53f2b48",
+    "headings": [
+      "PARrad 连续语义事件形成验证版设计",
+      "1. 背景",
+      "2. 目标与非目标",
+      "2.1 目标",
+      "2.2 非目标",
+      "3. 已冻结的设计决策",
+      "3.1 输入与时间尺度",
+      "3.2 输出契约",
+      "3.3 双 Encoder 并存",
+      "4. 总体架构",
+      "5. 组件设计",
+      "5.1 PARrad 数据适配器",
+      "5.2 RD Spatial Encoder",
+      "5.3 MD Motion Encoder",
+      "5.4 MD-Guided FiLM",
+      "5.5 Doppler-Aware Pooling",
+      "5.6 RD Stateful Causal TCN",
+      "5.7 4-Query Token Resampler",
+      "6. 下游接口",
+      "6.1 Event Former",
+      "6.2 Physical Proposal",
+      "6.3 Semantic Verify",
+      "6.4 Fork-and-Shadow",
+      "7. 训练设计",
+      "7.1 Stage P0：数据审计",
+      "7.2 Stage P1：PARrad Encoder 预训练",
+      "7.3 Stage P2：Event Token 闭集语义对齐",
+      "7.4 Stage P3：Continuous Transition Learning",
+      "8. 数据划分与泄漏防护",
+      "8.1 划分单位",
+      "8.2 两台雷达的使用方式",
+      "8.3 连续序列优先",
+      "9. 评估设计",
+      "9.1 对照组",
+      "9.2 核心指标",
+      "9.3 Go/No-Go 条件",
+      "10. 配置设计",
+      "11. 错误处理",
+      "12. 测试设计",
+      "12.1 数据测试",
+      "12.2 模型单元测试",
+      "12.3 集成测试",
+      "12.4 真实性检查",
+      "13. 预计代码边界",
+      "14. 实施顺序",
+      "15. 风险与缓解措施",
+      "15.1 RD 与 MD 信息冗余",
+      "15.2 类标签模板造成语义捷径",
+      "15.3 类别不平衡与长 Idle 段",
+      "15.4 传感器视角泄漏",
+      "15.5 低帧率限制短事件边界",
+      "16. 结论",
+      "17. 参考资料"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-09-20-parrad-label-run-streaming.md",
+    "bytes": 2452,
+    "sha256": "05a52acef1916a38229e4aa6ae0417c8a97b0aa21929d537909a4c6029539676",
+    "headings": [
+      "PARrad Label-Run and Streaming Training Specification",
+      "Objective",
+      "Required behavior",
+      "Non-goals"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-09-24-parrad-stage3-transition-design.md",
+    "bytes": 18524,
+    "sha256": "cffd67cda31b4dee5bde0ed0d977ed1a2bcd8f09eee5be616d81f4a16a1f2e8f",
+    "headings": [
+      "PARrad Stage P3 Continuous Transition Design",
+      "1. Purpose",
+      "2. Accepted Inputs and Frozen Contract",
+      "3. Scope and Non-Goals",
+      "4. Architecture",
+      "5. Physical Proposal",
+      "5.1 Local Change Head",
+      "5.2 Radar Transition Head",
+      "5.3 Proposal Rule",
+      "6. Semantic Verify",
+      "6.1 Semantic Difference Head",
+      "6.2 Candidate Stability",
+      "6.3 Monotonic Verify Head",
+      "7. Continuous Data and Feature Cache",
+      "8. Training Schedule",
+      "8.1 P3-A Physical Proposal",
+      "8.2 P3-B Semantic Difference",
+      "8.3 P3-C Verify Calibration",
+      "8.4 Threshold Selection",
+      "9. Fork-and-Shadow Controller",
+      "10. Evaluation",
+      "10.1 Baselines",
+      "10.2 Metrics",
+      "10.3 Go/No-Go",
+      "11. Error Handling and Invariants",
+      "12. Code Boundaries",
+      "13. Verification Strategy",
+      "14. Implementation Order"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-09-30-parrad-frozen-layer-decodability-design.md",
+    "bytes": 11789,
+    "sha256": "717d3f0252679e54ad0295c42cf777d41be87b1826a7e4d2c0557195590452de",
+    "headings": [
+      "PARrad Frozen Layer Decodability Audit — Design",
+      "1. Scope and interpretation",
+      "2. Exact computational boundaries",
+      "3. Two non-interchangeable labels",
+      "4. Comparable geometry and linear probes",
+      "5. Decision rules and deferred sequence check",
+      "6. Implementation and safety contract",
+      "7. Non-goals and review question",
+      "8. Approved pre-run constraints (2026-09-30)"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-10-01-parrad-frozen-short-horizon-sequential-design.md",
+    "bytes": 11828,
+    "sha256": "814e667be03474d8a5a3e7517838c1cd9352665e7a6174820f3c0645683f0e69",
+    "headings": [
+      "Frozen Short-Horizon Sequential Decodability Audit",
+      "Purpose and scope",
+      "Chosen approach and alternatives",
+      "Timing contract",
+      "Continuous collection and reference alignment",
+      "Labels",
+      "Feature and capacity contract",
+      "Evaluation and interpretation",
+      "Safety, outputs and verification",
+      "Written-spec review"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-10-07-v25-gate-migration-review-draft.md",
+    "bytes": 12606,
+    "sha256": "090df3fb14d5551474a2d3ee9e41c962132606fc86b98183fd9401c6aeb65572",
+    "headings": [
+      "v2.5 gate 行为迁移与新任务分阶段提案草案",
+      "1. 核实后的事实与修正",
+      "输出范围、函数表示和权重迁移分开讨论",
+      "现有监督覆盖不能仅凭张量相同判错",
+      "指标实际状态",
+      "2. 前置四族零步诊断",
+      "3. 迁移阶段：只训练 gate",
+      "4. 新任务：Evidence 两级路线",
+      "5. 闭环与最终评估",
+      "6. 兼容双路与最小 joint：独立可选分支",
+      "7. 拟议预算与批准边界"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-10-10-offline-radar-text-design.md",
+    "bytes": 2623,
+    "sha256": "2e9900bdfe292aef29b18a704de82842460aeb125b1de065cb6df39d8a6d0147",
+    "headings": [
+      "Offline Radar-to-Text MVP",
+      "数据和结构",
+      "训练和验收"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-10-14-split-birnn-reproduction-design.md",
+    "bytes": 17192,
+    "sha256": "d5d59a5c74d0b8121b56004c5712bf1a9372a9fa411419bbfdb5924f9687b5cd",
+    "headings": [
+      "Split BiRNN 复现设计与论文核对",
+      "目标与验收",
+      "论文明确规定的设置",
+      "九类映射",
+      "服务器当前证据",
+      "阻碍严格数值复现的缺项",
+      "推荐实现设计",
+      "实施与验证顺序",
+      "审查后的阶段验收"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-10-15-v261-joint-pretraining-design.md",
+    "bytes": 15410,
+    "sha256": "8562cf58610dc959f5b37f17743e0a80599dce7c578fc830d512cd8a3d12cb48",
+    "headings": [
+      "v2.6.1：双状态联合预训练首轮设计",
+      "1. 要回答的问题",
+      "2. 首轮结构与参数边界",
+      "3. 对照与可训练集合",
+      "4. 数据、标签与因果上下文",
+      "4.1 保留的数据总体",
+      "4.2 固定上下文，不使用命令边界 Reset",
+      "5. 固定预测目标与具体损失",
+      "5.1 运动目标",
+      "5.2 语义与保持",
+      "6. 候选训练预算与评估",
+      "7. 成功标准与结论边界",
+      "8. 复用、实现范围与交付"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-10-17-harrad-joint-prediction-design.md",
+    "bytes": 5288,
+    "sha256": "0414e4ec32426b2a1bead759cc0ffd610e20e9ddaa677b2f07691e9c84fa8dcf",
+    "headings": [
+      "HARrad Dynamics与语义联合预训练",
+      "问题与可训练接口",
+      "数据和上下文",
+      "损失和对照",
+      "固定预算和评价",
+      "放行检查"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-10-21-harrad-alignment-modulation-design.md",
+    "bytes": 5207,
+    "sha256": "79a76da044f9aa62b562114818281e4ca4ff094223e40f03fa93c414e5b57621",
+    "headings": [
+      "HARrad因果语义对齐与事件引导调制：2×2实验",
+      "输入、初始化与冻结范围",
+      "固定因果雷达参考与对比监督",
+      "前向调制",
+      "预算与评价"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-10-22-harrad-reset-closed-loop-design.md",
+    "bytes": 5119,
+    "sha256": "ff8c40c233555780405e39aec7a4d94e51472194db4b464af9943d2c8b6e11a2",
+    "headings": [
+      "HARrad Stage 2–3预测驱动Reset验证",
+      "固定资产与状态",
+      "数据与不完整标注",
+      "训练和对照",
+      "验收与隔离"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/superpowers/specs/2026-10-26-harrad-cif-lif-design.md",
+    "bytes": 15192,
+    "sha256": "3eaee4bbefba6be3f34d3ba1e06091175514243e63c726125384c252b0d2fdfb",
+    "headings": [
+      "想法六：HARrad CIF/LIF事件门首版设计",
+      "1. 目标与已确定范围",
+      "2. 已核对的数据与现有实现",
+      "3. 路线与本设计采用的工程选择",
+      "4. 数据准备与监督契约",
+      "4.1 训练序列",
+      "4.2 自然录制",
+      "5. 模型与在线状态",
+      "5.1 前端与事件内容",
+      "5.2 CIF",
+      "5.3 LIF",
+      "5.4 输出与资源边界",
+      "6. 训练与可微对齐",
+      "S1：CIF",
+      "S2a/S2b：LIF",
+      "7. 评测与选择",
+      "8. 命令、文件与验收",
+      "9. 本设计仍需审阅的关键选择"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/tcn-radar-encoder-inspection-2026-10-09.md",
+    "bytes": 7550,
+    "sha256": "6d6a1f48f76fafcb1472f5b1f53d59cc4532591c9f1343123fd42966d01d844e",
+    "headings": [
+      "TCN 雷达编码器检查结果（2026-10-09）",
+      "1. 实际检查的是哪个编码器",
+      "2. 历史性能确实偏弱",
+      "3. 已证实的监督路径遗漏",
+      "4. 对下一步的影响",
+      "5. 本地证据与验证"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v2.5-compatible-evidence-results-2026-10-07.md",
+    "bytes": 6988,
+    "sha256": "c609069be8414e1353c25600a2cf0cadcb2722ff2568a1fd1e212cf91e722721",
+    "headings": [
+      "兼容gate与Evidence500结果（2026-10-07）\r",
+      "属性预测\r",
+      "细分属性检查\r",
+      "检索保留\r",
+      "实际步数与来源核验\r",
+      "归档与独立重算\r",
+      "结论与边界\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v2.5-compatible-evidence-training-progress-2026-10-07.md",
+    "bytes": 2796,
+    "sha256": "5bdcd544d868b3ccebe0450a50d425d455dbc0f114e69b0ff4fcc33c5d50a250",
+    "headings": [
+      "兼容gate与Evidence500实施状态"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v2.5-gate-migration-diagnostic-results-2026-10-07.md",
+    "bytes": 3991,
+    "sha256": "044c6a9604cba3dddb3158af579b6e6ff4ae1087d7c96b1f3b99c0161527c673",
+    "headings": [
+      "v2.5 gate迁移前置诊断结果（2026-10-07）\r",
+      "直接搬权重为什么不可用\r",
+      "maturity敏感性与精确转换\r",
+      "固定GT事件检索对照\r",
+      "与B1的完整检索键差异\r",
+      "验证和原始证据\r",
+      "下一步\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v2.5-implementation-status-2026-10-06.md",
+    "bytes": 4856,
+    "sha256": "ed27f58682dd35940437029c672ceb185f11126c871c416ff9dabbe2014c7e49",
+    "headings": [
+      "v2.5方案与当前主链实现状态",
+      "本轮模块补全更新",
+      "当前可确认范围",
+      "与v2.5核心机制的差距",
+      "当前效果问题",
+      "后续工作边界"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v2.5-online-modules-2026-10-06.md",
+    "bytes": 7867,
+    "sha256": "c73c26a8b48f0af6c4b35a8f03bcaee3c82d771254b2b9576c6ba5fb3a33102b",
+    "headings": [
+      "v2.5 在线模块实现与使用",
+      "已补的代码链路",
+      "验证与边界",
+      "用法",
+      "下一步验收"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v2.5-physical-proposal-results-2026-10-08-server-readback.md",
+    "bytes": 5184,
+    "sha256": "f728e7654db46bfc04041b509b1289b346eba71deede4c3576e311edcab2019e",
+    "headings": [
+      "Stage3A训练结果：服务器读回"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v2.5-physical-proposal-training-progress-2026-10-07.md",
+    "bytes": 3439,
+    "sha256": "a5ff945c2b58e12d5cac48fd01f7087fe259a5b8de3f87cc9781460c7c38d0d5",
+    "headings": [
+      "Stage3A Physical Proposal Learning"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v2.5-proposal-causal-trigger-results-2026-10-08.md",
+    "bytes": 17362,
+    "sha256": "360a9e625fcf18e80e4b52527a20c427bda9a52ade05291bea5ca874cf263d5f",
+    "headings": [
+      "Stage3A 冻结Head的在线因果触发器实验（2026-10-08）\r",
+      "实验锁定与证据\r",
+      "严格在线定义\r",
+      "500步主结果：3／5／8校准FP上限下的dev表现\r",
+      "1000步固定对照：完全相同触发参数\r",
+      "原0.6 one-shot基线\r",
+      "全部锁定参数\r",
+      "逐subject×sensor：预算8的peak，不隐藏局部失败\r",
+      "判断与下一步\r",
+      "原始证据\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v2.5-proposal-zero-diagnostic-results-2026-10-08.md",
+    "bytes": 12973,
+    "sha256": "e7e09c19dcc7c0a4995b92a2b8954570b05f2abcdb9b3703bf4ce96312658a45",
+    "headings": [
+      "Stage3A 500／1000步零更新诊断结果（2026-10-08）\r",
+      "数据、来源与复现\r",
+      "1. 去掉Trigger后，分数学到了多少\r",
+      "2. 原Trigger漏掉了什么\r",
+      "3. 高分段统计与分数分布\r",
+      "4. 完整阈值扫描\r",
+      "5. 分组结果与500→1000判断\r",
+      "6. 下一步建议（尚未执行）\r",
+      "可复算证据\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v2.5-training-pilot-results-2026-10-06.md",
+    "bytes": 6362,
+    "sha256": "6d6cf7e83d5817a582ecee0448cb1e73e60bd360b645688861f183bbbedcdf0f",
+    "headings": [
+      "v2.5 数据v2固定预算实验：A阶段终态未达标\r",
+      "同数据检索结果\r",
+      "全部分组差值\r",
+      "已确认与尚未确认的原因\r",
+      "原始证据与局限\r"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v2.6-code-comparison-2026-10-14.md",
+    "bytes": 16435,
+    "sha256": "904e132ddd4644505995c1e9471e6da5c383930011b76be96112a1225797977c",
+    "headings": [
+      "v2.6 方案与现有代码对照及改造建议",
+      "结论",
+      "1. 实际可以复用的资产",
+      "2. 方案参数必须按现有实现适配",
+      "3. 逐模块差异",
+      "4. 需要先解决的三个数据问题",
+      "4.1 类别标签不是实例边界",
+      "4.2 更新开始、数据到达与确认时间是三个时刻",
+      "4.3 数据划分与旧权重的训练暴露必须一起审计",
+      "5. 建议新增的最小代码结构",
+      "6. 分阶段实施与验收",
+      "7. 因果顺序和必要验证",
+      "8. 公平实验与最小核心消融",
+      "9. 我建议的第一步"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v2.6-loss-design-opinion-2026-10-14.md",
+    "bytes": 20326,
+    "sha256": "daedeb2dadb57c9aa3a542d6e4d1be1ceb481192246db13bb373a51970056609",
+    "headings": [
+      "PSEM v2.6 损失函数补充建议",
+      "1. 对建议稿的判断与必要校正",
+      "2. 统一计算契约",
+      "3. 共用的预测损失",
+      "4. Stage0：先审计，必要时才做物理预训练",
+      "5. Stage1：先证明事件状态具有预测价值",
+      "6. Stage2：条件分布拟合与边界初始化分开",
+      "6.1 Stage2A：拟合Keep/Birth",
+      "6.2 Stage2B：用事件级监督初始化Policy",
+      "6.3 建议稿的exact-one怎么用",
+      "7. Stage3：预测损失经过状态选择训练Reset",
+      "7.1 ST状态更新",
+      "7.2 事件率、语义与保持",
+      "7.3 实例损失是否必须立即加",
+      "7.4 核心因果消融",
+      "8. Stage4：语言对齐与证据监督",
+      "9. Stage5：记忆保留必须测试实例与顺序",
+      "10. 数值实现与权重选择",
+      "11. 推荐默认与可选项"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v26-p0-diagnostic-protocol-2026-10-15.md",
+    "bytes": 3695,
+    "sha256": "fd44a5376db734b91791496d6dec0e50b66210fb2c0794814a402968bbdfb168",
+    "headings": [
+      "首轮预测P0只读诊断协议"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v26-p0-diagnostic-results-2026-10-15.md",
+    "bytes": 13352,
+    "sha256": "b6a70b8eda4df3e6d7de62aca16ddfe5301dfc15f0bc8abc4f03487a3f979e1e",
+    "headings": [
+      "v2.6首轮预测：P0只读诊断",
+      "1. 基本神经预测能力仍是前置问题",
+      "2. 误差增加来自什么样的修正？",
+      "3. 分层后没有出现被总体均值掩盖的优势",
+      "4. 确定的评估盲区：所有代理边界都被预测mask切断",
+      "5. 特征很平滑，但没有证据说已退化成常量",
+      "6. 训练覆盖与曲线",
+      "7. 研究判断与下一步边界",
+      "8. 证据与核验"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v26-p0-readiness-2026-10-14.md",
+    "bytes": 5793,
+    "sha256": "c00e86310ec02f1d8861fa6a0b36daa67db7b67107146d6ad23571c8a1c0a493",
+    "headings": [
+      "v2.6 第1–2步启动前只读审计",
+      "已核验",
+      "当前判定",
+      "执行前必须固定的技术选择",
+      "证据文件",
+      "2026-10-15执行更新"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v26-p1-protocol-2026-10-15.md",
+    "bytes": 4585,
+    "sha256": "6e7b53fb10a893327a690b8db61b7fc6f896e263b0180e2b2eafb3ba4273792c",
+    "headings": [
+      "P1-A与P1-B固定预算协议",
+      "数据与隔离",
+      "Event状态审计与扩展视图",
+      "P1-B准备与条件训练",
+      "实现和验证"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v26-p1-results-2026-10-15.md",
+    "bytes": 11051,
+    "sha256": "acf3c989e33f9d6bf166f742f4aa0c95251ad1cac5600695748d76a6f702d5f3",
+    "headings": [
+      "v2.6 P1-A / P1-B执行结果",
+      "1. P1-A：预测合法性不再由命令归属决定",
+      "2. Event状态覆盖是独立约束",
+      "3. P1-B：固定旧输入，仅改变零初始化残差均值",
+      "4. 主验证结果：基本预测有小幅正信号，Event仍未胜出",
+      "5. P0误差分解的变化",
+      "6. 核验与产物"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v26-p1c-execution-protocol-2026-10-15.md",
+    "bytes": 5189,
+    "sha256": "7dc0af79ee9bbc35834f2ea6043eec83f289a16323406e2b772edb2ef15ed0cd",
+    "headings": [
+      "P1-C 神经预测诊断执行协议",
+      "执行顺序",
+      "三个固定比较总体",
+      "报告与因果限制",
+      "可复查产物"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v26-p1c-preparation-results-2026-10-15.md",
+    "bytes": 11653,
+    "sha256": "82948c8e1acae6d8c15cb798e0dfec7aa3a7a94f5ae8c42dd35ccc380f7b238d",
+    "headings": [
+      "P1-C 准备结果：完整因果状态回放与多 Horizon 无训练诊断",
+      "已完成的工作与主要判断",
+      "回放契约与核验",
+      "h=1/3/5 的固定共同起点",
+      "无训练基线结果",
+      "Event State 幅值与长期累积",
+      "固定信息消融与覆盖偏差",
+      "实现、产物与下一步"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v26-p1c-protocol-2026-10-15.md",
+    "bytes": 6650,
+    "sha256": "4df0028077228f4ed65bf14907f1e2e40fde2e80a46f87a8d4763a66b9780862",
+    "headings": [
+      "P1-C：完整因果回放与多 Horizon 诊断协议",
+      "输入与冻结边界",
+      "两种完整状态轨迹",
+      "必须通过的核验",
+      "多 Horizon 主诊断",
+      "信息消融与历史匹配",
+      "本次停止点"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v26-p1c-results-2026-10-15.md",
+    "bytes": 14381,
+    "sha256": "da9d2a013d7a0e296dc873192ad85dac0f9b62f0a8a1e7edeaac099882ee041f",
+    "headings": [
+      "P1-C：多 Horizon 预测、完整历史对照与 Event 信息消融",
+      "当前结论",
+      "执行范围与固定预算",
+      "历史与容量匹配",
+      "Oracle全量主实验",
+      "Oracle供体子集：A/B/C/D",
+      "No Reset辅助诊断",
+      "平台诊断：能量集中，但状态未完全静止",
+      "核验、资源与实现取舍",
+      "产物与复算状态",
+      "研究判断"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v26-prediction-pilot-results-2026-10-15.md",
+    "bytes": 10104,
+    "sha256": "fd9d2c11c03f38ddc03f7d86640dfc2c2a340ed32af3cc50c1d89d8bc626d539",
+    "headings": [
+      "v2.6 第1–2步：冻结前端预测预实验结果",
+      "固定实验与实际执行",
+      "验证集结果",
+      "核验与实现边界",
+      "产物与后续判断"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v26-prediction-pilot-usage.md",
+    "bytes": 4465,
+    "sha256": "000b927775c3b25e047cab76352886ca62f938d6158c52570ac8ea8c88850c52",
+    "headings": [
+      "v2.6 冻结前端预测诊断",
+      "预测臂与数据",
+      "输出与验收"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v261-clip-review-results-2026-10-16.md",
+    "bytes": 8451,
+    "sha256": "d10f951ab99d62e27ca9dfbefed188d7418253f0383c0e9f2c6b5c69e8f0aaed",
+    "headings": [
+      "v2.6.1：42段命令代理片段的雷达复核\r",
+      "交付物\r",
+      "抽样与核查范围\r",
+      "观察到的几种情况\r",
+      "程序线索的定义与数量\r",
+      "优先查看的10段\r",
+      "核验与后续使用\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v261-joint-diagnosis-next-steps-2026-10-16.md",
+    "bytes": 6457,
+    "sha256": "9bdbacc22e9b7a70ae66fb186f634946f7ee70edea3f60bc3597771363ae4215",
+    "headings": [
+      "v2.6.1：收益不足的证据与下一轮顺序",
+      "先明确“差”指什么",
+      "确认的限制和待验证原因",
+      "1. 冻结主干限制了本轮能回答的问题",
+      "2. 语义分支在联合前就存在能力和泛化问题",
+      "3. 训练预算离完整数据覆盖还有距离",
+      "4. 单事件语义与连续历史当前类别之间存在接口变化",
+      "5. 全局梯度裁剪可能影响任务组合，但不是已确认根因",
+      "建议下一轮顺序"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v261-joint-preparation-results-2026-10-15.md",
+    "bytes": 2638,
+    "sha256": "fc7d697953f85b3e60c385ebb3fe111226f764d5eed4ba7d511af498f2a32275",
+    "headings": [
+      "v2.6.1 实现、原生预检与启动状态"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/v261-joint-results-2026-10-16.md",
+    "bytes": 9280,
+    "sha256": "4c6131703d7a214ee8b104e08a2650564e3f7e79c4e1c484eb1c997ee2562aa7",
+    "headings": [
+      "v2.6.1 共享 Adapter 联合训练：完成核查与研究判断\r",
+      "完成与核验\r",
+      "本轮到底训练了什么\r",
+      "原生任务头结果\r",
+      "共同表示的统一探针\r",
+      "分组与训练通路检查\r",
+      "下一步判断\r",
+      "证据位置\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/v261-semantic-diagnostic-results-2026-10-16.md",
+    "bytes": 8959,
+    "sha256": "eb1571abc03af3d24a3d5b3f2736bfe9d537ba3505074b20006228c18ee5c859",
+    "headings": [
+      "v2.6.1 第1项语义诊断：检查点曲线、匹配窗口与时间标签\r",
+      "1. 检查点曲线：模型在学，但验证改善较弱\r",
+      "2. 类别匹配后，跨动作前缀仍更难\r",
+      "3. 转换后确实常预测旧类别，原始F也存在\r",
+      "4. 命令标签实现一致，真实物理对齐未通过\r",
+      "5. 数值问题、证据与独立复核\r",
+      "下一步研究判断\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "docs/workspace-cleanup-2026-10-18.md",
+    "bytes": 2750,
+    "sha256": "db14ce34d6494951b188e3d25414346bee2e42660dd05e65ed014aeaaf08cffd",
+    "headings": [
+      "本地工作区清理记录（2026-10-18）",
+      "清理内容",
+      "审计与复核"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "docs/xfi-mmwave-rd-transfer-assessment-2026-10-11.md",
+    "bytes": 5705,
+    "sha256": "bc5174a894a3dbef4d4b9b35c9d480b6c889b7f0801f8106b4bc631ba273db21",
+    "headings": [
+      "X-Fi mmWave ResNet18 在 PARrad RD 上的迁移检查",
+      "本地权重实测",
+      "官方输入与当前输入的区别",
+      "已完成的形状/数值检查",
+      "建议的接入方式",
+      "最小验证方案"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法三/方案书v2.0.md",
+    "bytes": 36344,
+    "sha256": "ab79e3f140f58519bec11788a22ab9c9482decaeb833a64249b4d92909c37631",
+    "headings": [
+      "一、任务目标与问题定义",
+      "1.1 任务设定",
+      "1.2 核心思想",
+      "1.3 三条设计原则",
+      "二、总体架构",
+      "2.1 七模块结构",
+      "2.2 双路径计算框架（关键架构决策）",
+      "为什么雷达只在层 1-4 注入",
+      "信息瓶颈的补救阶梯（按优先级）",
+      "2.3 事件生命周期",
+      "三、模块①：Streaming Radar Encoder",
+      "3.1 结构",
+      "3.2 事件内特征缓冲区",
+      "3.3 预训练（Stage 1）",
+      "四、变化检测前端（模块②③）",
+      "4.1 ② Local Change Detector",
+      "4.2 ③ Radar Transition Detector（双时间尺度版）",
+      "双时间尺度原型",
+      "关键机制",
+      "与 Local Change 的分工",
+      "五、语义事件状态（模块④⑤）",
+      "5.1 基本约定",
+      "5.2 流式更新（每 chunk）",
+      "5.3 新事件启动与 Candidate 规则",
+      "Candidate 只读记忆支路（可选增强）",
+      "5.4 Semantic Change Head（成熟度增广版）",
+      "问题：成熟度混淆",
+      "对策一：2×2 训练对（语义 × 成熟度）",
+      "对策二：成熟度显式输入",
+      "对策三：预热屏蔽",
+      "Head 结构",
+      "5.5 Candidate Stability",
+      "六、模块⑥：Transition Decision",
+      "6.1 判决输入",
+      "6.2 Reject 路径",
+      "6.3 Confirm 路径",
+      "6.4 边界误差的取舍",
+      "七、Idle / Presence 控制器",
+      "7.1 必要性",
+      "7.2 最小可行规格",
+      "7.3 数据要求",
+      "八、模块⑦：Hierarchical Event Memory",
+      "8.1 记忆单元结构",
+      "8.2 三级结构",
+      "压缩触发条件",
+      "8.3 同类事件合并规则（粒度控制）",
+      "8.4 Memory Compressor 训练",
+      "8.5 记忆读取（时间 + 语义双重规则）",
+      "8.6 溢出与遗忘策略",
+      "8.7 记忆与判决的隔离",
+      "九、LLM 推理路径",
+      "9.1 y_i 生成时机与叙述结构",
+      "9.2 幻觉监控",
+      "十、训练流程",
+      "10.1 五阶段管线",
+      "10.2 各阶段要点",
+      "Stage 1：Radar Representation Pre-training",
+      "Stage 2：Semantic Event Learning（go/no-go 决策点）",
+      "Stage 3：Streaming Transition Learning",
+      "Stage 4：Hierarchical Memory Learning",
+      "Stage 5（可选）：联合微调",
+      "十一、数据集建设（自建）",
+      "11.1 采集要求",
+      "11.2 泛化划分（数据集设计第一天就要定）",
+      "11.3 文本标注管线",
+      "十二、评估体系",
+      "12.1 四层指标",
+      "12.2 结构化叙事指标（自定义，作为任务评价贡献）",
+      "12.3 探针实验（支撑核心宣称的必需实验）",
+      "12.4 Baseline 构造（无现成基线，需自建）",
+      "十三、创新点与论文定位",
+      "13.1 核心 Claim（一句话版本）",
+      "13.2 三个创新点",
+      "13.3 理论框架：事件分割理论（EST）的计算实现",
+      "13.4 相关工作区分（尽职调查结论）",
+      "13.5 隐私卖点（Introduction 素材）",
+      "十四、已知局限",
+      "十五、风险登记与缓解",
+      "附录 A：关键超参数初始建议值",
+      "附录 B：状态机转移表"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法三/方案书v2.1.md",
+    "bytes": 32244,
+    "sha256": "5e09d667b0c85e1767dc57b0efcf99669eb1fcd1d9ce4af45b39d7390ae02c2c",
+    "headings": [
+      "毫米波连续动作实时语义理解与分层事件记忆系统方案书",
+      "v2.0 → v2.1 变更清单",
+      "一、任务目标与问题定义",
+      "三条设计原则",
+      "二、总体架构",
+      "2.1 系统视角：七个模块",
+      "2.2 学习视角：三个可学习核心模块",
+      "2.3 双路径计算框架",
+      "2.4 事件生命周期（Fork-and-Replay 版）",
+      "三、模块①：Streaming Radar Encoder",
+      "3.1 结构（冻结版）",
+      "3.2 事件内特征缓冲区",
+      "3.3 Stage 1 预训练（刻意从简）",
+      "四、变化检测前端（模块②③ + Proposal）",
+      "4.1 ② Local Change Detector",
+      "4.2 ③ Radar Transition Detector（128 维原型空间）",
+      "4.3 Proposal：noisy-OR（不训练网络）",
+      "4.4 两检测器分工与消融",
+      "五、Streaming Semantic Event Former（模块④⑤，核心网络）",
+      "5.1 基本约定",
+      "5.2 层内结构（层 1-4，每层）",
+      "5.3 跨 chunk 门控更新（逐 token 标量门）",
+      "5.4 Candidate 规则",
+      "5.5 Semantic Projection Head 与 Difference Head",
+      "5.6 Candidate Stability（3-chunk 窗口版）",
+      "六、模块⑥：Transition Decision",
+      "6.1 单调 Logistic Head + 时间迟滞",
+      "6.2 Confirm 六动作",
+      "6.3 Commit Refiner（复用 Event Former，不新增网络）",
+      "七、Idle / Presence 控制器（物理化，不深度学习化）",
+      "八、模块⑦：Hierarchical Event Memory",
+      "8.1 记忆单元",
+      "8.2 三级结构与 Query Compressor",
+      "8.3 同类事件合并规则（粒度控制）",
+      "8.4 检索（统一语义空间）",
+      "8.5 溢出与隔离",
+      "九、LLM 推理路径",
+      "十、训练流程",
+      "十一、数据集建设（自建）",
+      "十二、评估体系",
+      "12.1 四层指标",
+      "12.2 结构化叙事指标（任务评价贡献）",
+      "12.3 探针实验（核心宣称的必需证据）",
+      "12.4 Baseline 与消融",
+      "十三、创新点与论文定位",
+      "十四、已知局限",
+      "十五、风险登记与缓解",
+      "附录 A：冻结参数表（v1）",
+      "附录 B：状态机转移表（Fork-and-Replay 版）"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法三/方案书v2.2.md",
+    "bytes": 30659,
+    "sha256": "05775306d783eaaae7a750361ca93dd6a7edc81671e89be2b47c8e2260d0215d",
+    "headings": [
+      "v2.1 → v2.2 关键变更",
+      "一、任务目标与问题定义",
+      "1.1 三条设计原则",
+      "二、总体架构",
+      "2.1 系统视角",
+      "2.2 学习视角：三个核心可学习模块",
+      "三、时间粒度与在线更新规格",
+      "四、模块①：Streaming Radar Encoder",
+      "4.1 总体结构",
+      "4.2 RD 分支",
+      "4.3 Point Cloud 分支",
+      "4.4 融合",
+      "五、Stage 1：逐帧 Pose-Guided Radar Pretraining",
+      "六、变化检测前端",
+      "6.1 Local Change Detector",
+      "6.2 [Radar Transition Detector](Radar_Transition_Detector)",
+      "6.3 Proposal：只由物理证据产生",
+      "七、Fork-and-Replay 状态管理",
+      "7.1 Reject",
+      "7.2 Confirm",
+      "八、模块②：Streaming Semantic Event Former",
+      "8.1 Event State",
+      "8.2 固定 Event Prompt",
+      "九、Event Former 内部结构",
+      "9.1 Prefix-LM Mask",
+      "9.2 LLM 层 1–4",
+      "9.3 512 维 Bottleneck Cross-Attention",
+      "十、跨 update Event State 更新",
+      "十一、Semantic Projection 与文本语义空间",
+      "11.1 Event Semantic Projection",
+      "11.2 Text Semantic Projection",
+      "十二、Semantic Difference",
+      "十三、Candidate Stability：无参数版本",
+      "十四、Semantic Verify",
+      "Confirm",
+      "Reject",
+      "十五、Commit Refiner",
+      "15.1 Streaming Mode",
+      "15.2 Commit Mode",
+      "十六、Stage 2 同时训练 Streaming / Commit 两种视图",
+      "Streaming View",
+      "Commit View",
+      "十七、Idle / Presence Controller",
+      "十八、Hierarchical Event Memory",
+      "18.1 Memory Unit",
+      "18.2 Level 0",
+      "18.3 Query Compressor：内部维度 1024",
+      "十九、Memory Merge",
+      "二十、Memory Retrieval",
+      "20.1 Level 0",
+      "20.2 Level 1 / Level 2",
+      "二十一、完整 LLM 推理路径",
+      "二十二、训练流程",
+      "Stage 1：Radar Motion Pretraining",
+      "Stage 2：Radar→Language Semantic Event Alignment",
+      "Stage 3：Continuous Transition Learning",
+      "Stage 4：Hierarchical Memory Compression",
+      "Stage 5：可选 Joint Fine-tuning",
+      "二十三、评估体系",
+      "23.1 Event Detection",
+      "23.2 Semantic Event",
+      "23.3 Language",
+      "23.4 Streaming",
+      "23.5 Memory",
+      "二十四、核心探针实验",
+      "24.1 Semantic Probe",
+      "24.2 Text→Event Retrieval Probe",
+      "24.3 Streaming / Commit Consistency Probe",
+      "24.4 Memory Retention Probe",
+      "二十五、Baseline",
+      "二十六、关键消融",
+      "二十七、论文核心 Claim",
+      "二十八、措辞边界",
+      "二十九、v2.2 冻结参数表",
+      "三十、最终冻结状态机",
+      "三十一、当前版本明确不加入",
+      "三十二、实现优先级"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法三/方案书v2.3.md",
+    "bytes": 39858,
+    "sha256": "1155db26d650a307b1ed8f5d4d2b49667b5e33330b923c94a3ba5d9e4cec8049",
+    "headings": [
+      "毫米波连续动作实时语义理解与分层事件记忆系统方案书",
+      "v2.1 → v2.2 关键变更",
+      "一、任务目标与问题定义",
+      "1.1 三条设计原则",
+      "二、总体架构",
+      "2.1 系统视角",
+      "2.2 学习视角：三个核心可学习模块",
+      "三、时间粒度与在线更新规格",
+      "四、模块①：Streaming Radar Encoder",
+      "4.1 总体结构",
+      "4.2 RD 分支",
+      "4.3 Point Cloud 分支",
+      "4.4 融合",
+      "五、Stage 1：逐帧 Pose-Guided Radar Pretraining",
+      "六、变化检测前端",
+      "6.1 Local Change Detector",
+      "6.2 Radar Transition Detector",
+      "6.3 Proposal：只由物理证据产生",
+      "七、Fork-and-Shadow 状态管理",
+      "7.1 Proposal 时刻",
+      "7.2 Candidate 跟踪期间",
+      "7.3 Reject",
+      "7.4 Confirm",
+      "八、模块②：Streaming Semantic Event Former",
+      "8.1 Event State",
+      "8.2 固定 Event Prompt",
+      "九、Event Former 内部结构",
+      "9.1 Prefix-LM Mask",
+      "9.2 LLM 层 1–4",
+      "9.3 512 维 Bottleneck Cross-Attention",
+      "十、[跨 update Event State 更新](事件token的更新机制)",
+      "十一、Semantic Projection 与文本语义空间",
+      "11.1 Event Semantic Projection",
+      "11.2 Text Semantic Projection",
+      "十二、Semantic Difference",
+      "十三、Candidate Stability：无参数版本",
+      "十四、Semantic Verify",
+      "Confirm",
+      "Reject",
+      "十五、Commit Refiner",
+      "15.1 Streaming Mode",
+      "15.2 Commit Mode",
+      "15.3 Provisional → Refined Memory",
+      "十六、Stage 2 同时训练 Streaming / Commit 两种视图",
+      "Streaming View",
+      "Commit View",
+      "十七、Idle / Presence Controller",
+      "十八、实时执行与异步调度",
+      "18.1 每 0.2 s 的 Critical Path",
+      "18.2 Candidate 状态计算预算",
+      "18.3 双队列调度",
+      "High-Priority Streaming Queue",
+      "Low-Priority Finalization / Reasoning Queue",
+      "18.4 模型驻留约束",
+      "18.5 异步队列过载保护",
+      "十九、Hierarchical Event Memory",
+      "19.1 Memory Unit",
+      "19.2 Level 0",
+      "19.3 Query Compressor：内部维度 1024",
+      "二十、Memory Merge",
+      "二十一、Memory Retrieval",
+      "21.1 Level 0",
+      "21.2 Level 1 / Level 2",
+      "二十二、完整 LLM 推理路径",
+      "二十三、训练流程",
+      "Stage 1：Radar Motion Pretraining",
+      "Stage 2：Radar→Language Semantic Event Alignment",
+      "Stage 3：Continuous Transition Learning",
+      "Stage 4：Hierarchical Memory Compression",
+      "Stage 5：可选 Joint Fine-tuning",
+      "二十四、评估体系",
+      "24.1 Event Detection",
+      "24.2 Semantic Event",
+      "24.3 Language",
+      "24.4 Streaming",
+      "24.5 Memory",
+      "二十五、核心探针实验",
+      "25.1 Semantic Probe",
+      "25.2 Text→Event Retrieval Probe",
+      "25.3 Streaming / Commit Consistency Probe",
+      "25.4 Memory Retention Probe",
+      "二十六、Baseline",
+      "二十七、关键消融",
+      "二十八、论文核心 Claim",
+      "二十九、措辞边界",
+      "三十、v2.2 冻结参数表",
+      "三十一、最终冻结状态机",
+      "三十二、当前版本明确不加入",
+      "三十三、实现优先级"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法三/方案书v2.4.md",
+    "bytes": 36331,
+    "sha256": "84ae342e06e174734d42db6a29d07b674e6c0e234eefba9bfa9ffd40bc075319",
+    "headings": [
+      "毫米波连续动作实时语义理解与分层事件记忆系统方案书",
+      "版本修订核心变更",
+      "一、研究目标",
+      "二、核心问题",
+      "三、总体架构",
+      "3.1 系统视角",
+      "3.2 学习视角：三个核心可学习模块",
+      "四、Event Token 设计：语义-证据双重可解释性",
+      "4.1 Semantic Projection（语义投影）",
+      "4.2 Evidence Projection（证据投影）",
+      "4.3 训练目标",
+      "五、时间粒度与在线更新规格",
+      "六、模块①：Streaming Radar Encoder",
+      "6.1 总体结构",
+      "6.2 RD 分支",
+      "6.3 Point Cloud 分支",
+      "6.4 特征融合",
+      "七、Stage 1：逐帧 Pose-Guided 雷达预训练",
+      "八、变化检测前端",
+      "8.1 Local Change Detector",
+      "8.2 Radar Transition Detector",
+      "8.3 Proposal 生成机制",
+      "九、Fork-and-Shadow 状态管理",
+      "9.1 Proposal 时刻执行操作",
+      "9.2 Candidate 跟踪期间",
+      "9.3 Reject 状态恢复",
+      "9.4 Confirm 事件提交",
+      "十、模块②：Streaming Semantic Event Former",
+      "10.1 Event State 初始化",
+      "10.2 固定 Event Prompt",
+      "10.3 Event Former 内部结构",
+      "10.4 跨 update Event State 更新机制",
+      "十一、语义投影与证据投影",
+      "11.1 Event Semantic Projection",
+      "11.2 Event Evidence Projection",
+      "11.3 Text Semantic Projection",
+      "十二、语义差异与验证机制",
+      "12.1 Semantic Difference",
+      "12.2 Candidate 稳定性（无参数版本）",
+      "12.3 Semantic Verify",
+      "十三、Commit Refiner 与双视图一致性",
+      "13.1 两种模式",
+      "13.2 Commit Teacher → Streaming Student 蒸馏范式",
+      "13.3 临时记忆与异步定稿",
+      "十四、Idle / Presence 控制器",
+      "十五、实时执行与异步调度",
+      "15.1 每 0.2s 关键路径算力预算",
+      "15.2 Candidate 状态计算预算",
+      "15.3 双队列调度机制",
+      "15.4 模型驻留约束",
+      "15.5 异步队列过载保护",
+      "十六、模块③：Hierarchical Event Memory",
+      "16.1 Memory Unit 结构",
+      "16.2 三级分层记忆架构",
+      "16.3 Query Compressor 压缩器",
+      "16.4 Memory Merge 事件合并",
+      "16.5 Memory Retrieval 记忆检索",
+      "十七、完整 LLM 推理路径",
+      "十八、训练流程",
+      "18.1 Stage 1：Radar Motion Pretraining",
+      "18.2 Stage 2：Radar→Language 语义事件对齐",
+      "18.3 Stage 3：Continuous Transition Learning",
+      "18.4 Stage 4：Hierarchical Memory Compression",
+      "18.5 Stage 5：可选 Joint Fine-tuning",
+      "十九、评估体系",
+      "19.1 事件检测指标",
+      "19.2 语义事件指标",
+      "19.3 自然语言生成指标",
+      "19.4 流式实时指标",
+      "19.5 长时记忆指标",
+      "二十、核心探针实验",
+      "二十一、基线与消融实验",
+      "21.1 基线方案",
+      "21.2 关键消融项",
+      "二十二、论文核心贡献与Claim",
+      "22.1 核心一句话Claim",
+      "22.2 三个主要贡献",
+      "22.3 措辞边界",
+      "二十三、冻结参数表",
+      "二十四、最终状态机",
+      "二十五、不纳入范围与实现优先级",
+      "25.1 当前版本明确不实现",
+      "25.2 实现优先级"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法三/方案书v2.5 (2).md",
+    "bytes": 39839,
+    "sha256": "0a080d1b4a2d24615cb4febe18114a538b958b4d2429ae1586336fb2042a8ee6",
+    "headings": [
+      "毫米波连续动作实时语义理解与分层事件记忆系统方案书",
+      "一、v2.5 核心修订",
+      "二、研究任务",
+      "三、总体思想",
+      "四、总体架构",
+      "五、时间粒度",
+      "六、Streaming Radar Encoder",
+      "6.1 RD Branch",
+      "6.2 Point Cloud Branch",
+      "6.3 Fusion",
+      "七、Stage 1：Pose-Guided Radar Pretraining",
+      "八、Physical Proposal",
+      "8.1 Local Change Detector",
+      "8.2 Radar Transition Detector",
+      "8.3 Proposal Score",
+      "一个重要修改",
+      "九、Fork-and-Shadow：从状态恢复机制升级为竞争假设",
+      "H0",
+      "H1",
+      "十、Streaming Semantic Event Former",
+      "十一、Event State Update",
+      "十二、Semantic–Evidence 双投影",
+      "12.1 Semantic Projection",
+      "12.2 Evidence Projection",
+      "十三、Semantic Difference",
+      "十四、Semantic Difference 的监督方式",
+      "Same",
+      "Different",
+      "十五、Age-Matched Pairing",
+      "15.1 Candidate Initialization Bias Probe",
+      "十六、Candidate Stability",
+      "十七、Maturity 的新定义",
+      "Warm-up",
+      "Maximum Candidate Lifetime",
+      "十八、Physical Evidence Difference",
+      "十九、Sequential Evidence Accumulation Controller",
+      "19.1 Semantic Evidence",
+      "19.2 Joint Evidence",
+      "19.3 Evidence Accumulator",
+      "二十、Confirm / Reject",
+      "Confirm",
+      "Reject",
+      "二十一、One Candidate = One Episode",
+      "二十二、Candidate Episode 的 GT 定义",
+      "二十三、Oracle 与 Closed-loop 数据重新分工",
+      "23.1 Oracle 数据",
+      "Semantic Difference 监督",
+      "Event Semantic Pretraining",
+      "Rehearsal Regularization",
+      "23.2 Closed-loop 数据",
+      "A. Hard semantic pairs",
+      "B. Candidate Episodes",
+      "23.3 Oracle 与 Closed-loop 不直接 concat",
+      "二十四、Boundary Localization",
+      "24.1 搜索窗口",
+      "24.2 Boundary Score",
+      "二十五、Proposal、Confirm、Boundary 三种时间的职责",
+      "Proposal",
+      "Verify",
+      "Boundary",
+      "二十六、Boundary Label",
+      "二十七、Confirm 后的事件时间与状态修正",
+      "27.1 Provisional Boundary 与 Refined Boundary",
+      "Provisional Boundary",
+      "Refined Boundary",
+      "27.2 Active State Reconciliation",
+      "27.3 非阻塞追赶与原子替换",
+      "27.4 Buffer Pinning",
+      "27.5 状态一致性约束",
+      "二十八、Commit Refiner",
+      "二十九、Commit Teacher → Streaming Student",
+      "三十、Stage 2 Semantic–Evidence Alignment",
+      "Caption Loss",
+      "Semantic Alignment",
+      "Evidence Loss",
+      "Streaming–Commit Distillation",
+      "三十一、完整训练流程",
+      "Stage 0：Physical Pipeline Verification",
+      "Stage 1：Radar Motion Pretraining",
+      "Stage 2：Semantic–Evidence Event Alignment",
+      "Stage 3A：Physical Proposal Learning",
+      "Stage 3B：Semantic Difference Learning",
+      "Stage 3C：Closed-loop Candidate Calibration",
+      "Stage 3D：Boundary Calibration",
+      "Stage 3E：Active State Reconciliation Validation",
+      "Stage 4：Hierarchical Memory",
+      "Stage 5：Optional Joint Fine-tuning",
+      "三十二、Hierarchical Event Memory",
+      "Level 0",
+      "Level 1",
+      "Level 2",
+      "三十三、Memory Retrieval",
+      "三十四、完整 LLM 推理",
+      "三十五、推理状态机",
+      "三十六、数据缓存",
+      "三十七、评估体系",
+      "Proposal",
+      "Semantic Difference",
+      "Candidate Verification",
+      "Boundary",
+      "Language",
+      "Streaming",
+      "Memory",
+      "三十八、关键消融实验",
+      "三十九、实验追溯要求",
+      "四十、实现优先级",
+      "P0：先修复 Semantic Difference 数据",
+      "P1：One Candidate = One Episode",
+      "P2：Evidence Accumulator",
+      "P3：Boundary Localization + Active State Reconciliation",
+      "P4：Evidence Projection 接入",
+      "P5：Memory + Full LLM",
+      "四十一、v2.5 最终训练目标",
+      "四十二、论文核心方法表述"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法三/方案书v2.5.md",
+    "bytes": 32666,
+    "sha256": "a6d01ac0c72ec3d204e3798c72c8ac2df940a15f7af8f871c465ebee7b901708",
+    "headings": [
+      "毫米波连续动作实时语义理解与分层事件记忆系统方案书",
+      "一、v2.5 核心修订",
+      "二、研究任务",
+      "三、总体思想",
+      "四、总体架构",
+      "五、时间粒度",
+      "六、Streaming Radar Encoder",
+      "6.1 RD Branch",
+      "6.2 Point Cloud Branch",
+      "6.3 Fusion",
+      "七、Stage 1：Pose-Guided Radar Pretraining",
+      "八、Physical Proposal",
+      "8.1 Local Change Detector",
+      "8.2 Radar Transition Detector",
+      "8.3 Proposal Score",
+      "一个重要修改",
+      "九、Fork-and-Shadow：从状态恢复机制升级为竞争假设",
+      "H0",
+      "H1",
+      "十、Streaming Semantic Event Former",
+      "十一、Event State Update",
+      "十二、Semantic–Evidence 双投影",
+      "12.1 Semantic Projection",
+      "12.2 Evidence Projection",
+      "十三、Semantic Difference",
+      "十四、Semantic Difference 的监督方式",
+      "Same",
+      "Different",
+      "十五、Age-Matched Pairing",
+      "十六、Candidate Stability",
+      "十七、Maturity 的新定义",
+      "Warm-up",
+      "Maximum Candidate Lifetime",
+      "十八、Physical Evidence Difference",
+      "十九、Sequential Evidence Verification",
+      "19.1 Semantic Evidence",
+      "19.2 Joint Evidence",
+      "19.3 Evidence Accumulator",
+      "二十、Confirm / Reject",
+      "Confirm",
+      "Reject",
+      "二十一、One Candidate = One Episode",
+      "二十二、Candidate Episode 的 GT 定义",
+      "二十三、Oracle 与 Closed-loop 数据重新分工",
+      "23.1 Oracle 数据",
+      "Semantic Difference 监督",
+      "Event Semantic Pretraining",
+      "Rehearsal Regularization",
+      "23.2 Closed-loop 数据",
+      "A. Hard semantic pairs",
+      "B. Candidate Episodes",
+      "23.3 Oracle 与 Closed-loop 不直接 concat",
+      "二十四、Boundary Localization",
+      "24.1 搜索窗口",
+      "24.2 Boundary Score",
+      "二十五、Proposal、Confirm、Boundary 三种时间的职责",
+      "Proposal",
+      "Verify",
+      "Boundary",
+      "二十六、Boundary Label",
+      "二十七、Confirm 后的事件时间修正",
+      "Provisional Boundary",
+      "Refined Boundary",
+      "二十八、Commit Refiner",
+      "二十九、Commit Teacher → Streaming Student",
+      "三十、Stage 2 Semantic–Evidence Alignment",
+      "Caption Loss",
+      "Semantic Alignment",
+      "Evidence Loss",
+      "Streaming–Commit Distillation",
+      "三十一、完整训练流程",
+      "Stage 0：Physical Pipeline Verification",
+      "Stage 1：Radar Motion Pretraining",
+      "Stage 2：Semantic–Evidence Event Alignment",
+      "Stage 3A：Physical Proposal Learning",
+      "Stage 3B：Semantic Difference Learning",
+      "Stage 3C：Closed-loop Candidate Calibration",
+      "Stage 3D：Boundary Calibration",
+      "Stage 4：Hierarchical Memory",
+      "Stage 5：Optional Joint Fine-tuning",
+      "三十二、Hierarchical Event Memory",
+      "Level 0",
+      "Level 1",
+      "Level 2",
+      "三十三、Memory Retrieval",
+      "三十四、完整 LLM 推理",
+      "三十五、推理状态机",
+      "三十六、数据缓存",
+      "三十七、评估体系",
+      "Proposal",
+      "Semantic Difference",
+      "Candidate Verification",
+      "Boundary",
+      "Language",
+      "Streaming",
+      "Memory",
+      "三十八、关键消融实验",
+      "三十九、实验追溯要求",
+      "四十、实现优先级",
+      "P0：先修复 Semantic Difference 数据",
+      "P1：One Candidate = One Episode",
+      "P2：Evidence Accumulator",
+      "P3：Boundary Localization",
+      "P4：Evidence Projection 接入",
+      "P5：Memory + Full LLM",
+      "四十一、v2.5 最终训练目标",
+      "四十二、论文核心方法表述"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法三/方案书v2.6.md",
+    "bytes": 67612,
+    "sha256": "915c0b9b3236d7abbf8e16842424d0b95aa84e40518bdbfaf718fa15ba78d027",
+    "headings": [
+      "毫米波连续行为预测驱动自主事件形成与分层语义记忆系统方案书",
+      "一、摘要与研究定位",
+      "1.1 研究目标",
+      "1.2 根本研究问题",
+      "1.3 三条技术主张（待验证）",
+      "二、相较 v2.5 的架构差异与保留边界",
+      "三、时间与输入契约",
+      "四、总体架构和职责边界",
+      "五、核心模块 A：Predictive Event State Model",
+      "5.1 定义两个状态演化函数",
+      "Reset 时间的严格含义",
+      "5.2 预测的先后顺序（防止未来泄漏）",
+      "5.3 Reset Policy",
+      "5.4 Event State 真正由决策改变",
+      "六、核心模块 B：Predictive Dynamics Head",
+      "6.1 结构建议",
+      "6.2 预测损失",
+      "6.3 准确预测是否必然导向动作事件？",
+      "七、核心模块 C：事件 Reset 的可微训练",
+      "7.1 Oracle 初始化，Closed-loop 主训练",
+      "7.2 硬前向、软反向",
+      "7.3 延迟决策和假设维持",
+      "八、监督如何构造：动作边界不是最终唯一目标",
+      "8.1 可用监督的角色",
+      "8.2 事件级边界约束，避免逐帧 BCE 的弊端",
+      "8.3 实例语义约束",
+      "8.4 事件复杂度与 MDL",
+      "九、六阶段训练计划（Stage 0–5）",
+      "Stage 0：Physical Pipeline & Frozen Baseline Audit",
+      "Stage 1：Predictive Event Representation Pretraining",
+      "Stage 2：Supervised Reset Initialization (Teacher Forcing)",
+      "Stage 3：Closed-loop Predictive Event Formation（论文核心）",
+      "Stage 4：Language-Grounded Event Alignment",
+      "Stage 5：Hierarchical Event Memory + LLM Reasoning",
+      "Stage 5+：可选 Joint Rate–Distortion Fine-tuning",
+      "十、在线推理状态机与算法",
+      "10.1 状态机",
+      "10.2 伪代码",
+      "十一、异步 Boundary Refinement 与状态一致性",
+      "11.1 从 Reset 时刻到真实边界",
+      "11.2 Reconciliation",
+      "十二、语义与压缩的明确分工",
+      "十三、实验设计与 Baselines",
+      "13.1 不可省略的主基线",
+      "13.2 关键消融",
+      "13.3 指标",
+      "低误报预算的公平性",
+      "十四、失败模式、可辨识性与安全回退",
+      "十五、工程实施、实验纪律与可复现规范",
+      "15.1 开发顺序（每步独立验收）",
+      "15.2 启动配置建议（不是经验最优）",
+      "15.3 元数据与纪律",
+      "十六、预注册 Go/No-Go 门槛（建议流程，不伪造数值）",
+      "十七、推荐落地方案与论文组织",
+      "17.1 MVP（应最先实现）",
+      "17.2 论文 Method 组织",
+      "17.3 可检验的论文主张",
+      "十八、六阶段损失计算契约",
+      "18.1 数据、符号与有效监督",
+      "18.2 共用 Gaussian NLL 与未来目标归一化",
+      "18.3 Stage 0：审计与可选物理预训练",
+      "18.4 Stage 1：预测预训练与表示保持",
+      "18.5 Stage 2：Keep/Birth 拟合与事件边界初始化",
+      "18.5.1 Stage 2A 条件分布拟合",
+      "18.5.2 Stage 2B Policy 与弱边界损失",
+      "18.6 Stage 3：闭环预测后果、实例语义与梯度路径",
+      "18.6.1 默认总目标与有效样本",
+      "18.6.2 真实梯度与干净消融",
+      "18.6.3 可选实例辅助，默认不要求复杂 Soft Matching",
+      "18.7 Stage 4：目标文本、语义对齐、证据与单向蒸馏",
+      "18.8 Stage 5：摘要、实例保留与 Temporal QA",
+      "18.9 数值稳定、日志与默认项",
+      "18.10 可训练模块与梯度验收表"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法五/G0-G2执行记录v1.0.md",
+    "bytes": 12275,
+    "sha256": "f2fa7239aa8147c5faac0113981bcba947b55f69bffbf00bf5ef9cb2820c0616",
+    "headings": [
+      "G0/G2执行记录",
+      "2026-10-19结果核验",
+      "2026-10-19提示词追查",
+      "2026-10-19终止机制诊断",
+      "2026-10-19固定前缀配对诊断",
+      "2026-10-19独立完成状态判断",
+      "2026-10-19冻结序列似然诊断与零更新雷达对照",
+      "2026-10-19既有0/100/200步检查点接口验证"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "计划/想法五/G0-G2验证实验设计v1.0.md",
+    "bytes": 19955,
+    "sha256": "d4b3238e01a5e1538d1cd45f1eaa29fb89ba66ebc5cda4c5c56e4cd46d63a55f",
+    "headings": [
+      "G0 / G2 验证实验设计 v1.0",
+      "1. 本轮要回答的问题",
+      "2. 为什么G2先使用未压缩历史",
+      "3. 数据与面板",
+      "3.1 已实际核查的数量",
+      "3.2 划分与开发纪律",
+      "3.3 连续输入及参考序列",
+      "4. G0：分清语言读出、雷达对齐和潜在读出",
+      "4.1 先固定读出方式",
+      "4.2 G0实验矩阵",
+      "4.3 训练与诊断",
+      "5. G2：共享权重的E0–E4主实验",
+      "5.1 共用适配，避免谁被训练过谁占优",
+      "5.2 固定实验臂",
+      "5.3 逐轮与机制检查",
+      "6. 顺序与重复的负对照",
+      "7. 统一指标，先修正现有口径",
+      "8. 预算建议及结果判读",
+      "8.1 建议的两段预算",
+      "8.2 有效性证据与失败解释",
+      "9. 与现有代码的对应及尚需补齐"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "计划/想法五/G0诊断结果与G2准入结论v1.0.md",
+    "bytes": 9012,
+    "sha256": "8b235e714aa83e7fe408c29058b0566a1ae164ed2473cddc1e08c270c0237ad2",
+    "headings": [
+      "G0诊断结果与G2准入结论",
+      "实际执行",
+      "雷达直接读出结果",
+      "Text Oracle结果",
+      "工程与证据核验",
+      "下一轮应验证的问题",
+      "文件定位",
+      "2026-10-19后续诊断更新",
+      "2026-10-19均衡候选与检查点验证更新"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法五/代码落地建议v1.0.md",
+    "bytes": 17411,
+    "sha256": "f188b1105a3d7259c15bac87f6c2d1951671482e1ab44b940b7a0ffb770bc354",
+    "headings": [
+      "无显式动作分段方案：代码落地建议 v1.0",
+      "1. 建议采用的路线",
+      "2. 已核实的项目基础",
+      "3. 新链路与复用边界",
+      "4. 必须新增的核心模块",
+      "4.1 连续时间三尺度记忆",
+      "4.2 冻结 LLM 后端与 Bootstrap",
+      "4.3 逐轮检索与演化",
+      "5. 数据与训练建议",
+      "5.1 必须区分输入和监督",
+      "5.2 连续描述监督的缺口",
+      "5.3 首轮训练范围",
+      "6. 建议文件组织",
+      "7. 推荐实施顺序与验收",
+      "8. 实现前应明确的设计选择"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "计划/想法五/固定前缀结束继续配对诊断v1.0.md",
+    "bytes": 7554,
+    "sha256": "b021953a787065e510d021530e8e9f2b5783d516c12faab5b08d5c1ed2b228c7",
+    "headings": [
+      "固定前缀的结束/继续配对诊断",
+      "固定实验",
+      "观测量",
+      "主结果",
+      "重复惩罚为什么会改变结束倾向",
+      "重复结构与前缀长度",
+      "与历史错误的对应",
+      "对下一步的约束",
+      "文件和校验"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法五/完成状态独立判断诊断v1.0.md",
+    "bytes": 7212,
+    "sha256": "442f523740d619dcb6989a4967911062bfac4179ff40ab7afdbd8e748525ebd3",
+    "headings": [
+      "完成状态独立判断诊断",
+      "主实验设计",
+      "主结果",
+      "固定的诊断问题",
+      "事后最小测量校验",
+      "对已有诊断的解释",
+      "证据和验证"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法五/实现记录v1.0.md",
+    "bytes": 3654,
+    "sha256": "69c9c616a954a8e9f3a1b61f251a64d523dc811c479d11a212e918767b9989aa",
+    "headings": [
+      "latent_memory 实现记录"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "计划/想法五/序列似然诊断v1.0.md",
+    "bytes": 12270,
+    "sha256": "f4be314fdc363fcdd0b986c46734b3c7dd4907a06c1ccb7e1b95ac0c2abd6235",
+    "headings": [
+      "冻结Qwen序列似然诊断 v1.0",
+      "评分前锁定（2026-10-19）",
+      "执行与结果",
+      "雷达对照的评分前锁定",
+      "文本结果：存在可用的序列区分能力",
+      "零更新雷达结果：有证据响应，尚未稳定恢复全部序列结构",
+      "下一步与准入结论",
+      "可复核文件"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法五/提示词与解码对照结果v1.0.md",
+    "bytes": 6083,
+    "sha256": "435cd7b76e8e7c2b2a553148102e2c7386d4d6aaabad9d3f76dfbbb5fe97f537",
+    "headings": [
+      "提示词与解码对照结果",
+      "固定对照",
+      "两个额外发现",
+      "本轮实测的新文本提示",
+      "对实验结论的更新",
+      "证据与复核"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法五/方案书v1.0.md",
+    "bytes": 10336,
+    "sha256": "f1a2c1e8ace99878b44957df65e21debfc49d029f76fb5d11d8f910ab342fdd5",
+    "headings": [
+      "无显式动作分段的毫米波连续行为描述方案书",
+      "一、研究目标",
+      "二、已确定的总体思想",
+      "三、总体架构",
+      "四、模块与信息流",
+      "4.1 Radar Encoder",
+      "4.2 Hierarchical External Memory",
+      "4.3 三组 LMT 及访问范围",
+      "4.4 Bootstrap Forward Pass",
+      "4.5 Hierarchical Latent Memory Evolution（HME）",
+      "4.6 LLM 连续行为描述",
+      "五、工作时序",
+      "六、MVP 验证范围",
+      "七、尚未确认，因此不纳入 v1.0 的细节",
+      "八、当前方案边界与后续决策"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法五/终止机制诊断v1.0.md",
+    "bytes": 8616,
+    "sha256": "caa329ca467b1376c0001cf15e1c0ffaac86566e6ef98fe0395219aa908177b4",
+    "headings": [
+      "终止机制诊断",
+      "统计口径",
+      "A/B分解",
+      "两个具体样本",
+      "真实语法验收",
+      "错误样本的边界回放",
+      "另发现的结束Token兼容性问题",
+      "后续处理顺序",
+      "交付文件"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法五/雷达语义接口检查点对照v1.0.md",
+    "bytes": 13697,
+    "sha256": "dc867644abf1a9124c5328b6aac4493ed5d077e40d477298075bac73f12ee027",
+    "headings": [
+      "雷达语义接口检查点对照 v1.0",
+      "评分前方案（2026-10-19）",
+      "执行台账",
+      "结果：新增窗口未显示稳定的序列区分训练收益",
+      "相同新候选的文本基线",
+      "真实答案分数与区分margin的变化不同",
+      "配对统计：区分“训练后有响应”与“响应源于正确证据”",
+      "EOS、长度与非等Token",
+      "研究判断与下一步",
+      "证据与核验"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法六/方案书v1.0.md",
+    "bytes": 43135,
+    "sha256": "83d23d1f8a1c3cc20a676ddb3f1a5508744e59599160df8191a4fe59493248f2",
+    "headings": [
+      "SAEF：Spiking-inspired Adaptive Event Formation",
+      "面向毫米波连续人体行为描述的语义证据驱动自适应事件形成方法",
+      "一、研究背景与目标",
+      "1.1 研究背景",
+      "1.2 研究目标",
+      "二、核心研究思想",
+      "2.1 三个核心机制",
+      "机制一：Semantic Evidence Accumulation",
+      "机制二：Adaptive Event Firing",
+      "机制三：Retrospective Event Formation",
+      "2.2 两种状态必须分离",
+      "三、整体系统架构",
+      "四、模块一：Causal Radar Encoder",
+      "4.1 输入形式",
+      "4.2 网络设计",
+      "4.3 时间设置",
+      "4.4 编码器训练策略",
+      "五、模块二：Event Content State",
+      "5.1 为什么需要独立事件状态？",
+      "5.2 状态更新",
+      "5.3 固定语义参照与动态状态",
+      "5.4 事件内部信息保留",
+      "六、模块三：Semantic Evidence Estimator",
+      "6.1 核心问题",
+      "6.2 网络内部结构",
+      "6.3 物理属性输入",
+      "6.4 可靠性控制",
+      "七、模块四：Leaky Integrate-and-Fire Event Controller",
+      "7.1 为什么引入漏电？",
+      "7.2 发火条件",
+      "7.3 漏电如何影响发火？",
+      "7.4 发火后如何重置？",
+      "7.5 漏电时间常数",
+      "7.6 不应期和自适应阈值",
+      "八、模块五：Retrospective Boundary Localization",
+      "8.1 发火时刻不等于事件边界",
+      "8.2 短时缓存",
+      "8.3 边界估计",
+      "8.4 状态修正",
+      "九、模块六：Global-Detail Event Tokenizer",
+      "9.1 为什么一个 Event Token 不够？",
+      "9.2 Token 结构",
+      "9.3 Global Token",
+      "9.4 Detail Tokens",
+      "9.5 事件输出",
+      "十、模块七：Hierarchical Event Memory",
+      "10.1 为什么还需要记忆？",
+      "10.2 三层记忆设计",
+      "L0：Recent Event Memory",
+      "L1：Mid-term Event Memory",
+      "L2：Long-term Summary Memory",
+      "十一、模块八：LLM 语言生成",
+      "11.1 语言生成接口",
+      "11.2 暂定描述与最终描述",
+      "11.3 描述可靠性",
+      "十二、训练方案",
+      "Stage 0：建立固定基线",
+      "Stage 1：训练 Event Semantic Representation",
+      "Stage 2：训练 Semantic Evidence Estimator",
+      "设置 A：有真实边界监督",
+      "设置 B：只有动作顺序弱监督",
+      "Stage 3：训练 LIF 发火决策",
+      "关键训练原则",
+      "Stage 4：训练 Boundary Localization 与 Event Tokenizer",
+      "Stage 5：Language Alignment",
+      "十三、在线推理过程",
+      "13.1 长时间静止",
+      "13.2 周期动作",
+      "13.3 流结束时的最后事件",
+      "13.4 复杂动作和重叠动作",
+      "十四、实验设计",
+      "14.1 数据集选择",
+      "第一阶段：HARrad",
+      "第二阶段：PARrad",
+      "第三阶段：自采数据",
+      "14.2 对照基线",
+      "14.3 核心评测指标",
+      "14.4 预注册的最小通过标准",
+      "十五、参数与实施配置",
+      "十六、主要风险和回退策略",
+      "风险一：语义证据退化为运动变化检测",
+      "风险二：漏电导致缓慢动作漏检",
+      "风险三：训练得到的软发火与推理硬发火不一致",
+      "风险四：事件数量正确但边界错误",
+      "风险五：弱监督对齐不稳定",
+      "风险六：Event Token 与 LLM 语义空间不对齐",
+      "风险七：事件数量增长导致记忆成本上升",
+      "风险八：事件驱动不一定带来系统级节能",
+      "十七、预期创新点",
+      "创新点一：Semantic Evidence-driven Neural Firing",
+      "创新点二：Decoupled Event Content and Firing Dynamics",
+      "创新点三：Event-driven Language Grounding",
+      "十八、研究实施路线",
+      "Phase A：验证 LIF 机制",
+      "Phase B：验证语义证据机制",
+      "Phase C：边界与事件表示",
+      "Phase D：语言生成",
+      "十九、论文核心论点",
+      "二十、相关技术参考",
+      "二十一、版本结论"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "计划/想法六/最小可行架构.md",
+    "bytes": 20825,
+    "sha256": "8751ee78c4aacac0610eb456babae511f22f8f68742b526c9728e1d5aa2cf69d",
+    "headings": [
+      "SAEF-MVP v0.1：HARrad 连续雷达事件形成可行性验证方案书",
+      "1. 核心研究问题",
+      "1.1 实验的监督设定",
+      "2. 总体网络结构",
+      "3. 模块一：Frozen RD Encoder",
+      "3.1 输入",
+      "3.2 编码器",
+      "3.3 复用要求",
+      "4. 模块二：Event State Updater",
+      "4.1 作用",
+      "4.2 最小实现",
+      "4.3 更新规则",
+      "4.4 额外限制",
+      "5. 模块三：Semantic Evidence Estimator",
+      "5.1 输入",
+      "5.2 网络结构",
+      "5.3 辅助语义监督",
+      "5.4 为什么称为 Semantic Evidence？",
+      "6. 模块四：IF/LIF Controller",
+      "6.1 无漏电 IF/CIF-style 基线",
+      "6.2 LIF 模型",
+      "6.3 发火后的状态",
+      "6.4 为什么使用时间感知积分？",
+      "7. 模块五：Event Readout",
+      "7.1 事件形成",
+      "7.2 动作类别",
+      "7.3 未标注区间处理",
+      "8. 训练方法",
+      "Stage 0：数据与冻结特征审计",
+      "Stage 1：训练动作语义头",
+      "Stage 2：训练 Evidence MLP",
+      "Stage 3：训练与标定发火控制器",
+      "Stage 4：完整闭环验证",
+      "9. 对照实验与消融",
+      "10. 评估指标",
+      "10.1 主指标：事件形成质量",
+      "10.2 辅助指标：动作序列",
+      "10.3 诊断指标",
+      "11. 初始超参数",
+      "12. 可行性判据",
+      "G1：漏电有效性",
+      "G2：语义状态有效性",
+      "G3：在线行为合理性",
+      "G4：动作语义可读性",
+      "13. 实施顺序与交付物",
+      "P0：检查数据与特征",
+      "P1：建立 B0、B1",
+      "P2：验证 B2",
+      "P3：验证 B3",
+      "P4：Go / No-Go 结论",
+      "14. 本次不做的内容",
+      "15. 结果判断与下一步"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法六/毫米波连续行为理解：LIF事件门 + LLM描述生成 方案书（草案）.md",
+    "bytes": 43765,
+    "sha256": "2abc55d744910d9345075796210f9abfb0933431dec51e0a3e5a5ffaf8d40aff",
+    "headings": [
+      "毫米波连续行为理解：LIF 事件门 + LLM 描述生成 方案书（草案）",
+      "1. 研究背景与目标",
+      "2. 核心研究思想",
+      "3. 整体系统架构",
+      "4. 模块详细设计",
+      "4.1 A：因果雷达编码器",
+      "4.2 B：LIF 事件门（核心）",
+      "4.3 C：事件到 LLM 的接口",
+      "4.4 D：提交规则（不训练）",
+      "5. 数据方案",
+      "5.1 PARrad（已有）",
+      "5.2 自采数据（雷达加深度相机）",
+      "6. 训练方案",
+      "7. 在线推理过程",
+      "8. 实验设计",
+      "8.1 基线",
+      "8.2 指标",
+      "8.3 消融（每次只改一个变量）",
+      "8.4 预注册与统计",
+      "9. 参数配置",
+      "10. 主要风险与应对策略",
+      "11. 预期创新点与投稿定位",
+      "12. 研究实施路线与待定项",
+      "13. 我认为存在的问题",
+      "14. claude提出的解决方案"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法六/相关工作.md",
+    "bytes": 17862,
+    "sha256": "9d718c43a83c6cebd7e83507f5b7d54d3071bb8d5c73b16238e6866d30bfd032",
+    "headings": [
+      "相关工作：SNN 用于连续动作识别",
+      "0. 结论先行",
+      "1. 先厘清任务类型",
+      "2. 最接近连续动作的工作（视频 / 事件相机）",
+      "2.1 KDSNN：把 SNN 用于在线视频动作理解",
+      "2.2 SpikeTAD：SNN 可以预测动作起止时间",
+      "2.3 DVS-Gesture-Chain：最值得关注的时序思想",
+      "2.4 EEvAct 与 TrueNorth",
+      "2.5 Wi-Spike 与 PAS-Net（其他模态）",
+      "3. 毫米波雷达 + SNN",
+      "3.1 Frequency Matching：对本课题最有价值",
+      "3.2 Hybrid Radar SNN：容易落地的结构",
+      "4. 骨架动作识别 + SNN",
+      "5. 为什么 SNN 适合连续动作，却不能直接给出边界",
+      "5.1 能检测变化，但变化不等于动作切换",
+      "5.2 单个 LIF 神经元不知道自己属于哪个动作",
+      "6. 创新点定位",
+      "7. 对方案的影响",
+      "7.1 最小验证结构",
+      "7.2 消融设计",
+      "7.3 合成数据预训练",
+      "7.4 能耗表述",
+      "8. 精读顺序"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": "计划/想法六/雷达可观测性引导的运动结构预训练方案书.md",
+    "bytes": 45101,
+    "sha256": "598978ae9aea4e3c2b284891f0a81b4ee371f0a08d33fb50180c2f8583793e78",
+    "headings": [
+      "ROMSL：雷达可观测性引导的运动结构预训练",
+      "0. 一页执行合同（先看这里）",
+      "0.1 只验证一个核心假设",
+      "0.2 必须执行的四个实验",
+      "0.3 完成条件",
+      "1. 为什么这样设计？",
+      "2. 数据集、目录和数据切分",
+      "2.1 数据来源（已核实的官方格式）",
+      "2.2 预期文件路径",
+      "2.3 固定数据划分——只做 E01 pilot",
+      "2.4 训练覆盖范围与下游动作类别",
+      "3. 阶段 P0：数据与几何审计（没有通过就不训练）",
+      "3.1 `scripts/01_audit_data.py` 做什么",
+      "3.2 P0G：骨架→雷达几何闸门",
+      "3.3 时间对应闸门",
+      "4. 阶段 P1：样本生成和数据契约",
+      "4.1 输入窗口",
+      "4.2 输入标准化",
+      "4.3 有效帧和丢弃策略",
+      "5. 阶段 P2：从骨架生成四组监督目标",
+      "5.1 统一符号及关节定义",
+      "configs/joints.yaml —— 候选；必须人工确认后 verified:true",
+      "5.2 实验 A：Pose Coordinate Regression",
+      "5.3 实验 B：方向无关的 Motion Magnitude",
+      "5.4 实验 C：Radar-Observable Radial Motion",
+      "5.5 实验 D：C + 动态回波支持度加权",
+      "5.6 全部实验统一的损失归一化",
+      "sum over each (frame, component) 有效元素，并归一化总权重",
+      "5.7 标签缓存和产物",
+      "6. 阶段 P3：模型与张量契约",
+      "6.1 同一主干（A/B/C/D 共享）",
+      "6.2 前向接口",
+      "6.3 模型检查",
+      "7. 阶段 P4：训练流程（如何实际运行）",
+      "7.1 固定超参数",
+      "7.2 必须先完成的 smoke test",
+      "7.3 一轮训练要保存的日志",
+      "7.4 标准运行顺序及 CLI（待开发的稳定接口）",
+      "① 检查环境",
+      "② 原始数据审计",
+      "③ 构建窗口 manifest、目标缓存、训练集标准化",
+      "④ 合成单元测试 + 小样过拟合",
+      "⑤ 主训练 A/B",
+      "⑥ 仅当几何与列语义核验通过后运行 C/D",
+      "⑦ 锁定各组 best Encoder 后，使用相同冻结探针协议",
+      "⑧ 全部实验配置锁定后，单次运行 test 并汇总",
+      "8. 阶段 P5：统一的冻结编码器评估（论文主结果）",
+      "8.1 公平性原则",
+      "8.2 八类动作分类探针（**主要指标**）",
+      "8.3 共同运动属性回归探针（**次指标**）",
+      "8.4 可选的径向运动探针（只有几何通过才报告）",
+      "8.5 结果表模板（不得预填虚构指标）",
+      "9. 合成测试与失败退出规范（交付时必须有）",
+      "9.1 数据闸门退出码",
+      "10. 目录、开发任务及文件接口",
+      "10.1 工程目录（按这个清单交付）",
+      "10.2 接口合同（不应由开发者再自由决定）",
+      "10.3 建议配置模板",
+      "10.4 分阶段任务清单（开发者逐项打勾）",
+      "11. 实验风险、可能反例及论文表述边界",
+      "12. 参考资料、确定事实与设计假设",
+      "附录：交给 Codex 的单条实施指令"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "计划/想法六/骨架监督的新想法.md",
+    "bytes": 56093,
+    "sha256": "2cbca11f75321f8706201c9d49dff43c7afcbfb8cc332c27885c8729b24951cb",
+    "headings": [
+      "一、先看现有研究已经做到哪里",
+      "二、想法一：雷达可观测性引导的运动结构学习",
+      "1. 发现的问题",
+      "2. 我的想法",
+      "3. 怎样形成真正的模型？",
+      "4. 创新潜力在哪里？",
+      "三、想法二：从单个关节监督转向身体部位之间的运动关系",
+      "1. 发现的问题",
+      "2. 我的想法：Motion Relation Graph",
+      "3. 为什么值得做？",
+      "四、想法三：不再监督“运动状态”，而是监督“运动状态发生了什么变化”",
+      "1. 研究动机",
+      "2. 具体怎么做？",
+      "3. 为什么要使用多时间尺度？",
+      "4. 这个方向的潜在创新",
+      "五、想法四：将运动内容与雷达观测条件解耦",
+      "1. 发现的问题",
+      "六、如果让我设计一套真正值得实验的方案",
+      "Radar-Observable Motion Structure Learning",
+      "七、应该如何验证这些想法？",
+      "八、我的优先级判断"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "reports/parrad_preprocessing_audit.md",
+    "bytes": 40170,
+    "sha256": "a00a2df6a09ccb4be409b1dd397f234c3f5a3ac77404fafc4a0b7363d5c0003e",
+    "headings": [
+      "PARrad 数据预处理完整审计\r",
+      "1. 先给结论\r",
+      "2. 范围、样本与只读保证\r",
+      "3. 官方资料与实际发布文件必须分开\r",
+      "4. 实际数据链路和执行配置\r",
+      "5. A/B/C 分布、官方数据属性与时频结构\r",
+      "6. RD 与 MD 的生成关系\r",
+      "7. P0–P3 的输入分布诊断\r",
+      "8. 重复处理、对齐、Padding 与统计泄漏检查\r",
+      "9. 潜在问题排序\r",
+      "10. 最小受控消融建议与是否重训 Stage1\r",
+      "11. 产物、复现与限制\r",
+      "附录：原始数据逐录制统计\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "reports/parrad_signed_log_ablation.md",
+    "bytes": 11125,
+    "sha256": "2eb4c9100d26b4be337a003a9725bb98081c3f24fedda49d24971c23639dc739",
+    "headings": [
+      "PARrad Signed-Log P0/P1 严格受控消融\r",
+      "结果检查结论（2026-10-14）\r",
+      "实验目的与固定设置\r",
+      "代码修改\r",
+      "Seed 17\r",
+      "逐受试者\r",
+      "逐设备\r",
+      "14 类评价\r",
+      "重点类别混淆变化\r",
+      "机制解释与最终判断\r",
+      "结果限制\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "reports/romsl_cd_validation/report.md",
+    "bytes": 3175,
+    "sha256": "a58194f6b7210f52ea8d885f37e01dcf957c2a9d91c954568181441fb763701a",
+    "headings": [
+      "ROMSL C 与 D 组预备代码验收",
+      "C 组",
+      "D 组",
+      "合成权重诊断",
+      "导出闸门"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "reports/romsl_formal/report.md",
+    "bytes": 3523,
+    "sha256": "4a00e9e63a77c29bf2d9072332864f282012721882fbdbd8810243e8a4270247",
+    "headings": [
+      "ROMSL E01 A/B 首轮实验\r",
+      "测试受试者\r",
+      "共同运动属性误差\r",
+      "实现选择与限制\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "reports/romsl_proxy_cd/report.md",
+    "bytes": 3883,
+    "sha256": "6cc090814c0226fb901d4902440e1a2f51826f572a5e9424101be1e511cba2be",
+    "headings": [
+      "C_proxy 与 D_proxy 实验结果\r",
+      "固定协议\r",
+      "三种子比较\r",
+      "D 的退化检查\r",
+      "少样本动作探针\r",
+      "结论\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "reports/romsl_proxy_geometry/report.md",
+    "bytes": 3988,
+    "sha256": "977b175a94c112be457911abe383f951e29aaad6995603f5402469992f0f45bc",
+    "headings": [
+      "E01 数据驱动外参候选\r",
+      "候选变换\r",
+      "方法和验证\r",
+      "对 C 组的意义\r",
+      "结论与限制\r",
+      "文件\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "reports/romsl_random/report.md",
+    "bytes": 3124,
+    "sha256": "1c69a5e118ef9c82452d252f5df1f820b3e964d7b07e0c9784ab8e55f6d05c25",
+    "headings": [
+      "ROMSL 随机编码器补充诊断与几何核验",
+      "几何核验",
+      "数据版本记录",
+      "实验文件"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": "reports/romsl_results_audit/report.md",
+    "bytes": 5901,
+    "sha256": "2c4691ff8481705f632ab89f5f60005b835d94f126d56b6a15b176cbf8668bb3",
+    "headings": [
+      "ROMSL 结果审计\r",
+      "实际运行链路\r",
+      "数值证据\r",
+      "帧间隔与绝对单位证据\r",
+      "P1 固定协议\r",
+      "P1 补充稳定性结果\r"
+    ],
+    "used_as_primary": true
+  },
+  {
+    "path": ".superpowers/sdd/2026-09-17-parrad-front-end/progress.md",
+    "bytes": 11214,
+    "sha256": "81afe3e26b5e3965a65e36aa090a82c8428a7fd624f33d7817e7e4fff7342543",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-09-17-parrad-front-end.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-09-23-stage2-event-former-bootstrap/progress.md",
+    "bytes": 13435,
+    "sha256": "a87dc31594d8a88f8e4b42130af9351470f13438c54d2ed65b201b1a99f8c759",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-09-23-stage2-event-former-bootstrap.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-09-24-parrad-stage3-transition/progress.md",
+    "bytes": 15896,
+    "sha256": "ad0bc7127b62f24b07367db43deb511fc6f913a6fd29b9aa8eb6b6b773adc0c1",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-09-24-parrad-stage3-transition.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-09-27-stage3-training-corrections/progress.md",
+    "bytes": 4868,
+    "sha256": "389bb82584722bed7ad01ef681b12922c9d658c71a132c537283707d5312f901",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-09-27-stage3-training-corrections.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-09-29-stage3-verify-candidate-audit/progress.md",
+    "bytes": 8219,
+    "sha256": "6ec6604ecd88dadc1110318bba6619c72d5ce495d77c1599ccdf1361f1ffec6d",
+    "headings": [
+      "SDD ledger — plan: D:/lab/SEER/docs/superpowers/plans/2026-09-29-stage3-verify-candidate-audit.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-04-stage4-chat-qa-pilot/progress.md",
+    "bytes": 3148,
+    "sha256": "6267cb76f12b8e5cc0a9a9d666930815a2c4b498220f64edc7d4ff2a1b63b724",
+    "headings": [],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-04-stage4-memory-pilot/progress.md",
+    "bytes": 4282,
+    "sha256": "3f3cf1c7cde4877ca83f0912d1041ad22215ddeb3f643bfcf9d2f36226fd966c",
+    "headings": [],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-05-stage4-event-boundary-qa/progress.md",
+    "bytes": 4429,
+    "sha256": "cf885c31446939c03f5feff62df528fe7a55e29e4716f8fde9af2d793906e9ef",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-05-stage4-event-boundary-qa.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-05-stage4-short-context-qa/progress.md",
+    "bytes": 3734,
+    "sha256": "fbd7e8564b04870aa93b4129297b860a4203185956f10a44d6b047261ecb087c",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-05-stage4-short-context-qa.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-05-stage4-single-event-qa/progress.md",
+    "bytes": 4894,
+    "sha256": "c0258b3b03530753dd6cb21e03683f61c4087ff6a6aae460b42233fc93374ecc",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-05-stage4-single-event-qa.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-14-v26-p0-p1-prediction/progress.md",
+    "bytes": 8726,
+    "sha256": "31dc67690366f8bec7e363dfdb22cbb7870196a55c2f17b7fede45da763b957e",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-14-v26-p0-p1-prediction.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-15-v26-p1/progress.md",
+    "bytes": 3658,
+    "sha256": "d844e8112add6cff88724a068d4aa74533705afe47ec8635c617ec876a355f1f",
+    "headings": [
+      "P1-A / P1-B execution ledger"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-15-v26-p1c/progress.md",
+    "bytes": 4671,
+    "sha256": "7620e6f1705ac5497f211cec2ab84c580ec0d3fb37c7d762a6d8449edb49d4ad",
+    "headings": [
+      "P1-C full causal replay preparation"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-15-v26-p1c-execution/progress.md",
+    "bytes": 8953,
+    "sha256": "c8f405d0c91012af830ed7f1a5210696b69ae474c2c999b0a416916535727cd7",
+    "headings": [
+      "P1-C execution ledger"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-15-v261-joint-pretraining/progress.md",
+    "bytes": 10098,
+    "sha256": "7e724225b82f4cdbad2741dbb1ef5d99fa7f008ba06641aa27e1be2ea92ac5b3",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-10-15-v261-joint-pretraining.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-15-v261-preparation/progress.md",
+    "bytes": 1563,
+    "sha256": "af27765b89c4016347d987533edad4d96c7789d97e6e9284a9abb94901e7fc54",
+    "headings": [
+      "v2.6.1 设计与实施准备"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-16-v261-clip-review/progress.md",
+    "bytes": 2605,
+    "sha256": "44ca05213e0746bab24d057770ddbeeddf00e3e7e4b8176fd7032296c622a623",
+    "headings": [
+      "Clip review ledger — 2026-10-16"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-10-16-v261-semantic-diagnostic/progress.md",
+    "bytes": 3877,
+    "sha256": "15a7f0667d84b98f9acb6dbfd78cfd1233313522fb6672cbcdb58c3c32c977dd",
+    "headings": [
+      "Diagnostic ledger — docs/v261-joint-diagnosis-next-steps-2026-10-16.md item1"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-11-05-harrad-stage1-diagnostic/progress.md",
+    "bytes": 3771,
+    "sha256": "1fed21ed9db4db3edfbd720ff2f4ee8518d5bc1731dbc036e4794b73141e2f7e",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-11-05-harrad-stage1-diagnostic.md"
+    ],
+    "used_as_primary": false
+  },
+  {
+    "path": ".superpowers/sdd/2026-11-06-experiment2-resets/progress.md",
+    "bytes": 4569,
+    "sha256": "2cb2c94eb39916d5b21faf99e883842ac8387d8ec54ad87159e673dc33e4a748",
+    "headings": [
+      "SDD ledger — plan: docs/superpowers/plans/2026-11-06-experiment2-resets.md"
+    ],
+    "used_as_primary": false
+  }
+]

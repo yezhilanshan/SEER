@@ -1,0 +1,2 @@
+{'valid_frames': 48055, 'empty_or_invalid_frames': 59, 'weight_formula': '.25 + .75 * clip(dynamic_ratio/.25,0,1)', 'dynamic_threshold_mps': 0.1, 'diagnostic_std_floor': 0.001, 'diagnostic_near_one_fraction_limit': 0.95, 'status': 'LOW_DIAGNOSTIC_VARIATION', 'mean': 1.0, 'std': 0.0, 'min': 1.0, 'max': 1.0, 'p05_p50_p95': [1.0, 1.0, 1.0], 'fraction_near_one': 1.0, 'effective_weight_sum': 48055.0}
+{"suite": "/home/xbdx/SEER/experiments/romsl_proxy_cd_20261106_3K2GFI", "pid": 399565, "physical_gpu": 1}

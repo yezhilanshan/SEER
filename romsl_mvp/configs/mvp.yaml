@@ -1,0 +1,40 @@
+{
+  "data": {
+    "scene": "E01",
+    "fps": 10,
+    "splits": {
+      "train": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "val": [
+        "S07",
+        "S08"
+      ],
+      "test": [
+        "S09",
+        "S10"
+      ]
+    },
+    "probe_actions": [
+      "A03",
+      "A06",
+      "A12",
+      "A13",
+      "A14",
+      "A17",
+      "A18",
+      "A26"
+    ]
+  },
+  "audit": {
+    "frame_index_reference": "https://github.com/ybhbingo/MMFi_dataset/blob/main/mmfi_lib/mmfi.py",
+    "pose_unit": "m",
+    "doppler_verified": false,
+    "pose_unit_evidence": "Nominal meters inferred from released skeleton numeric scale and paper camera-world description: median upper/lower arm segments ~0.252, leg ~0.385, upright height ~1.5-1.6, depth ~3.1. No scale conversion applied. Absolute metrological accuracy unverified."
+  }
+}

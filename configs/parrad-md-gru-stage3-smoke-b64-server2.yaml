@@ -1,0 +1,63 @@
+model:
+  encoder_type: causal_md_gru
+  frame_period_s: 0.09
+  frames_per_update: 2
+  rd_channels: 1
+  rd_height: 93
+  rd_width: 128
+  md_bins: 128
+  radar_dim: 256
+  motion_dim: 128
+  radar_tokens_per_update: 4
+  sensor_vocab_size: 2
+  use_sensor_embedding: true
+  fusion_heads: 8
+  md_gru_dim: 128
+  event_tokens: 8
+  llm_dim: 896
+  llm_layers: 4
+  llm_heads: 14
+  cross_attn_dim: 512
+  cross_attn_heads: 8
+  cross_attention_init_scale: 0.001
+  event_state_initial_update: 0.1
+  semantic_dim: 128
+  lora_rank: 16
+  max_commit_radar_tokens: 256
+  dropout: 0.1
+data:
+  train_manifest: /usr/local/yzy/keyan2/datasets/PARrad/canonical/phase1/train.jsonl
+  validation_manifest: /usr/local/yzy/keyan2/datasets/PARrad/canonical/phase1/validation.jsonl
+  test_manifest: /usr/local/yzy/keyan2/datasets/PARrad/canonical/phase1/test.jsonl
+training:
+  seed: 42
+  device: auto
+  amp: true
+llm:
+  backend: qwen2
+  name_or_path: /usr/local/yzy/keyan2/models/Qwen2.5-0.5B-Instruct
+  torch_dtype: float16
+stage:
+  variant: parrad
+  num_classes: 14
+  stage1_checkpoint: /usr/local/yzy/keyan2/datasets/PARrad/outputs/stage1_causal_md_gru_token_warmup/radar_encoder.pt
+stage3:
+  cache_dir: /usr/local/yzy/keyan2/datasets/PARrad/cache/stage3_transition_from_stage2_b64_v1
+  stage2_checkpoint: /usr/local/yzy/keyan2/datasets/PARrad/outputs/stage2_event_joint_formal_v1/best.pt
+  output_dir: /usr/local/yzy/keyan2/datasets/PARrad/outputs/stage3_transition_from_stage2_b64_smoke_v1
+  audit_path: /usr/local/yzy/keyan2/datasets/PARrad/audit/stage3_transition_from_stage2_b64_v1.json
+  seed: 42
+  batch_size: 16
+  learning_rate: 0.001
+  weight_decay: 0.01
+  epochs_physical: 1
+  epochs_semantic: 1
+  epochs_verify: 1
+  early_stopping_patience: 1
+  grad_clip_norm: 1.0
+  prototype_dim: 128
+  sigma_boundary_s: 0.36
+  tau_fast_s: 2.0
+  tau_stability: 0.1
+  reject_timeout_s: 1.8
+  maturity_seconds: 1.2

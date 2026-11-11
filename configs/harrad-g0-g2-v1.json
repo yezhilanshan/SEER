@@ -1,0 +1,7 @@
+{
+  "base_config": "configs/harrad-latent-memory-v1.json",
+  "pilot_size": 32,
+  "pilot_steps": 200,
+  "formal_steps": 1000,
+  "max_new_tokens": 512
+}

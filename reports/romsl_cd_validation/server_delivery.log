@@ -1,0 +1,16 @@
+{
+  "mode": "readiness",
+  "labels_emitted": false,
+  "geometry_status": "BLOCKED_GEOMETRY",
+  "doppler_status": "BLOCKED_DOPPLER",
+  "geometry_reason": "BLOCKED_GEOMETRY: verified must be true after review",
+  "doppler_reason": "BLOCKED_DOPPLER: field and sign verification required",
+  "export_status": "BLOCKED",
+  "C_ready": false,
+  "D_semantics_ready": false,
+  "D_weight_status": "UNMEASURED",
+  "D_ready": false
+}
+VERIFIED_SERVER_GATE
+PACKAGE_DIR=/home/xbdx/SEER/experiments/romsl_cd_ready_20261105_oAxFyh
+SOURCE_FILES=38

@@ -1,0 +1,85 @@
+{
+  "status": "PASS_COMPUTATION",
+  "audited_recordings": 270,
+  "B_formula_max_absolute_error": 4.705761664780539e-07,
+  "B_dimension_order": [
+    "root_speed",
+    "left_arm",
+    "right_arm",
+    "left_leg",
+    "right_leg"
+  ],
+  "dt_sec": 0.1,
+  "coordinates_scaled_before_differentiation": false,
+  "input_stats_recomputed_training_points": 1646870,
+  "known_motion_test": {
+    "displacement_per_frame": 0.1,
+    "dt_sec": 0.1,
+    "speed": 1.0,
+    "speed_at_dt_point2": 0.5
+  },
+  "MAE_dimension": "coordinate_unit / second",
+  "MAE_if_pose_unit_is_m": "m/s",
+  "absolute_pose_unit_status": "Nominal meters, supported by scale and community comment; authoritative calibration not supplied",
+  "mean": [
+    0.16233367365341594,
+    0.40557435133748215,
+    0.4092722386157854,
+    0.133964762463303,
+    0.13452520410712787
+  ],
+  "std": [
+    0.26280762787044193,
+    0.4282218932871112,
+    0.4248315713680913,
+    0.17876189306456028,
+    0.17614594591654306
+  ],
+  "target_stats_subjects": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06"
+  ],
+  "independent_MAE_replays": {
+    "A": {
+      "original": [
+        0.12770612065516446,
+        0.21870049060154706,
+        0.22508874606195145,
+        0.08909062105665728,
+        0.091821998186946
+      ],
+      "independent": [
+        0.12770611760838732,
+        0.21870049875038472,
+        0.2250887259435706,
+        0.08909063006797127,
+        0.09182199301704909
+      ],
+      "mean_mae": 0.15048159307747258,
+      "max_component_delta": 2.0118380850142614e-08
+    },
+    "B": {
+      "original": [
+        0.1210718843982401,
+        0.2033824703387381,
+        0.20305090996390823,
+        0.08661880407325942,
+        0.08620072058711079
+      ],
+      "independent": [
+        0.12107188515866388,
+        0.20338248290965458,
+        0.20305091285498963,
+        0.08661879817946806,
+        0.08620071819936904
+      ],
+      "mean_mae": 0.14006495946042902,
+      "max_component_delta": 1.2570916474441418e-08
+    }
+  },
+  "role": "Audit replay of existing checkpoints, with no optimization or selection"
+}

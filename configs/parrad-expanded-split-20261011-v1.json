@@ -1,0 +1,96 @@
+{
+  "version": "expanded_subject_60_20_20_20261011_v1",
+  "dataset": "/home/xibeidaxue/newdisk2/WJ/PARrad/canonical/offline_expanded_20261011_v1",
+  "split_unit": "subject",
+  "subject_ratio": [
+    0.6,
+    0.2,
+    0.2
+  ],
+  "subjects": {
+    "train": [
+      "subject_01",
+      "subject_02",
+      "subject_03",
+      "subject_04",
+      "subject_07",
+      "subject_08",
+      "subject_09",
+      "subject_13",
+      "subject_19"
+    ],
+    "validation": [
+      "subject_05",
+      "subject_12",
+      "subject_16"
+    ],
+    "test": [
+      "subject_06",
+      "subject_17",
+      "subject_18"
+    ]
+  },
+  "legacy_roles_preserved": true,
+  "test_subgroups": {
+    "historically_observed": [
+      "subject_06"
+    ],
+    "new_model_holdout": [
+      "subject_17",
+      "subject_18"
+    ]
+  },
+  "selection_basis": "Fixed subject IDs and download completeness, without model-performance-based selection. Partial subjects13/19 train only. Source-conversion QA accessed all subjects; new holdout means no prior model fit/selection/evaluation in recorded experiments.",
+  "window_protocol": {
+    "window_seconds": 12,
+    "stride_seconds": 6,
+    "min_seconds": 8,
+    "max_actions": 3
+  },
+  "future_downloads": "Do not silently change this frozen snapshot or test roles; make a new dataset/protocol version.",
+  "training_started": false,
+  "expected_statistics": {
+    "train": {
+      "subjects": [
+        "subject_01",
+        "subject_02",
+        "subject_03",
+        "subject_04",
+        "subject_07",
+        "subject_08",
+        "subject_09",
+        "subject_13",
+        "subject_19"
+      ],
+      "people": 9,
+      "sessions": 28,
+      "recordings": 55,
+      "windows": 4971,
+      "full_windows": 4959
+    },
+    "validation": {
+      "subjects": [
+        "subject_05",
+        "subject_12",
+        "subject_16"
+      ],
+      "people": 3,
+      "sessions": 10,
+      "recordings": 20,
+      "windows": 1850,
+      "full_windows": 1840
+    },
+    "test": {
+      "subjects": [
+        "subject_06",
+        "subject_17",
+        "subject_18"
+      ],
+      "people": 3,
+      "sessions": 7,
+      "recordings": 14,
+      "windows": 1286,
+      "full_windows": 1278
+    }
+  }
+}

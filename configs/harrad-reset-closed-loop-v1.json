@@ -1,0 +1,73 @@
+{
+  "protocol": "harrad_stage2_stage3_reset_gradient_paired_v1",
+  "qwen_path": "/home/xibeidaxue/SEER/Qwen2.5-0.5B-Instruct",
+  "event_checkpoint": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/event_warmup_20261017_v1/training/best.pt",
+  "warmup_frozen_digest": "228887438485d4c2befa43a62956347a48556553ae6ddda061715f55968b0463",
+  "locks": {
+    "radar_checkpoint": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/semantic_baseline_20261017_v2/runs/rd-seed42/best.pt",
+      "sha256": "13674006bb1088fba10dcfbfb028aa38e15b560eb3b4eb79575c91a6436dc03f"
+    },
+    "radar_normalizers": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/semantic_baseline_20261017_v2/normalizers.npz",
+      "sha256": "9a12bcb001e36065a9706279d470a6e17f266389ea2f53f865c4b6ed5e4b3b03"
+    },
+    "canonical_manifest": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/semantic_baseline_20261017_v2/canonical-manifest.json",
+      "sha256": "7b667ba028cc4cd941823e87c6264c67d14c141f828471991530a3bfaefc8c2c"
+    },
+    "continuous_manifest": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/event_warmup_20261017_v1/feature-manifest.json",
+      "sha256": "67fa8e6afd4caf401a27cedc6847d2f7748d8c2ddacaba021ce474663d493e97"
+    },
+    "event_best": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/event_warmup_20261017_v1/training/best.pt",
+      "sha256": "559aee947bc9a284180cfc7f5eefcbf1039c766fe1aec319a5bc7bcf1cc2fa92"
+    }
+  },
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "arms": [
+    "control",
+    "full"
+  ],
+  "evaluation_per_record": 128,
+  "training": {
+    "steps": 1000,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "amp": true,
+    "max_batch_attempts": 3,
+    "evaluation_batch_size": 2,
+    "checkpoints": [
+      0,
+      300,
+      1000
+    ]
+  },
+  "head_steps": 1000,
+  "head_batch": 64,
+  "initialization_steps": 300,
+  "pilot_steps": 50,
+  "steps": 1000,
+  "chunk": 32,
+  "thresholds": [
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "sources": {
+    "dynamics": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/joint_prediction_20261017_v2/jobs/A-seed42/final.pt",
+      "sha256": "3061164d63ffc57656c3c663a683a55e2173f6c7173ade2bea61aa79824dcdd6"
+    },
+    "motion_stats": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/joint_prediction_20261017_v2/data/target-stats.npz",
+      "sha256": "09e209a7c1dcd52a7f0c7f6ed1c93369b62feacd5a0039ab6edf073ec7db8e72"
+    }
+  }
+}

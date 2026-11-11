@@ -1,0 +1,71 @@
+{
+  "protocol": "harrad_full_instance_subject_split_v1",
+  "data": {
+    "source": "/home/xibeidaxue/newdisk2/WJ/HARrad/harrad",
+    "source_audit": "/home/xibeidaxue/newdisk2/WJ/HARrad/audit_format_20261016_v1.json",
+    "source_audit_sha256": "9895d24f4a2f50cc56cd24dc99962505aa240475234e34db31cd1fe118023e3b",
+    "splits": {
+      "train": [
+        "subject1",
+        "subject2",
+        "subject3",
+        "subject4",
+        "subject5",
+        "subject6"
+      ],
+      "validation": [
+        "subject7"
+      ],
+      "test": [
+        "subject8",
+        "subject9"
+      ]
+    },
+    "expected_instances": {
+      "train": 3018,
+      "validation": 511,
+      "test": 323
+    },
+    "conversion_workers": 4,
+    "nominal_fps": 15,
+    "raw_hdf5_read_only": true,
+    "rd_pool": [
+      4,
+      4
+    ],
+    "rd_shape": [
+      40,
+      64
+    ],
+    "md_bins": 256,
+    "amplitude_floor": 1e-12,
+    "normalization": "train_annotated_frames_per_coordinate_zscore_clip8",
+    "static_doppler_removal": false,
+    "instance_boundary_cropping_frames": 0
+  },
+  "training": {
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "epochs": 30,
+    "batch_size": {
+      "md": 64,
+      "rd": 16
+    },
+    "evaluation_batch_size": 16,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "dropout": 0.1,
+    "threads": 4,
+    "device": "cuda",
+    "amp": false,
+    "early_stopping": false,
+    "best_selection": "maximum_validation_macro_f1_earliest_tie",
+    "class_weights": "inverse_train_instance_count_mean1",
+    "loss": "weighted_cross_entropy",
+    "initial_checkpoint": null
+  }
+}

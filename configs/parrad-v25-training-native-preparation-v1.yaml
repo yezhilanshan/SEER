@@ -1,0 +1,7 @@
+frontend_config: configs/parrad-md-gru-stage3-sequence-v2.yaml
+source_checkpoint_path: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage2_event_joint_formal_v1/best.pt
+source_checkpoint_sha256: 939aa977b2616d8ceb11f47ec1470701dc04bd7d1af64cc5ac20ebed3ab88f9a
+dataset_dir: /home/xibeidaxue/newdisk2/WJ/PARrad/canonical/v25_dataset_v2
+dataset_provenance_path: /home/xibeidaxue/newdisk2/WJ/PARrad/canonical/v25_dataset_v2/dataset-provenance.json
+dataset_provenance_sha256: ea65b45a347354da701740e7475f43956b899f444888a4501890d525e0e53d4d
+preparation_output: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v25_training_pilot_v1/preparation

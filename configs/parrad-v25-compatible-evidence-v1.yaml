@@ -1,0 +1,19 @@
+frontend_config: configs/parrad-md-gru-stage3-sequence-v2.yaml
+native_preparation: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v25_training_pilot_v1/preparation-v2
+source_checkpoint_path: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage2_event_joint_formal_v1/best.pt
+source_checkpoint_sha256: 939aa977b2616d8ceb11f47ec1470701dc04bd7d1af64cc5ac20ebed3ab88f9a
+stage1_checkpoint_path: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage1_causal_md_gru_token_warmup/radar_encoder.pt
+stage1_checkpoint_sha256: 42065f59311cb41e6c23c7734b66392028d634d7c11264bfa3325cb2be7b7289
+encoder_index_sha256: 205d96c8993c1570c13b0cdb0a708faa7025d094d1b974b5a8ecc5420bbbdc60
+teachers_index_sha256: 70e64fea61cc64f9fca2a009d12960f8db79945c85a8426fcb4f31c57022792f
+diagnostic_arrays_path: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v25_gate_migration_v1/diagnostic-v2/C-exact-m1/retrieval-arrays.npz
+diagnostic_arrays_sha256: ad79c7b974b3571a2ea80c6253db3736f2b94b83ac7e63ab86dfe4649b0568f7
+architecture: v25-age-free-positive-coordinate-v1
+seed: 42
+actual_optimizer_steps: 500
+batch_events: 8
+optimizer:
+  lr: 0.001
+  weight_decay: 0.01
+  clip_norm: 1.0
+sealed_holdouts: true

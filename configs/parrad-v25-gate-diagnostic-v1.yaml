@@ -1,0 +1,18 @@
+frontend_config: configs/parrad-md-gru-stage3-sequence-v2.yaml
+native_preparation: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v25_training_pilot_v1/preparation-v2
+source_checkpoint_path: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage2_event_joint_formal_v1/best.pt
+source_checkpoint_sha256: 939aa977b2616d8ceb11f47ec1470701dc04bd7d1af64cc5ac20ebed3ab88f9a
+stage1_checkpoint_path: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage1_causal_md_gru_token_warmup/radar_encoder.pt
+stage1_checkpoint_sha256: 42065f59311cb41e6c23c7734b66392028d634d7c11264bfa3325cb2be7b7289
+encoder_index_sha256: 205d96c8993c1570c13b0cdb0a708faa7025d094d1b974b5a8ecc5420bbbdc60
+teachers_index_sha256: 70e64fea61cc64f9fca2a009d12960f8db79945c85a8426fcb4f31c57022792f
+seed: 42
+actual_optimizer_steps: 0
+candidate_initialization: v25-age-free-tanh-warmstart-v1
+maturity_condition: 1.0
+fit_usability:
+  max_negative_alpha_fraction: 0.5
+  max_state_norm_ratio_p99: 4.0
+  all_finite_required: true
+sealed_holdouts: true
+reuse_D_archive_sha256: e2f63b164c54177db11491582577c21fb5901117a135dd9acaa13d3f20fdcec7

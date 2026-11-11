@@ -1,0 +1,59 @@
+{
+  "rule": "first lexical UID and earliest fit GT, weighted/local/cap8, one per three fixed categories",
+  "examples": [
+    {
+      "arm": "weighted",
+      "path": "local",
+      "cap": "8",
+      "split": "fit",
+      "uid": "subject_02-set000-TI_xWR14xx",
+      "subject_id": "subject_02",
+      "sensor_id": "TI_xWR14xx",
+      "transition": "8->12",
+      "boundary_index": "2",
+      "boundary_s": "18.0",
+      "category": "below_threshold",
+      "stages_in_matching_window": "{'high': 0, 'context': 0, 'neighbor': 0, 'peak': 0, 'accepted': 0}",
+      "tail_unconfirmable_high_count": "0",
+      "nearby_emission_outside_match": "False",
+      "nearby_emissions": "[]",
+      "match": ""
+    },
+    {
+      "arm": "weighted",
+      "path": "local",
+      "cap": "8",
+      "split": "fit",
+      "uid": "subject_02-set000-TI_xWR14xx",
+      "subject_id": "subject_02",
+      "sensor_id": "TI_xWR14xx",
+      "transition": "8->12",
+      "boundary_index": "25",
+      "boundary_s": "155.07",
+      "category": "neighbor_constraint",
+      "stages_in_matching_window": "{'high': 1, 'context': 1, 'neighbor': 0, 'peak': 0, 'accepted': 0}",
+      "tail_unconfirmable_high_count": "0",
+      "nearby_emission_outside_match": "False",
+      "nearby_emissions": "[]",
+      "match": ""
+    },
+    {
+      "arm": "weighted",
+      "path": "local",
+      "cap": "8",
+      "split": "fit",
+      "uid": "subject_02-set000-TI_xWR14xx",
+      "subject_id": "subject_02",
+      "sensor_id": "TI_xWR14xx",
+      "transition": "6->9",
+      "boundary_index": "10",
+      "boundary_s": "60.21",
+      "category": "peak_shape",
+      "stages_in_matching_window": "{'high': 9, 'context': 9, 'neighbor': 9, 'peak': 0, 'accepted': 0}",
+      "tail_unconfirmable_high_count": "0",
+      "nearby_emission_outside_match": "True",
+      "nearby_emissions": "[{'time_s': 59.129999999999995, 'peak_time_s': 58.769999999999996, 'lookahead_s': 0.35999999999999943}]",
+      "match": ""
+    }
+  ]
+}

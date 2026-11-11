@@ -1,0 +1,14 @@
+{
+  "attempts": 69,
+  "themes": 9,
+  "primary_sources": 117,
+  "local_record_inventory": 286,
+  "limited_preview_pages": 30,
+  "preview_overflow": [],
+  "docx_xml_valid": true,
+  "all_nodes_and_sources_present": true,
+  "opml_valid": true,
+  "html_node_count": 69,
+  "native_office_render": false,
+  "render_limitation": "Packaged renderer failed: no bundled LibreOffice/soffice on this Windows runtime. Limited OOXML preview checks paragraphs, manual page breaks and image geometry; native Office pagination remains unverified."
+}

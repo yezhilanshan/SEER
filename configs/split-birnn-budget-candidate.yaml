@@ -1,0 +1,21 @@
+# Throughput-informed proposal for the provisional CNN; not a runnable training approval.
+scope: budget_candidate_only
+formal_training_enabled: false
+budget_is_frozen: false
+batch_size: 8
+max_optimizer_steps: 6400
+validation_interval_steps: 128
+early_stopping_patience_checks: 15
+minimum_steps_before_early_stopping: 1280
+optimizer: Adam
+learning_rate: 0.001
+training_length_sampling: uniform_integer_100_to_1000_one_length_per_batch
+validation_checkpoint_metric: final_corrected_weighted_f1
+dice_mode: global
+seed: 42
+same_budget_for_split_and_baseline: true
+unresolved_before_freeze:
+  - Hospital_or_available_release_method_protocol
+  - CNN_fidelity_and_parameters
+  - approximate_clock_protocol_acceptance
+  - complete_validation_and_checkpoint_runner

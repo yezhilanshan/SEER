@@ -1,0 +1,9 @@
+native_preparation: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v25_training_pilot_v1/preparation-v2
+encoder_index_sha256: 205d96c8993c1570c13b0cdb0a708faa7025d094d1b974b5a8ecc5420bbbdc60
+evidence_checkpoint_path: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v25_compatible_evidence_v1/evidence500/training/evidence-step500.pt
+evidence_checkpoint_sha256: 94d9302dcb7cd4011385911bacd358148c11bd3709b812e09b93809912f2f968
+prior_code: /home/xibeidaxue/SEER/.audit-staging/v25-compatible-evidence-code-v1
+prior_manifest_sha256: 9726dd7d2452549857bc68caa1650bb362b1f2e5e7809c54dcd1fbc8add5217b
+seed: 42
+actual_optimizer_steps: 1000
+sealed_holdouts: true

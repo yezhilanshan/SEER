@@ -1,0 +1,1420 @@
+{
+  "nodes": [
+    {
+      "id": "8b156791e3a4e84b",
+      "type": "text",
+      "text": "## 3D骨架如何做监督？\n面向毫米波雷达表征预训练\n调研核验：2026-11-07",
+      "x": -1250,
+      "y": 7570,
+      "width": 340,
+      "height": 220,
+      "color": "5"
+    },
+    {
+      "id": "7ae80c4965e34f28",
+      "type": "text",
+      "text": "### 1、如何使用3D骨架做监督？\n三种角色：预测目标 / 教师 / 学习策略依据",
+      "x": -800,
+      "y": 7570,
+      "width": 360,
+      "height": 200
+    },
+    {
+      "id": "039bbddbc27560bb",
+      "type": "text",
+      "text": "### 现有方法与研究路径\n蓝/绿：已有方法\n红：本项目待验证假设\n正文与参考资料见配套调研笔记",
+      "x": -330,
+      "y": 7570,
+      "width": 330,
+      "height": 210,
+      "color": "5"
+    },
+    {
+      "id": "f7fcd9a905064568",
+      "type": "text",
+      "text": "### 阅读说明\n每条方法右侧列论文完整标题、年份、来源。\n【核实】表示已找到对应原文/元数据；不代表已复现实验。\n研究假设与论文已有结论分开。\n完整审计与限制：[[3D骨架监督调研_2026-11-07]]",
+      "x": -800,
+      "y": 7150,
+      "width": 800,
+      "height": 300,
+      "color": "5"
+    },
+    {
+      "id": "7a852f90eeec4461",
+      "type": "text",
+      "text": "### 直接坐标回归与全局/局部解耦",
+      "x": 500,
+      "y": 0,
+      "width": 380,
+      "height": 150,
+      "color": "5"
+    },
+    {
+      "id": "36526fa2ca7d4025",
+      "type": "text",
+      "text": "预测P∈R^(T×J×3)。位置主项可用平均关节欧氏距离、L1或Huber。根相对姿态Q_j=P_j−P_root与全局根轨迹应分别监督；只有根相对骨架时不宣称学到了全局平移。",
+      "x": 980,
+      "y": 0,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "e2761d59f0ea4070",
+      "type": "text",
+      "text": "**[Martinez] A Simple yet Effective Baseline for 3D Human Pose Estimation**\n2017 · ICCV\n[论文 / 原始来源](https://openaccess.thecvf.com/content_iccv_2017/html/Martinez_A_Simple_yet_ICCV_2017_paper.html)\n从2D关节回归3D位置的强基线。\n边界：视觉任务；只能作为直接坐标监督的参考，不证明雷达预训练有效。\n\n**[VideoPose3D] 3D Human Pose Estimation in Video With Temporal Convolutions and Semi-Supervised Training**\n2019 · CVPR\n[论文 / 原始来源](https://openaccess.thecvf.com/content_CVPR_2019/papers/Pavllo_3D_Human_Pose_Estimation_in_Video_With_Temporal_Convolutions_and_CVPR_2019_paper.pdf)\n半监督重投影与骨长约束；官方run.py有骨长统计匹配实现。\n边界：官方训练主项是位置误差；不能因报告速度误差便写成训练用了速度损失。",
+      "x": 1800,
+      "y": 0,
+      "width": 1030,
+      "height": 460
+    },
+    {
+      "id": "ea4c495c9b0049b1",
+      "type": "text",
+      "text": "### 骨架标签不等于精确真值",
+      "x": 500,
+      "y": 560,
+      "width": 380,
+      "height": 150,
+      "color": "5"
+    },
+    {
+      "id": "9df153e103e6414e",
+      "type": "text",
+      "text": "视觉三角化/姿态估计骨架包含遮挡、缺失、时间偏移。按有效关节和置信度加权，并以有效权重和归一化。骨架辅助训练仍需要同步配对数据，只是可能不需要动作类别标签。",
+      "x": 980,
+      "y": 560,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "4cf8111e1e024d8d",
+      "type": "text",
+      "text": "**[MotionBERT] MotionBERT: A Unified Perspective on Learning Human Motion Representations**\n2023 · ICCV；预印本2022\n[论文 / 原始来源](https://arxiv.org/html/2210.06551v4)\n§3.3 Eq6–8：从加噪/掩码2D恢复3D，联合位置、速度与置信度加权重投影。\n边界：位置和速度是未平方L2范数；混合3D标注训练，不能一概称完全无监督。\n\n**[MMFi] MM-Fi: Multi-Modal Non-Intrusive 4D Human Dataset for Versatile Wireless Sensing**\n2023 · NeurIPS Datasets and Benchmarks\n[论文 / 原始来源](https://arxiv.org/abs/2305.10345)\n支持多模态人体姿态与无线感知研究，提供配对数据与官方工具。\n边界：动作片段数据不能直接证明自然连续动作边界理解；各坐标、帧率、同步和标定仍需审计。",
+      "x": 1800,
+      "y": 560,
+      "width": 1030,
+      "height": 482
+    },
+    {
+      "id": "2e757d003f5d45d6",
+      "type": "text",
+      "text": "### 表示与坐标约定",
+      "x": 500,
+      "y": 1142,
+      "width": 380,
+      "height": 150,
+      "color": "5"
+    },
+    {
+      "id": "3d166044cee24bb2",
+      "type": "text",
+      "text": "统一关节拓扑、左右肢体、m/mm、父→子方向、世界/相机/雷达坐标、帧率。2D重投影要求相机模型；XYZ体素监督不能引用T×H×W热图当作等价证据。",
+      "x": 980,
+      "y": 1142,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "d6a7b41b54cf43f0",
+      "type": "text",
+      "text": "**[PoseConv3D] Revisiting Skeleton-Based Action Recognition**\n2022 · CVPR\n[论文 / 原始来源](https://openaccess.thecvf.com/content/CVPR2022/html/Duan_Revisiting_Skeleton-Based_Action_Recognition_CVPR_2022_paper.html)\nPoseConv3D将2D关节热图沿时间堆叠。\n边界：3D heatmap volume指T×H×W，不是XYZ人体三维体素真值。",
+      "x": 1800,
+      "y": 1142,
+      "width": 1030,
+      "height": 300
+    },
+    {
+      "id": "cb61532eba444300",
+      "type": "text",
+      "text": "## 0｜监督对象与标签条件\n\n先决定骨架是预测目标、训练教师还是采样依据。最终目标是雷达表征与下游行为理解，而非默认追求最低姿态误差。",
+      "x": 60,
+      "y": 581,
+      "width": 340,
+      "height": 280,
+      "color": "5"
+    },
+    {
+      "id": "caea65363c3c2aaf",
+      "type": "text",
+      "text": "### 1、骨骼长度约束",
+      "x": 500,
+      "y": 1692,
+      "width": 380,
+      "height": 150,
+      "color": "4"
+    },
+    {
+      "id": "b68bde0babe8427e",
+      "type": "text",
+      "text": "b_j=P_j−P_parent(j)，l_j=||b_j||₂。标量长度监督可写L_len=mean|l̂−l|；另有同一受试者跨帧一致性、左右对称先验。不要强制所有受试者相同骨长；AdvMT未明确范数，不擅自替其写成MSE。",
+      "x": 980,
+      "y": 1692,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "6db8368425a943f2",
+      "type": "text",
+      "text": "**[AdvMT] AdvMT: Adversarial Motion Transformer for Long-term Human Motion Prediction**\n2024 · arXiv预印本\n[论文 / 原始来源](https://arxiv.org/html/2401.05018v1)\n§III-D Eq2含位置、骨长与时间判别器目标。\n边界：未给骨长项完整范数公式；位置与骨长仍可能出现零速度预测，不能独立保证运动真实。\n\n**[VideoPose3D] 3D Human Pose Estimation in Video With Temporal Convolutions and Semi-Supervised Training**\n2019 · CVPR\n[论文 / 原始来源](https://openaccess.thecvf.com/content_CVPR_2019/papers/Pavllo_3D_Human_Pose_Estimation_in_Video_With_Temporal_Convolutions_and_CVPR_2019_paper.pdf)\n半监督重投影与骨长约束；官方run.py有骨长统计匹配实现。\n边界：官方训练主项是位置误差；不能因报告速度误差便写成训练用了速度损失。",
+      "x": 1800,
+      "y": 1692,
+      "width": 1030,
+      "height": 482
+    },
+    {
+      "id": "499e194d54ddc5df",
+      "type": "text",
+      "text": "### 2、骨骼方向余弦约束",
+      "x": 500,
+      "y": 2274,
+      "width": 380,
+      "height": 150,
+      "color": "4"
+    },
+    {
+      "id": "ff99a7fbb1d09317",
+      "type": "text",
+      "text": "L_dir=mean[1−(b̂·b)/(||b̂||₂||b||₂)]，仅对有效非零骨段计算，数值实现加ε。朝向依赖参考坐标系；它不是相邻骨段之间的关节夹角。",
+      "x": 980,
+      "y": 2274,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "df1c95790c5137c9",
+      "type": "text",
+      "text": "**[E3D] E-3DPSM: A State Machine for Event-Based Egocentric 3D Human Pose Estimation**\n2026 · arXiv预印本\n[论文 / 原始来源](https://arxiv.org/html/2604.08543v1)\n§4.3 Eq21标量骨长L1，Eq22方向余弦，另有Eq18帧间位移MSE。\n边界：未找到仅骨长与骨长+方向的独立消融；采用两项不等于证明组合更优。\n\n**[Beyond] BeyondRetarget: Learning Executable Humanoid Motions Directly from Monocular Video**\n2026 · arXiv预印本\n[论文 / 原始来源](https://arxiv.org/html/2609.29850v1)\nEq5对归一化关键语义肢体向量使用余弦偏差；Table3去除方向项后方向误差变大。\n边界：直接视频到机器人运动；需形态对齐，不能当成人体姿态估计任务的通用结论。",
+      "x": 1800,
+      "y": 2274,
+      "width": 1030,
+      "height": 482
+    },
+    {
+      "id": "f1ab4a95faf44871",
+      "type": "text",
+      "text": "### 3、骨向量与运动链组合监督",
+      "x": 500,
+      "y": 2856,
+      "width": 380,
+      "height": 150,
+      "color": "4"
+    },
+    {
+      "id": "ad48c801beb74cf7",
+      "type": "text",
+      "text": "L_vec=mean||b̂−b||₂²。数学分解：||b̂−b||²=(l̂−l)²+2l̂l(1−cosθ)。因此骨向量MSE已同时约束长度与朝向。EventEgo3D++ Eq5虽称bone length loss，实际为骨向量MSE。",
+      "x": 980,
+      "y": 2856,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "57fe1b94f13bdabf",
+      "type": "text",
+      "text": "**[EventEgo] EventEgo3D++: 3D Human Motion Capture from a Head-Mounted Event Camera**\n2025 · IJCV\n[论文 / 原始来源](https://arxiv.org/abs/2502.07869)\nEq4方向余弦；Eq5名为bone length loss但实际是骨向量MSE；Table6评估组合骨损失。\n边界：不能将Eq5归为纯标量骨长差，也不能单独归因方向项消除了时序漂移。\n\n**[Compositional] Compositional Human Pose Regression**\n2017 · ICCV\n[论文 / 原始来源](https://arxiv.org/abs/1704.00159)\n骨向量参数化及沿运动链的组合损失。\n边界：启发结构化监督；原始研究不是毫米波预训练。",
+      "x": 1800,
+      "y": 2856,
+      "width": 1030,
+      "height": 460
+    },
+    {
+      "id": "01c96df25f614828",
+      "type": "text",
+      "text": "### 4、解剖先验与关系矩阵",
+      "x": 500,
+      "y": 3416,
+      "width": 380,
+      "height": 150,
+      "color": "4"
+    },
+    {
+      "id": "6a6a197ea9ba4dd2",
+      "type": "text",
+      "text": "显式骨长/方向解耦、前向运动学、姿态条件角度可行域。B为骨向量矩阵，K=BᵀB含长度和夹角；K对整体旋转不变。用K做监督是可借鉴设计，RepNet本身用KCS判别器。",
+      "x": 980,
+      "y": 3416,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "5ea7013179624c4a",
+      "type": "text",
+      "text": "**[Anatomy] Anatomy-aware 3D Human Pose Estimation with Bone-based Pose Decomposition**\n2020起多版本 · arXiv，版本标题有变化\n[论文 / 原始来源](https://arxiv.org/abs/2002.10322)\n显式分解骨长和骨方向，并由运动链重建关节。已读v2旧标题为Anatomy-aware 3D Human Pose Estimation in Videos。\n边界：引用须固定版本；不能混合旧标题、当前标题与未经核实的会议年份。\n\n**[Angles] Pose-Conditioned Joint Angle Limits for 3D Human Pose Reconstruction**\n2015 · CVPR\n[论文 / 原始来源](https://pure.mpg.de/view/item_2259888)\n姿态条件下的关节角可行域先验。\n边界：仅核对机构元数据与核心思想，未完整复核正文；不是统一角度阈值。\n\n**[RepNet] RepNet: Weakly Supervised Training of an Adversarial Reprojection Network for 3D Human Pose Estimation**\n2019 · CVPR\n[论文 / 原始来源](https://openaccess.thecvf.com/content_CVPR_2019/papers/Wandt_RepNet_Weakly_Supervised_Training_of_an_Adversarial_Reprojection_Network_for_CVPR_2019_paper.pdf)\n§3.3用KCS骨向量Gram矩阵表达骨长和关节夹角，送入判别器。\n边界：原文是对抗先验；直接以Gram矩阵作蒸馏损失是可借鉴设计，不是其原方法。",
+      "x": 1800,
+      "y": 3416,
+      "width": 1030,
+      "height": 666
+    },
+    {
+      "id": "830e2d84091f2cc2",
+      "type": "text",
+      "text": "## 1｜骨骼几何约束\n\n长度、方向、骨向量、运动链与关节角是相关但不同的约束。所有方法均须先统一坐标系。",
+      "x": 60,
+      "y": 2747,
+      "width": 340,
+      "height": 280,
+      "color": "4"
+    },
+    {
+      "id": "96c3266887762f4b",
+      "type": "text",
+      "text": "### 1、一阶速度 / 位移匹配",
+      "x": 500,
+      "y": 4332,
+      "width": 380,
+      "height": 150,
+      "color": "2"
+    },
+    {
+      "id": "e43533dd8ce8daf6",
+      "type": "text",
+      "text": "v_t=(P_(t+1)−P_t)/Δt；L_vel=mean ρ(v̂−v)。MotionBERT Eq6用未平方L2范数；E-3DPSM Eq18用帧间位移MSE。不能把所有文献都概括成MSE，也不能把评估MPJVE当成训练目标。",
+      "x": 980,
+      "y": 4332,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "e9eed7b5d9984b41",
+      "type": "text",
+      "text": "**[MotionBERT] MotionBERT: A Unified Perspective on Learning Human Motion Representations**\n2023 · ICCV；预印本2022\n[论文 / 原始来源](https://arxiv.org/html/2210.06551v4)\n§3.3 Eq6–8：从加噪/掩码2D恢复3D，联合位置、速度与置信度加权重投影。\n边界：位置和速度是未平方L2范数；混合3D标注训练，不能一概称完全无监督。\n\n**[E3D] E-3DPSM: A State Machine for Event-Based Egocentric 3D Human Pose Estimation**\n2026 · arXiv预印本\n[论文 / 原始来源](https://arxiv.org/html/2604.08543v1)\n§4.3 Eq21标量骨长L1，Eq22方向余弦，另有Eq18帧间位移MSE。\n边界：未找到仅骨长与骨长+方向的独立消融；采用两项不等于证明组合更优。",
+      "x": 1800,
+      "y": 4332,
+      "width": 1030,
+      "height": 482
+    },
+    {
+      "id": "840facbfcbae62bd",
+      "type": "text",
+      "text": "### 2、多跨度速度 / 位移损失",
+      "x": 500,
+      "y": 4914,
+      "width": 380,
+      "height": 150,
+      "color": "2"
+    },
+    {
+      "id": "be0adcb1c13e4f95",
+      "type": "text",
+      "text": "LGSIK Eq5：Σ_(s∈{1,3,5}) mean||(P̂_(t+s)−P̂_t)−(P_(t+s)−P_t)||₂。原式未除sΔt，本质为多跨度位移匹配。若统一成速度需除sΔt并重新确定权重；跨度应按秒报告。",
+      "x": 980,
+      "y": 4914,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "a4df60c7ecf7460e",
+      "type": "text",
+      "text": "**[LGSIK] LGSIK-Poser: Skeleton-Aware Full-Body Motion Reconstruction from Sparse Inputs**\n2025 · AI 6(8),180\n[论文 / 原始来源](https://www.mdpi.com/2673-2688/6/8/180)\nEq5明确采用Vel(1)+Vel(3)+Vel(5)，比较预测与真实的跨帧位移。\n边界：公式是欧氏范数，不是必然MSE；未据此确认固定跨度组合普遍最优。全文抓取曾429，公式由出版商索引核对。\n\n**[SSR] SSR-HMR: Skeleton-Aware Sparse Node-Based Real-Time Human Motion Reconstruction**\n2025 · Electronics 14(18),3664\n[论文 / 原始来源](https://www.mdpi.com/2079-9292/14/18/3664)\n§3.5.2加入多尺度速度项；消融讨论该项及躯干、层次优化。\n边界：稀疏VR重建情境；收益不能直接迁移为雷达预训练结论。",
+      "x": 1800,
+      "y": 4914,
+      "width": 1030,
+      "height": 482
+    },
+    {
+      "id": "cadd7ba715fb0589",
+      "type": "text",
+      "text": "### 3、加速度匹配（二阶差分）",
+      "x": 500,
+      "y": 5496,
+      "width": 380,
+      "height": 150,
+      "color": "2"
+    },
+    {
+      "id": "2b02e00bdf0c3dc4",
+      "type": "text",
+      "text": "a_t=(P_(t+1)−2P_t+P_(t−1))/Δt²。SmoothNet匹配â与真实a，不是强制â→0。原“二阶速度损失”改为加速度损失；差分放大标签噪声，需结合位置主项、缺失掩码与可靠标签。",
+      "x": 980,
+      "y": 5496,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "e6b2fe8ef3614f7f",
+      "type": "text",
+      "text": "**[SmoothNet] SmoothNet: A Plug-and-Play Network for Refining Human Poses in Videos**\n2022 · ECCV；预印本2021\n[论文 / 原始来源](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136650615.pdf)\n§4.3 Eq3–4联合位置L1与真实加速度误差；补充材料§2.6有损失消融。\n边界：是姿态后处理网络；不能把加速度匹配写成把加速度压到零，也不保证雷达表征提升。",
+      "x": 1800,
+      "y": 5496,
+      "width": 1030,
+      "height": 300
+    },
+    {
+      "id": "0909081c8d3440f9",
+      "type": "text",
+      "text": "### 4、频域趋势与接触先验",
+      "x": 500,
+      "y": 5896,
+      "width": 380,
+      "height": 150,
+      "color": "2"
+    },
+    {
+      "id": "f3130d1e8fee47b3",
+      "type": "text",
+      "text": "DCT/频域目标可表达长时趋势，接触约束可限制支撑期脚滑。避免把高频动作一概当噪声；脚部零速仅用于可信接触区间。若最终是在线系统，还需单独验证因果性、延迟与未来帧泄漏。",
+      "x": 980,
+      "y": 5896,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "b8f20896c68b4872",
+      "type": "text",
+      "text": "**[mmPred] mmPred: Radar-based Human Motion Prediction in the Dark**\n2026 · AAAI；预印本2025\n[论文 / 原始来源](https://ojs.aaai.org/index.php/AAAI/article/download/37378/41340)\n双域历史运动估计：时间域细节与频域趋势；原文Eq11监督DCT系数，Eq12为扩散噪声目标。\n边界：未来姿态预测与通用预训练任务不同；不能把整套系统收益归因为单一频域损失。\n\n**[HuMoR] HuMoR: 3D Human Motion Model for Robust Pose Estimation**\n2021 · ICCV\n[论文 / 原始来源](https://geometry.stanford.edu/projects/humor/)\n学习运动先验并在TestOpt中联合估计运动、体形、地面与接触。\n边界：接触/地面先验依赖场景与接触可靠性；不是无条件对所有足部施加零速度。\n\n**[TransPose] TransPose: Real-time 3D Human Translation and Pose Estimation with Six Inertial Sensors**\n2021 · ACM TOG / SIGGRAPH\n[论文 / 原始来源](https://xinyu-yi.github.io/TransPose/)\n多阶段关节位置/旋转估计，结合支撑足和根速度恢复全局位移。\n边界：LGSIK引用它，但此次未在原文找到固定1/3/5多跨度损失，不能直接归因给TransPose。",
+      "x": 1800,
+      "y": 5896,
+      "width": 1030,
+      "height": 666
+    },
+    {
+      "id": "120deee2f30d1ad5",
+      "type": "text",
+      "text": "## 2｜运动时序约束\n\n“匹配真实运动”与“惩罚运动本身”必须区分；速度、加速度应考虑真实时间间隔。",
+      "x": 60,
+      "y": 5307,
+      "width": 340,
+      "height": 280,
+      "color": "2"
+    },
+    {
+      "id": "f13fa7d718bf48f1",
+      "type": "text",
+      "text": "### 1、随机掩码与结构重建",
+      "x": 500,
+      "y": 6812,
+      "width": 380,
+      "height": 150,
+      "color": "6"
+    },
+    {
+      "id": "8877f7d2597b4220",
+      "type": "text",
+      "text": "区分两篇SkeletonMAE：Wu等人的Transformer时空关节重建；Yan等人的图模型关节/边重建。MotionBERT则从受损2D恢复3D，训练混合了3D标注监督。",
+      "x": 980,
+      "y": 6812,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "6094d4e0f83a4b5b",
+      "type": "text",
+      "text": "**[SkeletonMAE1] SkeletonMAE: Spatial-Temporal Masked Autoencoders for Self-supervised Skeleton Action Recognition**\n2022 · arXiv首稿\n[论文 / 原始来源](https://arxiv.org/abs/2209.02399)\nTransformer时空遮蔽关节坐标重建；为MAMP的对照。\n边界：与Yan等人的同名图模型不同；此处不指定未核实的会议年份。\n\n**[SkeletonMAE2] SkeletonMAE: Graph-based Masked Autoencoder for Skeleton Sequence Pre-training**\n2023 · ICCV\n[论文 / 原始来源](https://openaccess.thecvf.com/content/ICCV2023/html/Yan_SkeletonMAE_Graph-based_Masked_Autoencoder_for_Skeleton_Sequence_Pre-training_ICCV_2023_paper.html)\n图编解码器与拓扑感知关节/边重建。\n边界：与Wu等人同名但不同论文；骨架内预训练不等于跨模态蒸馏。\n\n**[MotionBERT] MotionBERT: A Unified Perspective on Learning Human Motion Representations**\n2023 · ICCV；预印本2022\n[论文 / 原始来源](https://arxiv.org/html/2210.06551v4)\n§3.3 Eq6–8：从加噪/掩码2D恢复3D，联合位置、速度与置信度加权重投影。\n边界：位置和速度是未平方L2范数；混合3D标注训练，不能一概称完全无监督。",
+      "x": 1800,
+      "y": 6812,
+      "width": 1030,
+      "height": 666
+    },
+    {
+      "id": "c8614d8b1964a031",
+      "type": "text",
+      "text": "### 2、运动先验引导掩码策略",
+      "x": 500,
+      "y": 7578,
+      "width": 380,
+      "height": 150,
+      "color": "6"
+    },
+    {
+      "id": "03aedc9c4ef24966",
+      "type": "text",
+      "text": "MAMP明确：运动显著处提高被遮蔽概率，促使模型预测被遮蔽部位的运动差分。依据§3.4 Eq4–6：π=Softmax(I/τ)，通过Gumbel Top-K选择遮蔽token。",
+      "x": 980,
+      "y": 7578,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "3208ed5d603b4cf3",
+      "type": "text",
+      "text": "**[MAMP] Masked Motion Predictors are Strong 3D Action Representation Learners**\n2023 · ICCV\n[论文 / 原始来源](https://arxiv.org/html/2308.07092v1)\n§3.4 Eq4–6按运动强度构造遮蔽概率；运动越大越可能被遮蔽，目标是运动差分预测。\n边界：多遮蔽意味着少可见；仅骨架任务验证，如何映射雷达token仍需实验。",
+      "x": 1800,
+      "y": 7578,
+      "width": 1030,
+      "height": 300
+    },
+    {
+      "id": "084d045eec56b8eb",
+      "type": "text",
+      "text": "### 3、“密集掩码”的准确含义",
+      "x": 500,
+      "y": 7978,
+      "width": 380,
+      "height": 150,
+      "color": "6"
+    },
+    {
+      "id": "3598fb0309204629",
+      "type": "text",
+      "text": "MAMP中：大运动→更多遮蔽→更少可见；不是大运动处密集保留。迁移雷达时需比较随机、多遮蔽、多保留，固定总遮蔽率和训练预算。骨架关节不能未经映射直接对应雷达点。",
+      "x": 980,
+      "y": 7978,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "b817dd425eb44215",
+      "type": "text",
+      "text": "**[MAMP] Masked Motion Predictors are Strong 3D Action Representation Learners**\n2023 · ICCV\n[论文 / 原始来源](https://arxiv.org/html/2308.07092v1)\n§3.4 Eq4–6按运动强度构造遮蔽概率；运动越大越可能被遮蔽，目标是运动差分预测。\n边界：多遮蔽意味着少可见；仅骨架任务验证，如何映射雷达token仍需实验。",
+      "x": 1800,
+      "y": 7978,
+      "width": 1030,
+      "height": 300
+    },
+    {
+      "id": "5e1b79ff831f4339",
+      "type": "text",
+      "text": "### 4、重建什么决定学到什么",
+      "x": 500,
+      "y": 8378,
+      "width": 380,
+      "height": 150,
+      "color": "6"
+    },
+    {
+      "id": "af31c8e3a0cb4d63",
+      "type": "text",
+      "text": "关节坐标、骨向量、运动差分和教师潜特征可作不同目标。MotionMAE的输入为RGB视频，它的像素差目标只是跨领域启发，不是骨架掩码策略的证据。",
+      "x": 980,
+      "y": 8378,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "f47dab60ef47401a",
+      "type": "text",
+      "text": "**[MotionMAE] Self-supervised Video Representation Learning with Motion-Aware Masked Autoencoders**\n2022首稿；机构记录2024 · arXiv；会议记录见作者机构\n[论文 / 原始来源](https://arxiv.org/abs/2210.04154)\nRGB视频patch重建与相邻帧像素差预测。\n边界：跨领域启发；不是3D骨架运动引导遮蔽的直接证据。",
+      "x": 1800,
+      "y": 8378,
+      "width": 1030,
+      "height": 300
+    },
+    {
+      "id": "eb1e9f472eb66af1",
+      "type": "text",
+      "text": "## 3｜自监督骨架学习\n\n骨架内预训练可产生教师或运动目标；从骨架方法迁移到雷达是另一个需要验证的问题。",
+      "x": 60,
+      "y": 7605,
+      "width": 340,
+      "height": 280,
+      "color": "6"
+    },
+    {
+      "id": "08f637e899e24d30",
+      "type": "text",
+      "text": "### 1、特征 / 关系 / 软目标蒸馏",
+      "x": 500,
+      "y": 8928,
+      "width": 380,
+      "height": 150,
+      "color": "3"
+    },
+    {
+      "id": "1dd1fbb0c07f4148",
+      "type": "text",
+      "text": "骨架教师输出表征，学生预测同维投影特征或关系矩阵；教师应冻结或用明确动量机制，防止共同坍塌。PSKD提供骨架→惯性传感器先例；Tac-Mamba视觉输入实际为2D骨架。",
+      "x": 980,
+      "y": 8928,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "0ee17e3cb7934ea5",
+      "type": "text",
+      "text": "**[PSKD] Progressive Cross-modal Knowledge Distillation for Human Action Recognition**\n2022 · ACM MM\n[论文 / 原始来源](https://arxiv.org/abs/2208.08090)\n骨架教师向智能手表加速度学生渐进蒸馏，推理只使用传感器。\n边界：提供跨模态先例；学生是惯性传感器，不能直接论证毫米波收益。\n\n**[TacMamba] Tac-Mamba: A Pose-Guided Cross-Modal State Space Model with Trust-Aware Gating for mmWave Radar Human Activity Recognition**\n2026 · Electronics 15(7),1535\n[论文 / 原始来源](https://www.mdpi.com/2079-9292/15/7/1535)\n§3.1明确视觉输入为2D骨架；含结构教师、3D辅助回归、modality dropout与可信门控。\n边界：不是纯3D骨架教师的直接证据；需区分多模态融合与雷达单模态退化/推理实验。",
+      "x": 1800,
+      "y": 8928,
+      "width": 1030,
+      "height": 504
+    },
+    {
+      "id": "de4c205d8e5e405b",
+      "type": "text",
+      "text": "### 2、配对、对比与时间对应",
+      "x": 500,
+      "y": 9532,
+      "width": 380,
+      "height": 150,
+      "color": "3"
+    },
+    {
+      "id": "40f56e81f73a47f2",
+      "type": "text",
+      "text": "FMSSL用同步雷达与光学骨架进行软对比、排序及轨迹建模。Soft Alignment用2D骨架教师为学生片段检索表征，不是硬件同步或单调时序配准。同步误差仍应独立审计。",
+      "x": 980,
+      "y": 9532,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "ebefbd02121542d7",
+      "type": "text",
+      "text": "**[FMSSL] Free-form motion directed cross-modal self-supervised learning for mmWave radar human motion perception**\n在线记录2026；卷期2027 · Pattern Recognition 181,114645\n[论文 / 原始来源](https://doi.org/10.1016/j.patcog.2026.114645)\n出版商摘要说明同步原始雷达与光学骨架、OT软对比、排序保持、masked trajectory modeling。\n边界：可读范围为摘要及节选，未核对完整公式或独立消融；卷期为2027年1月，勿直接写成2026会议论文。\n\n**[SoftAlign] Soft Temporal Alignment Distillation for Camera-to-mmWave Radar Human Activity Recognition**\n2026 · arXiv预印本；10月27日\n[论文 / 原始来源](https://arxiv.org/abs/2610.36637)\n摘要说明2D关键点教师为雷达学生提供片段级软检索蒸馏目标。\n边界：表示空间软匹配不是时间戳校准，也不是单调DTW；是2D教师工作，不等同3D监督。",
+      "x": 1800,
+      "y": 9532,
+      "width": 1030,
+      "height": 504
+    },
+    {
+      "id": "4ed6f469d3854ee8",
+      "type": "text",
+      "text": "### 3、人体token与结构化目标空间",
+      "x": 500,
+      "y": 10136,
+      "width": 380,
+      "height": 150,
+      "color": "3"
+    },
+    {
+      "id": "146949091a3e442f",
+      "type": "text",
+      "text": "Wave2Body先分别学习雷达与人体token，再学习翻译和根位置。提示可将人体先验与雷达表征解耦；但人体合理不等于观测正确，不能只看骨长或外观合理性。",
+      "x": 980,
+      "y": 10136,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "bc6d0d5bdd7b485f",
+      "type": "text",
+      "text": "**[Wave2Body] Wave2Body: Rethinking mmWave Human Pose Estimation as Radar-to-Body Token Translation**\n2026 · arXiv预印本\n[论文 / 原始来源](https://arxiv.org/abs/2607.18875)\n独立学习雷达tokenizer、人体tokenizer，再用配对样本学习映射和根定位。\n边界：结构先验可产生合理但错误姿态；离散量化与细节精度有权衡，尚不能视为会议录用。",
+      "x": 1800,
+      "y": 10136,
+      "width": 1030,
+      "height": 300
+    },
+    {
+      "id": "d31561bf2bc54472",
+      "type": "text",
+      "text": "## 4｜跨模态教师与表示迁移\n\n明确训练时使用哪些模态、推理是否仅雷达；特征相似不能替代对信息可观测性的判断。",
+      "x": 60,
+      "y": 9542,
+      "width": 340,
+      "height": 280,
+      "color": "3"
+    },
+    {
+      "id": "e04d630c0023470a",
+      "type": "text",
+      "text": "### H1｜全局运动 + 局部运动关系",
+      "x": 500,
+      "y": 10686,
+      "width": 380,
+      "height": 150,
+      "color": "1"
+    },
+    {
+      "id": "b105df7525e6482e",
+      "type": "text",
+      "text": "从同步骨架提取根运动、四肢相对躯干速度、左右部位协同。关系目标较绝对坐标少依赖体形，但也可能丢失方向或绝对位置信息。先与Pose、普通速度、Gram关系基线比较。",
+      "x": 980,
+      "y": 10686,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "9e679bbda91140b5",
+      "type": "text",
+      "text": "**[RepNet] RepNet: Weakly Supervised Training of an Adversarial Reprojection Network for 3D Human Pose Estimation**\n2019 · CVPR\n[论文 / 原始来源](https://openaccess.thecvf.com/content_CVPR_2019/papers/Wandt_RepNet_Weakly_Supervised_Training_of_an_Adversarial_Reprojection_Network_for_CVPR_2019_paper.pdf)\n§3.3用KCS骨向量Gram矩阵表达骨长和关节夹角，送入判别器。\n边界：原文是对抗先验；直接以Gram矩阵作蒸馏损失是可借鉴设计，不是其原方法。\n\n**[PSKD] Progressive Cross-modal Knowledge Distillation for Human Action Recognition**\n2022 · ACM MM\n[论文 / 原始来源](https://arxiv.org/abs/2208.08090)\n骨架教师向智能手表加速度学生渐进蒸馏，推理只使用传感器。\n边界：提供跨模态先例；学生是惯性传感器，不能直接论证毫米波收益。",
+      "x": 1800,
+      "y": 10686,
+      "width": 1030,
+      "height": 482
+    },
+    {
+      "id": "7d9884b2f9ec43de",
+      "type": "text",
+      "text": "### H2｜雷达可观测运动监督",
+      "x": 500,
+      "y": 11268,
+      "width": 380,
+      "height": 150,
+      "color": "1"
+    },
+    {
+      "id": "f35c3d0051e3430e",
+      "type": "text",
+      "text": "标定P_r=R·P_c+t，速度v_r=R·v_c（固定外参）。视线u=P_r/||P_r||，径向速度v_rad=uᵀv_r；符号需对齐设备约定。作为近似运动目标，不将关节视作真实散射中心，也不假设所有骨架点都可见。",
+      "x": 980,
+      "y": 11268,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "3eceb679d3674093",
+      "type": "text",
+      "text": "**[Wave2Body] Wave2Body: Rethinking mmWave Human Pose Estimation as Radar-to-Body Token Translation**\n2026 · arXiv预印本\n[论文 / 原始来源](https://arxiv.org/abs/2607.18875)\n独立学习雷达tokenizer、人体tokenizer，再用配对样本学习映射和根定位。\n边界：结构先验可产生合理但错误姿态；离散量化与细节精度有权衡，尚不能视为会议录用。\n\n**[MMFi] MM-Fi: Multi-Modal Non-Intrusive 4D Human Dataset for Versatile Wireless Sensing**\n2023 · NeurIPS Datasets and Benchmarks\n[论文 / 原始来源](https://arxiv.org/abs/2305.10345)\n支持多模态人体姿态与无线感知研究，提供配对数据与官方工具。\n边界：动作片段数据不能直接证明自然连续动作边界理解；各坐标、帧率、同步和标定仍需审计。",
+      "x": 1800,
+      "y": 11268,
+      "width": 1030,
+      "height": 482
+    },
+    {
+      "id": "6942fea36ad1483e",
+      "type": "text",
+      "text": "### H3｜可靠性与运动变化",
+      "x": 500,
+      "y": 11850,
+      "width": 380,
+      "height": 150,
+      "color": "1"
+    },
+    {
+      "id": "cec320254802427b",
+      "type": "text",
+      "text": "权重结合骨架置信度、缺失、回波支持等，归一化并设最低有效样本门槛，防止将难样本全置零。多尺度ΔM与协同关系用于连续运动变化探针；变化大不等于语义事件边界。",
+      "x": 980,
+      "y": 11850,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "3366a841dc2b4df5",
+      "type": "text",
+      "text": "**[mmPred] mmPred: Radar-based Human Motion Prediction in the Dark**\n2026 · AAAI；预印本2025\n[论文 / 原始来源](https://ojs.aaai.org/index.php/AAAI/article/download/37378/41340)\n双域历史运动估计：时间域细节与频域趋势；原文Eq11监督DCT系数，Eq12为扩散噪声目标。\n边界：未来姿态预测与通用预训练任务不同；不能把整套系统收益归因为单一频域损失。\n\n**[TacMamba] Tac-Mamba: A Pose-Guided Cross-Modal State Space Model with Trust-Aware Gating for mmWave Radar Human Activity Recognition**\n2026 · Electronics 15(7),1535\n[论文 / 原始来源](https://www.mdpi.com/2079-9292/15/7/1535)\n§3.1明确视觉输入为2D骨架；含结构教师、3D辅助回归、modality dropout与可信门控。\n边界：不是纯3D骨架教师的直接证据；需区分多模态融合与雷达单模态退化/推理实验。",
+      "x": 1800,
+      "y": 11850,
+      "width": 1030,
+      "height": 504
+    },
+    {
+      "id": "5e1f2e2c15314c16",
+      "type": "text",
+      "text": "### H4｜运动引导雷达遮蔽",
+      "x": 500,
+      "y": 12454,
+      "width": 380,
+      "height": 150,
+      "color": "1"
+    },
+    {
+      "id": "50f5e2ceccfc4e98",
+      "type": "text",
+      "text": "用同步骨架运动映射时间片/身体区域，再决定雷达token遮蔽；RD图与点云对应方式不同。必须检验训练中依赖骨架的遮蔽器在测试时是否被移除，避免标签泄漏。",
+      "x": 980,
+      "y": 12454,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "07ac2bd11877498a",
+      "type": "text",
+      "text": "**[MAMP] Masked Motion Predictors are Strong 3D Action Representation Learners**\n2023 · ICCV\n[论文 / 原始来源](https://arxiv.org/html/2308.07092v1)\n§3.4 Eq4–6按运动强度构造遮蔽概率；运动越大越可能被遮蔽，目标是运动差分预测。\n边界：多遮蔽意味着少可见；仅骨架任务验证，如何映射雷达token仍需实验。\n\n**[FMSSL] Free-form motion directed cross-modal self-supervised learning for mmWave radar human motion perception**\n在线记录2026；卷期2027 · Pattern Recognition 181,114645\n[论文 / 原始来源](https://doi.org/10.1016/j.patcog.2026.114645)\n出版商摘要说明同步原始雷达与光学骨架、OT软对比、排序保持、masked trajectory modeling。\n边界：可读范围为摘要及节选，未核对完整公式或独立消融；卷期为2027年1月，勿直接写成2026会议论文。",
+      "x": 1800,
+      "y": 12454,
+      "width": 1030,
+      "height": 504
+    },
+    {
+      "id": "455c6e96d0a440d2",
+      "type": "text",
+      "text": "## 5｜面向毫米波的研究假设\n\n以下为基于文献与现有笔记的研究设计，不是已证实方法或新颖性结论。优先小规模、同预算消融。",
+      "x": 60,
+      "y": 11682,
+      "width": 340,
+      "height": 280,
+      "color": "1"
+    },
+    {
+      "id": "309e6935b0df456f",
+      "type": "text",
+      "text": "### 最小实验矩阵",
+      "x": 500,
+      "y": 13208,
+      "width": 380,
+      "height": 150,
+      "color": "5"
+    },
+    {
+      "id": "5d616f57fc4f4425",
+      "type": "text",
+      "text": "A随机初始化；B坐标回归；C=B+骨长/方向；D=B+速度；E=D+加速度/多跨度；F教师蒸馏；G径向目标；H=G+可靠性；I固定预算掩码对照。不要一次加全部模块。所有组共享主干、split、训练样本、步数与调参预算。",
+      "x": 980,
+      "y": 13208,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "4946d78379a141a3",
+      "type": "text",
+      "text": "### 评估表征，而不只评估姿态",
+      "x": 500,
+      "y": 13608,
+      "width": 380,
+      "height": 150,
+      "color": "5"
+    },
+    {
+      "id": "46141a2d728c4685",
+      "type": "text",
+      "text": "姿态：MPJPE、根轨迹、骨长/角度误差；时序：速度和加速度误差，注明m/s或mm/frame。预训练：冻结线性探针、少标签迁移、跨人/跨环境Macro-F1；连续任务另测边界F1、时序描述与延迟。重复种子并报告方差。",
+      "x": 980,
+      "y": 13608,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "44091d195e6a4bca",
+      "type": "text",
+      "text": "**[SmoothNet] SmoothNet: A Plug-and-Play Network for Refining Human Poses in Videos**\n2022 · ECCV；预印本2021\n[论文 / 原始来源](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136650615.pdf)\n§4.3 Eq3–4联合位置L1与真实加速度误差；补充材料§2.6有损失消融。\n边界：是姿态后处理网络；不能把加速度匹配写成把加速度压到零，也不保证雷达表征提升。\n\n**[MMFi] MM-Fi: Multi-Modal Non-Intrusive 4D Human Dataset for Versatile Wireless Sensing**\n2023 · NeurIPS Datasets and Benchmarks\n[论文 / 原始来源](https://arxiv.org/abs/2305.10345)\n支持多模态人体姿态与无线感知研究，提供配对数据与官方工具。\n边界：动作片段数据不能直接证明自然连续动作边界理解；各坐标、帧率、同步和标定仍需审计。",
+      "x": 1800,
+      "y": 13608,
+      "width": 1030,
+      "height": 482
+    },
+    {
+      "id": "5c7daeb2c47c4063",
+      "type": "text",
+      "text": "### 防泄漏与可复现",
+      "x": 500,
+      "y": 14190,
+      "width": 380,
+      "height": 150,
+      "color": "5"
+    },
+    {
+      "id": "ef7aa39641044394",
+      "type": "text",
+      "text": "按受试者/会话或原始长序列切分后再滑窗；相邻重叠片段不能跨split。归一化统计仅训练集。空间标定、时钟偏移、缺失/遮挡标签需先核查；失败记录和原始数据均保留。",
+      "x": 980,
+      "y": 14190,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "1a6f1f21cd614fff",
+      "type": "text",
+      "text": "### 原图结论修正记录",
+      "x": 500,
+      "y": 14590,
+      "width": 380,
+      "height": 150,
+      "color": "5"
+    },
+    {
+      "id": "94f02fb674f44f9a",
+      "type": "text",
+      "text": "保留AdvMT骨长节点；EventEgo3D++改为骨向量MSE+方向；E-3DPSM删去未经独立消融支持的“组合优于单项”；BeyondRetarget注明机器人任务；二阶速度改为加速度；MAMP补全遮蔽概率定义。",
+      "x": 980,
+      "y": 14590,
+      "width": 680,
+      "height": 300
+    },
+    {
+      "id": "fc038efde35246a4",
+      "type": "text",
+      "text": "## 6｜验证路径与文献审计\n\n支持与不支持都保留。论文采用某项、组合消融有效、单项因果贡献是三种不同证据。",
+      "x": 60,
+      "y": 13909,
+      "width": 340,
+      "height": 280,
+      "color": "5"
+    },
+    {
+      "id": "e569a616637bcbf0",
+      "type": "text",
+      "text": "**BeyondRetarget: Learning Executable Humanoid Motions Directly from Monocular Video**\n\nEq5对归一化关键语义肢体向量使用余弦偏差；Table3去除方向项后方向误差变大。\n直接视频到机器人运动；需形态对齐，不能当成人体姿态估计任务的通用结论。\n[论文](https://arxiv.org/html/2609.29850v1)",
+      "x": 3000,
+      "y": 2274,
+      "width": 1030,
+      "height": 280
+    }
+  ],
+  "edges": [
+    {
+      "id": "c8c1104a8bfa46ef",
+      "fromNode": "8b156791e3a4e84b",
+      "fromSide": "right",
+      "toNode": "7ae80c4965e34f28",
+      "toSide": "left"
+    },
+    {
+      "id": "d18d9cd266884558",
+      "fromNode": "7ae80c4965e34f28",
+      "fromSide": "right",
+      "toNode": "039bbddbc27560bb",
+      "toSide": "left"
+    },
+    {
+      "id": "5cb448bf36ef46dc",
+      "fromNode": "7a852f90eeec4461",
+      "fromSide": "right",
+      "toNode": "36526fa2ca7d4025",
+      "toSide": "left"
+    },
+    {
+      "id": "f286e08ce09f49c6",
+      "fromNode": "36526fa2ca7d4025",
+      "fromSide": "right",
+      "toNode": "e2761d59f0ea4070",
+      "toSide": "left"
+    },
+    {
+      "id": "3258e0064f974466",
+      "fromNode": "ea4c495c9b0049b1",
+      "fromSide": "right",
+      "toNode": "9df153e103e6414e",
+      "toSide": "left"
+    },
+    {
+      "id": "9e41ae447c764fef",
+      "fromNode": "9df153e103e6414e",
+      "fromSide": "right",
+      "toNode": "4cf8111e1e024d8d",
+      "toSide": "left"
+    },
+    {
+      "id": "2b683a2b59d04666",
+      "fromNode": "2e757d003f5d45d6",
+      "fromSide": "right",
+      "toNode": "3d166044cee24bb2",
+      "toSide": "left"
+    },
+    {
+      "id": "8c91d1558d3a48b9",
+      "fromNode": "3d166044cee24bb2",
+      "fromSide": "right",
+      "toNode": "d6a7b41b54cf43f0",
+      "toSide": "left"
+    },
+    {
+      "id": "d29d442ac7034162",
+      "fromNode": "039bbddbc27560bb",
+      "fromSide": "right",
+      "toNode": "cb61532eba444300",
+      "toSide": "left"
+    },
+    {
+      "id": "be30adf729ca4f5d",
+      "fromNode": "cb61532eba444300",
+      "fromSide": "right",
+      "toNode": "7a852f90eeec4461",
+      "toSide": "left"
+    },
+    {
+      "id": "008939f68b9341a4",
+      "fromNode": "cb61532eba444300",
+      "fromSide": "right",
+      "toNode": "ea4c495c9b0049b1",
+      "toSide": "left"
+    },
+    {
+      "id": "7305d248f2f34e86",
+      "fromNode": "cb61532eba444300",
+      "fromSide": "right",
+      "toNode": "2e757d003f5d45d6",
+      "toSide": "left"
+    },
+    {
+      "id": "9f04e161f660475f",
+      "fromNode": "caea65363c3c2aaf",
+      "fromSide": "right",
+      "toNode": "b68bde0babe8427e",
+      "toSide": "left"
+    },
+    {
+      "id": "e642aa2b70404215",
+      "fromNode": "b68bde0babe8427e",
+      "fromSide": "right",
+      "toNode": "6db8368425a943f2",
+      "toSide": "left"
+    },
+    {
+      "id": "dffaef308fce4d7e",
+      "fromNode": "499e194d54ddc5df",
+      "fromSide": "right",
+      "toNode": "ff99a7fbb1d09317",
+      "toSide": "left"
+    },
+    {
+      "id": "b5f055c37edc4e70",
+      "fromNode": "ff99a7fbb1d09317",
+      "fromSide": "right",
+      "toNode": "df1c95790c5137c9",
+      "toSide": "left"
+    },
+    {
+      "id": "d4c9e40fcd7e467d",
+      "fromNode": "f1ab4a95faf44871",
+      "fromSide": "right",
+      "toNode": "ad48c801beb74cf7",
+      "toSide": "left"
+    },
+    {
+      "id": "08b7ece3e8b64f80",
+      "fromNode": "ad48c801beb74cf7",
+      "fromSide": "right",
+      "toNode": "57fe1b94f13bdabf",
+      "toSide": "left"
+    },
+    {
+      "id": "fb4a2f645eee404d",
+      "fromNode": "01c96df25f614828",
+      "fromSide": "right",
+      "toNode": "6a6a197ea9ba4dd2",
+      "toSide": "left"
+    },
+    {
+      "id": "4cfa80672e454d03",
+      "fromNode": "6a6a197ea9ba4dd2",
+      "fromSide": "right",
+      "toNode": "5ea7013179624c4a",
+      "toSide": "left"
+    },
+    {
+      "id": "afaf750650184483",
+      "fromNode": "039bbddbc27560bb",
+      "fromSide": "right",
+      "toNode": "830e2d84091f2cc2",
+      "toSide": "left"
+    },
+    {
+      "id": "d6328238ecf245f2",
+      "fromNode": "830e2d84091f2cc2",
+      "fromSide": "right",
+      "toNode": "caea65363c3c2aaf",
+      "toSide": "left"
+    },
+    {
+      "id": "f913d74538f3404f",
+      "fromNode": "830e2d84091f2cc2",
+      "fromSide": "right",
+      "toNode": "499e194d54ddc5df",
+      "toSide": "left"
+    },
+    {
+      "id": "9afb695ecba548e9",
+      "fromNode": "830e2d84091f2cc2",
+      "fromSide": "right",
+      "toNode": "f1ab4a95faf44871",
+      "toSide": "left"
+    },
+    {
+      "id": "09807917e8774602",
+      "fromNode": "830e2d84091f2cc2",
+      "fromSide": "right",
+      "toNode": "01c96df25f614828",
+      "toSide": "left"
+    },
+    {
+      "id": "0a375e6714c74544",
+      "fromNode": "96c3266887762f4b",
+      "fromSide": "right",
+      "toNode": "e43533dd8ce8daf6",
+      "toSide": "left"
+    },
+    {
+      "id": "8eaf94f0ad754e2b",
+      "fromNode": "e43533dd8ce8daf6",
+      "fromSide": "right",
+      "toNode": "e9eed7b5d9984b41",
+      "toSide": "left"
+    },
+    {
+      "id": "4a69a968bd154557",
+      "fromNode": "840facbfcbae62bd",
+      "fromSide": "right",
+      "toNode": "be0adcb1c13e4f95",
+      "toSide": "left"
+    },
+    {
+      "id": "848e2469b7054923",
+      "fromNode": "be0adcb1c13e4f95",
+      "fromSide": "right",
+      "toNode": "a4df60c7ecf7460e",
+      "toSide": "left"
+    },
+    {
+      "id": "f4ec7f265e0143a5",
+      "fromNode": "cadd7ba715fb0589",
+      "fromSide": "right",
+      "toNode": "2b02e00bdf0c3dc4",
+      "toSide": "left"
+    },
+    {
+      "id": "f9fd72863f314f32",
+      "fromNode": "2b02e00bdf0c3dc4",
+      "fromSide": "right",
+      "toNode": "e6b2fe8ef3614f7f",
+      "toSide": "left"
+    },
+    {
+      "id": "6209fb7f2a8e4d5e",
+      "fromNode": "0909081c8d3440f9",
+      "fromSide": "right",
+      "toNode": "f3130d1e8fee47b3",
+      "toSide": "left"
+    },
+    {
+      "id": "2ccf191a7cff4efa",
+      "fromNode": "f3130d1e8fee47b3",
+      "fromSide": "right",
+      "toNode": "b8f20896c68b4872",
+      "toSide": "left"
+    },
+    {
+      "id": "d59d58a0618b46cc",
+      "fromNode": "039bbddbc27560bb",
+      "fromSide": "right",
+      "toNode": "120deee2f30d1ad5",
+      "toSide": "left"
+    },
+    {
+      "id": "f7529c53df8142cd",
+      "fromNode": "120deee2f30d1ad5",
+      "fromSide": "right",
+      "toNode": "96c3266887762f4b",
+      "toSide": "left"
+    },
+    {
+      "id": "3523a81296ca4fa3",
+      "fromNode": "120deee2f30d1ad5",
+      "fromSide": "right",
+      "toNode": "840facbfcbae62bd",
+      "toSide": "left"
+    },
+    {
+      "id": "7236f9b94d684102",
+      "fromNode": "120deee2f30d1ad5",
+      "fromSide": "right",
+      "toNode": "cadd7ba715fb0589",
+      "toSide": "left"
+    },
+    {
+      "id": "db231219334b44e0",
+      "fromNode": "120deee2f30d1ad5",
+      "fromSide": "right",
+      "toNode": "0909081c8d3440f9",
+      "toSide": "left"
+    },
+    {
+      "id": "d6e159b8780744ec",
+      "fromNode": "f13fa7d718bf48f1",
+      "fromSide": "right",
+      "toNode": "8877f7d2597b4220",
+      "toSide": "left"
+    },
+    {
+      "id": "d6c3f98bebea49f5",
+      "fromNode": "8877f7d2597b4220",
+      "fromSide": "right",
+      "toNode": "6094d4e0f83a4b5b",
+      "toSide": "left"
+    },
+    {
+      "id": "55c18e7c6f9d4f79",
+      "fromNode": "c8614d8b1964a031",
+      "fromSide": "right",
+      "toNode": "03aedc9c4ef24966",
+      "toSide": "left"
+    },
+    {
+      "id": "04ec91e837e04d2a",
+      "fromNode": "03aedc9c4ef24966",
+      "fromSide": "right",
+      "toNode": "3208ed5d603b4cf3",
+      "toSide": "left"
+    },
+    {
+      "id": "b51dd9dcea05456f",
+      "fromNode": "084d045eec56b8eb",
+      "fromSide": "right",
+      "toNode": "3598fb0309204629",
+      "toSide": "left"
+    },
+    {
+      "id": "72f6a142049846ff",
+      "fromNode": "3598fb0309204629",
+      "fromSide": "right",
+      "toNode": "b817dd425eb44215",
+      "toSide": "left"
+    },
+    {
+      "id": "8bca25bb94a14df1",
+      "fromNode": "5e1b79ff831f4339",
+      "fromSide": "right",
+      "toNode": "af31c8e3a0cb4d63",
+      "toSide": "left"
+    },
+    {
+      "id": "874659f1ae454878",
+      "fromNode": "af31c8e3a0cb4d63",
+      "fromSide": "right",
+      "toNode": "f47dab60ef47401a",
+      "toSide": "left"
+    },
+    {
+      "id": "bbce7a2902304fb9",
+      "fromNode": "039bbddbc27560bb",
+      "fromSide": "right",
+      "toNode": "eb1e9f472eb66af1",
+      "toSide": "left"
+    },
+    {
+      "id": "4ca7b226162f43f3",
+      "fromNode": "eb1e9f472eb66af1",
+      "fromSide": "right",
+      "toNode": "f13fa7d718bf48f1",
+      "toSide": "left"
+    },
+    {
+      "id": "734432720d3e40f8",
+      "fromNode": "eb1e9f472eb66af1",
+      "fromSide": "right",
+      "toNode": "c8614d8b1964a031",
+      "toSide": "left"
+    },
+    {
+      "id": "65b0e7dbcde74310",
+      "fromNode": "eb1e9f472eb66af1",
+      "fromSide": "right",
+      "toNode": "084d045eec56b8eb",
+      "toSide": "left"
+    },
+    {
+      "id": "35dfe497269645d1",
+      "fromNode": "eb1e9f472eb66af1",
+      "fromSide": "right",
+      "toNode": "5e1b79ff831f4339",
+      "toSide": "left"
+    },
+    {
+      "id": "4136ad0cc1bb4490",
+      "fromNode": "08f637e899e24d30",
+      "fromSide": "right",
+      "toNode": "1dd1fbb0c07f4148",
+      "toSide": "left"
+    },
+    {
+      "id": "da9d10c3496046da",
+      "fromNode": "1dd1fbb0c07f4148",
+      "fromSide": "right",
+      "toNode": "0ee17e3cb7934ea5",
+      "toSide": "left"
+    },
+    {
+      "id": "ca2c5c6e16ce4b34",
+      "fromNode": "de4c205d8e5e405b",
+      "fromSide": "right",
+      "toNode": "40f56e81f73a47f2",
+      "toSide": "left"
+    },
+    {
+      "id": "1e8748f469e54ba6",
+      "fromNode": "40f56e81f73a47f2",
+      "fromSide": "right",
+      "toNode": "ebefbd02121542d7",
+      "toSide": "left"
+    },
+    {
+      "id": "d68fcdb034c347e9",
+      "fromNode": "4ed6f469d3854ee8",
+      "fromSide": "right",
+      "toNode": "146949091a3e442f",
+      "toSide": "left"
+    },
+    {
+      "id": "df877793b54a4af3",
+      "fromNode": "146949091a3e442f",
+      "fromSide": "right",
+      "toNode": "bc6d0d5bdd7b485f",
+      "toSide": "left"
+    },
+    {
+      "id": "3aecb2324082402a",
+      "fromNode": "039bbddbc27560bb",
+      "fromSide": "right",
+      "toNode": "d31561bf2bc54472",
+      "toSide": "left"
+    },
+    {
+      "id": "327d4b8e82fe4149",
+      "fromNode": "d31561bf2bc54472",
+      "fromSide": "right",
+      "toNode": "08f637e899e24d30",
+      "toSide": "left"
+    },
+    {
+      "id": "6e0fc77c691349c2",
+      "fromNode": "d31561bf2bc54472",
+      "fromSide": "right",
+      "toNode": "de4c205d8e5e405b",
+      "toSide": "left"
+    },
+    {
+      "id": "ddf01d9a04a544a2",
+      "fromNode": "d31561bf2bc54472",
+      "fromSide": "right",
+      "toNode": "4ed6f469d3854ee8",
+      "toSide": "left"
+    },
+    {
+      "id": "94308eaca29b47a9",
+      "fromNode": "e04d630c0023470a",
+      "fromSide": "right",
+      "toNode": "b105df7525e6482e",
+      "toSide": "left"
+    },
+    {
+      "id": "5651ccf8e2d44634",
+      "fromNode": "b105df7525e6482e",
+      "fromSide": "right",
+      "toNode": "9e679bbda91140b5",
+      "toSide": "left"
+    },
+    {
+      "id": "6943e7d8b8374456",
+      "fromNode": "7d9884b2f9ec43de",
+      "fromSide": "right",
+      "toNode": "f35c3d0051e3430e",
+      "toSide": "left"
+    },
+    {
+      "id": "e84d464e736f4bb1",
+      "fromNode": "f35c3d0051e3430e",
+      "fromSide": "right",
+      "toNode": "3eceb679d3674093",
+      "toSide": "left"
+    },
+    {
+      "id": "a70004e3cae84108",
+      "fromNode": "6942fea36ad1483e",
+      "fromSide": "right",
+      "toNode": "cec320254802427b",
+      "toSide": "left"
+    },
+    {
+      "id": "e724becd25be4983",
+      "fromNode": "cec320254802427b",
+      "fromSide": "right",
+      "toNode": "3366a841dc2b4df5",
+      "toSide": "left"
+    },
+    {
+      "id": "dcb67ff1208a43d9",
+      "fromNode": "5e1f2e2c15314c16",
+      "fromSide": "right",
+      "toNode": "50f5e2ceccfc4e98",
+      "toSide": "left"
+    },
+    {
+      "id": "38067d2b091745ba",
+      "fromNode": "50f5e2ceccfc4e98",
+      "fromSide": "right",
+      "toNode": "07ac2bd11877498a",
+      "toSide": "left"
+    },
+    {
+      "id": "aa0ae45ea93d45ff",
+      "fromNode": "039bbddbc27560bb",
+      "fromSide": "right",
+      "toNode": "455c6e96d0a440d2",
+      "toSide": "left"
+    },
+    {
+      "id": "bd30978873c947a3",
+      "fromNode": "455c6e96d0a440d2",
+      "fromSide": "right",
+      "toNode": "e04d630c0023470a",
+      "toSide": "left"
+    },
+    {
+      "id": "c5d1c1cfdd7c42c7",
+      "fromNode": "455c6e96d0a440d2",
+      "fromSide": "right",
+      "toNode": "7d9884b2f9ec43de",
+      "toSide": "left"
+    },
+    {
+      "id": "9403925028774276",
+      "fromNode": "455c6e96d0a440d2",
+      "fromSide": "right",
+      "toNode": "6942fea36ad1483e",
+      "toSide": "left"
+    },
+    {
+      "id": "b6955dafd6f74356",
+      "fromNode": "455c6e96d0a440d2",
+      "fromSide": "right",
+      "toNode": "5e1f2e2c15314c16",
+      "toSide": "left"
+    },
+    {
+      "id": "f41a59bb5295498f",
+      "fromNode": "309e6935b0df456f",
+      "fromSide": "right",
+      "toNode": "5d616f57fc4f4425",
+      "toSide": "left"
+    },
+    {
+      "id": "56f23f8011f149c7",
+      "fromNode": "4946d78379a141a3",
+      "fromSide": "right",
+      "toNode": "46141a2d728c4685",
+      "toSide": "left"
+    },
+    {
+      "id": "9319037f0f02430a",
+      "fromNode": "46141a2d728c4685",
+      "fromSide": "right",
+      "toNode": "44091d195e6a4bca",
+      "toSide": "left"
+    },
+    {
+      "id": "17c648d3ebdf4435",
+      "fromNode": "5c7daeb2c47c4063",
+      "fromSide": "right",
+      "toNode": "ef7aa39641044394",
+      "toSide": "left"
+    },
+    {
+      "id": "70027c23bb3b4f4e",
+      "fromNode": "1a6f1f21cd614fff",
+      "fromSide": "right",
+      "toNode": "94f02fb674f44f9a",
+      "toSide": "left"
+    },
+    {
+      "id": "5908eac273684471",
+      "fromNode": "039bbddbc27560bb",
+      "fromSide": "right",
+      "toNode": "fc038efde35246a4",
+      "toSide": "left"
+    },
+    {
+      "id": "61869c1a6e9e428d",
+      "fromNode": "fc038efde35246a4",
+      "fromSide": "right",
+      "toNode": "309e6935b0df456f",
+      "toSide": "left"
+    },
+    {
+      "id": "0d130692c9844d7a",
+      "fromNode": "fc038efde35246a4",
+      "fromSide": "right",
+      "toNode": "4946d78379a141a3",
+      "toSide": "left"
+    },
+    {
+      "id": "4e072adf58bb410b",
+      "fromNode": "fc038efde35246a4",
+      "fromSide": "right",
+      "toNode": "5c7daeb2c47c4063",
+      "toSide": "left"
+    },
+    {
+      "id": "c182ed9688074fb5",
+      "fromNode": "fc038efde35246a4",
+      "fromSide": "right",
+      "toNode": "1a6f1f21cd614fff",
+      "toSide": "left"
+    },
+    {
+      "id": "5a3babdf2f224cd0",
+      "fromNode": "df1c95790c5137c9",
+      "fromSide": "right",
+      "toNode": "e569a616637bcbf0",
+      "toSide": "left"
+    }
+  ]
+}

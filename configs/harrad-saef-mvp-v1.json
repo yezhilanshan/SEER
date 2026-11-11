@@ -1,0 +1,23 @@
+{
+  "source_config": "configs/harrad-cif-lif-v1.json",
+  "mvp": {
+    "feature_dim": 128,
+    "hidden_dim": 128,
+    "num_classes": 12,
+    "frame_period_s": 0.06666666666666667,
+    "state_tau_s": 2.0,
+    "current_max": 3.0
+  },
+  "training": {
+    "seed": 42,
+    "threads": 4,
+    "action_steps": 500,
+    "evidence_steps": 500,
+    "closed_loop_steps": 0,
+    "lr": 0.001
+  },
+  "calibration": {
+    "thresholds": [0.25, 0.5, 0.75, 1.0, 1.5, 2.0],
+    "taus": [0.5, 1.0, 2.0]
+  }
+}

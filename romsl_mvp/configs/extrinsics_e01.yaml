@@ -1,0 +1,20 @@
+{
+  "verified": false,
+  "direction": "RGB camera world to radar local",
+  "R": null,
+  "t": null,
+  "source": null,
+  "from_frame": "world",
+  "to_frame": "radar",
+  "world_unit": "m",
+  "world_axes": null,
+  "radar_axes": null,
+  "translation_unit": null,
+  "radar_origin_world_m": null,
+  "verified_by": null,
+  "validation_recordings": [],
+  "fit_recordings": [],
+  "mean_error_m": null,
+  "p95_error_m": null,
+  "reason": "No verifiable E01 rigid transform or matched calibration geometry located."
+}

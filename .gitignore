@@ -1,0 +1,49 @@
+# 环境与缓存
+.venv/
+.venv-broken/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# 数据、实验产物与临时目录（体积过大，不入库）
+data/
+outputs/
+tmp/
+.audit-staging/
+.tmp-*/
+.pytest-saef-data-*/
+.superpowers/
+.firecrawl/
+backbone_models/
+
+# 大文件与二进制产物
+*.zip
+*.part
+*.tar
+*.gz
+*.bz2
+*.7z
+*.rar
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.h5
+*.hdf5
+*.npz
+*.npy
+*.pkl
+*.pickle
+*.bin
+*.parquet
+*.arrow
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~

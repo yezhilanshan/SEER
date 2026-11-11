@@ -1,0 +1,48 @@
+{
+  "protocol": "continuous_supervised_start_end_partial_labels_v1",
+  "locks": {
+    "radar_checkpoint": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/semantic_baseline_20261017_v2/runs/rd-seed42/best.pt",
+      "sha256": "13674006bb1088fba10dcfbfb028aa38e15b560eb3b4eb79575c91a6436dc03f"
+    },
+    "radar_normalizers": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/semantic_baseline_20261017_v2/normalizers.npz",
+      "sha256": "9a12bcb001e36065a9706279d470a6e17f266389ea2f53f865c4b6ed5e4b3b03"
+    },
+    "canonical_manifest": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/semantic_baseline_20261017_v2/canonical-manifest.json",
+      "sha256": "7b667ba028cc4cd941823e87c6264c67d14c141f828471991530a3bfaefc8c2c"
+    },
+    "continuous_manifest": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/event_warmup_20261017_v1/feature-manifest.json",
+      "sha256": "67fa8e6afd4caf401a27cedc6847d2f7748d8c2ddacaba021ce474663d493e97"
+    },
+    "event_best": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/event_warmup_20261017_v1/training/best.pt",
+      "sha256": "559aee947bc9a284180cfc7f5eefcbf1039c766fe1aec319a5bc7bcf1cc2fa92"
+    }
+  },
+  "training": {
+    "epochs": 20,
+    "seed": 42,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "thresholds": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "main_tolerance_frames": 4,
+    "tolerances_frames": [
+      2,
+      4,
+      8
+    ]
+  }
+}

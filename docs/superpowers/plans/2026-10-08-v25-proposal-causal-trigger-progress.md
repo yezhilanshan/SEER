@@ -1,0 +1,21 @@
+# Frozen causal-trigger experiment progress
+
+Status: COMPLETE. User requested0AdamW,500primarydevelopment,1000fixedcontrol, Local/Radar/OR, causal one-shot/hysteresis/finitepeak, fit calibration before dev,3/5/8FP budgets. All fulfilled; no production code or controller changed, no new training or Semantic/Candidate calibration started.
+
+Locked plan:2026-10-08-v25-proposal-causal-trigger.md remains immutable after preregistration; exactSHA in .audit-staging/proposal-trigger-spec-v1.json. SpecSHA e0e4097659041e43eeaf7a2ea96c215a60f398e584f534cd6a31ada004d20b6c. Frozen Head parameters, Gaussian loss and score fusion remained unchanged. No duration-derived refractory branch added.
+
+Native read-only collection: directSSH authorized login, isolated code /home/xibeidaxue/SEER/.audit-staging/proposal-trigger-code-v1. Frozen fit-only inference launcherPID32582 completed. /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v25_physical_proposal_v1/trigger-fit-frozen-v1 contains18fit recording views each for500/1000; no role retagging. Heads require_gradFalse, inference_mode, module/source/cache hashes before/after identical. Forwardcalls121544 eachcheckpoint,243088total, actual newoptimizerupdates0. Original optimizer step counts500/1000 not changed. Original model/frontend/gate/P not updated.
+
+Raw2.2MBfit archive downloaded, trustedSHA2dee59ff6d2c05fdcd2617f5ff4e237e6dcc77a0e5c5c6823f413486c67eb435 and safe member paths/SHAs passed, exclusive extraction .audit-staging/proposal-trigger-fit-readback-v1. Sources remain original26encoderindex entries; only18fit forward-read. Dev score arrays from previous fully verified archive reused; no new dev model forwards.
+
+Calibration: .audit-staging/run-proposal-causal-experiment.py calibrate is a separate process that only opens500fit scores. Grid582 configurations (18one-shot+68hysteresis+108peak perpath),27selections. Fitbudget3/5/8FP/min feasible for each; deterministic tie order locked. selected.json SHA0c3f7f9d4877400bedd97422f58203686a9480b55fbe5225c4d038bfe347c638 saved with selected.sha256 before dev process. Dev applied identical27configs to500/1000 plus3historical.6baselines each,60results. No1000retuning or devthreshold sweep/selection.
+
+Tests: watched fail on absentmodule, implementation then6pass+1float literal assertion failure; changed only expectedtimestamp equality to np.allclose,7pass. Combined with oldzero diagnostic13pass2.25s ininterview. .audit-staging/audit-proposal-causal-results.py independent scalarimplementation verified480dev emission streams,3360matching checks,1440prefixcausalitychecks, aggregateerror0;60historical one-shotmetrics unchanged.
+
+Results at500fitcap8, peak: Local50.00%Recall/6.41devFPmin, Radar56.39%/7.32, OR44.18%/5.32; alloverallcapmet. Local lookahead2updates(.36s); Radar/OR1update(.18s), all.72s onlineNMS, trueemission timestamps used. Radarpeak atcap3/5:27.98%/2.29FP,36.79%/3.65FP; correspondingcalibratedoneshot19.60%/2.40,21.16%/4.40. No universalpeakwin:ORcap5 peak21.59%/2.76 versusoneshot33.52%/3.83. Hysteresis releasecannotbreakuninterruptedplateau; not generallyhelpful. Radar500hysteresiscap5devFP5.44 exceeds5 and isflagged.
+
+1000samecap8peak configs produceLocal59.09%/10.68FP, Radar58.38%/12.87FP, OR56.53%/9.48FP, allover8; not samebudgetimprovements. Of27budgetconfigs500has1devovercap,1000has20fitovercap+20devovercap. No posthoccontrolrecallwinner deployed.
+
+Scientificreport docs/v2.5-proposal-causal-trigger-results-2026-10-08.md,2figures×PNG/PDF in docs/assets/v25-proposal-causal-trigger-2026-10-08. Complete calibration grids, immutable selection, everyemission/peak/match, allgroups, frozenfit metadata andindependentreadback in .audit-staging/proposal-causal-trigger-results-v1 andfitreadback. Figurecontents inspected, labeloffsetadjusted for overlappingpoints only.
+
+Interpretation: finitepeak reduces demonstratedone-shot suppression; bestofprelocked500configurations still56.39%,307/704missed. This finitegrid doesnot prove allpossibletrigger failures removed or a theoreticalHead ceiling. In-samplefitcalibration, previouslyexploredTRAINdev andsingle modelseed; formalGoFalse. Nextproposedwork: boundedHeadsupervision/calibration study with encoder/gate/P frozen and thislockedtrigger ascontrol. No losschange/trainingbudget executed inthisexperiment.

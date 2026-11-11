@@ -1,0 +1,58 @@
+{
+  "protocol": "harrad_constructed_sequence_cif_lif_v1",
+  "locks": {
+    "feature_manifest": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/event_warmup_20261017_v1/feature-manifest.json",
+      "sha256": "67fa8e6afd4caf401a27cedc6847d2f7748d8c2ddacaba021ce474663d493e97"
+    },
+    "radar_checkpoint": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/semantic_baseline_20261017_v2/runs/rd-seed42/best.pt",
+      "sha256": "13674006bb1088fba10dcfbfb028aa38e15b560eb3b4eb79575c91a6436dc03f"
+    },
+    "radar_normalizers": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/semantic_baseline_20261017_v2/normalizers.npz",
+      "sha256": "9a12bcb001e36065a9706279d470a6e17f266389ea2f53f865c4b6ed5e4b3b03"
+    },
+    "feature_verification": {
+      "path": "/home/xibeidaxue/newdisk2/WJ/HARrad/outputs/event_warmup_20261017_v1/streaming-verification.json",
+      "sha256": "546ae1aba0365b2f6a3955e5a3e2869f14f0fc23e29016172b665e107fd00d8e"
+    }
+  },
+  "data": {
+    "seed": 42,
+    "sequence_stride": 3,
+    "max_events": 6,
+    "max_sequence_frames": 900
+  },
+  "gate": {
+    "feature_dim": 128,
+    "hidden_dim": 128,
+    "num_classes": 12,
+    "frame_period_s": 0.06666666666666667,
+    "tau": 1.5,
+    "tau_r": 3.0,
+    "beta": 1.0,
+    "theta": 1.0,
+    "temperature": 0.5,
+    "radius": 0.1,
+    "recent_tau_s": 3.0,
+    "reference_tau_s": 20.0,
+    "buffer_frames": 192,
+    "retrospective": false,
+    "reset": "soft",
+    "tail_threshold": 0.5
+  },
+  "training": {
+    "seed": 42,
+    "threads": 4,
+    "cif_epochs": 30,
+    "lif_distill_epochs": 8,
+    "lif_epochs": 12,
+    "baseline_epochs": 20,
+    "batch_size": 8,
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "baseline_minimum_frames": [1, 4, 8]
+  }
+}

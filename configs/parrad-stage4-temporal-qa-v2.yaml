@@ -1,0 +1,20 @@
+stage4:
+  frontend_config: configs/parrad-md-gru-stage3-sequence-v2.yaml
+  stage3_checkpoint: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage3_transition_sequence_v2/best_verify.pt
+  threshold_artifact: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage3_transition_sequence_v2/timeout-reject-ablation-shards-v1/merged/validation_thresholds.json
+  source_output: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage4_memory_pilot_v2
+  cache_sha256: 8da6998d7c3605ad5b9a62b4376193c5733b8708dcb864d485d510b6450c77fb
+  previous_output: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage4_short_context_qa_v1
+  init_qa: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage4_short_context_qa_v1/qa-adapter-inference.pt
+  init_qa_sha256: 7e511c2ada38bcfc93ec41ff7be97efa450d09bcaf107c82b2d6d9ec095bd637
+  protected_compressor: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage4_chat_qa_pilot_v1/compressor-step500.pt
+  compressor_sha256: 3ff4524a4836a6e0e3fb3be37f8912f1a72ed92ac03f7b632fb8cbc309b8e507
+  output_dir: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage4_temporal_qa_v2
+  seed: 42
+  steps_per_arm: 500
+  learning_rate: 0.0003
+  amp_initial_scale: 256
+  fusion:
+    bottleneck: 256
+    encoding_dim: 16
+    tokens_per_event: 8

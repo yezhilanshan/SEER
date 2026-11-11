@@ -1,0 +1,32 @@
+experiment: v261_shared_adapter_dual_state_pilot
+formal_reset_go: false
+device: cuda
+output_dir: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v261_joint_pilot_20261015_v4
+frontend_config: configs/parrad-md-gru-stage3-sequence-v2.yaml
+frontend_state_sha256: 4ddd405609d027cb87e2ca496a061392a7b954215c135c6755a966f3f1276501
+original_root: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v26_prediction_pilot_20261014_v4
+original_protocol_sha256: b5b5a5311f6de9a7b7a54ee5afee49274ed1e4494c1359433d0af67663b63613
+p0_snapshot: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v26_p0_diagnostic_20261015_v1/protocol.json
+p0_snapshot_sha256: f3fd0a39d7e3a88f4edf07eb190c568e6eb5f3fae86c78004504327df6413ca3
+stage1: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage1_causal_md_gru_token_warmup/radar_encoder.pt
+stage1_sha256: 42065f59311cb41e6c23c7734b66392028d634d7c11264bfa3325cb2be7b7289
+stage2: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage2_event_joint_formal_v1/best.pt
+stage2_sha256: 939aa977b2616d8ceb11f47ec1470701dc04bd7d1af64cc5ac20ebed3ab88f9a
+index_sha256:
+  train: f57b0cff3fbb4bb877fb7c5e93f278220d07a923bd9f6ef911b5295b28e8ef91
+  validation: 3ece629fc9e6d0b7bace47e50c74391810f8200badad89de102a26e91d728bc2
+label_maps:
+  legacy: /home/xibeidaxue/newdisk2/WJ/PARrad/canonical/phase1/label_map.json
+  expanded: /home/xibeidaxue/newdisk2/WJ/PARrad/canonical/offline_expanded_20261011_v1/label_map.json
+label_map_sha256: e39c8d660fb9cfe9f259616e33e1e4402a76cd99f591713e2e90650ea0fc7153
+manifests:
+  train: /home/xibeidaxue/newdisk2/WJ/PARrad/canonical/offline_expanded_20261011_split_v1/train.jsonl
+  validation: /home/xibeidaxue/newdisk2/WJ/PARrad/canonical/offline_expanded_20261011_split_v1/validation.jsonl
+arms: [M,A,B,AB]
+seeds: [42,43,44]
+training:
+  steps: 1000
+  max_attempts: 1100
+  lr: 0.0001
+  weight_decay: 0.01
+  clip_norm: 1.0

@@ -1,0 +1,27 @@
+stage4:
+  frontend_config: configs/parrad-md-gru-stage3-sequence-v2.yaml
+  stage3_checkpoint: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage3_transition_sequence_v2/best_verify.pt
+  threshold_artifact: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage3_transition_sequence_v2/timeout-reject-ablation-shards-v1/merged/validation_thresholds.json
+  source_output: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage4_memory_pilot_v2
+  cache_sha256: 8da6998d7c3605ad5b9a62b4376193c5733b8708dcb864d485d510b6450c77fb
+  init_checkpoint: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage4_memory_pilot_v2/compressor-step100.pt
+  init_sha256: 10be90e2d2157531e65702d279c53f32c8399352f736106637b8979756afd39d
+  output_dir: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage4_chat_qa_pilot_v1
+  subjects: [subject_02]
+  sensors: [TI_xWR14xx]
+  seed: 42
+  steps: 500
+  amp_initial_scale: 256.0
+  learning_rate: 0.0001
+  retain_weight: 2.0
+  memory:
+    l0_capacity: 8
+    l1_capacity: 8
+    l2_capacity: 32
+    group_size: 4
+  replay_recordings: 1
+  generation_max_new_tokens: 384
+  queries:
+    - List the activities in the retrieved event memory in chronological order. Answer only with a semicolon-separated list of activity names.
+    - Does the retrieved event memory include getting into bed? Answer only Yes or No.
+    - Does the retrieved event memory include getting out of bed? Answer only Yes or No.

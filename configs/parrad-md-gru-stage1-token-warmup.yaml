@@ -1,0 +1,59 @@
+model:
+  encoder_type: causal_md_gru
+  frame_period_s: 0.09
+  frames_per_update: 2
+  rd_channels: 1
+  rd_height: 93
+  rd_width: 128
+  md_bins: 128
+  radar_dim: 256
+  motion_dim: 128
+  radar_tokens_per_update: 4
+  sensor_vocab_size: 2
+  use_sensor_embedding: true
+  fusion_heads: 8
+  md_gru_dim: 128
+  dropout: 0.1
+data:
+  train_manifest: /home/xibeidaxue/newdisk2/WJ/PARrad/canonical/phase1/train.jsonl
+  validation_manifest: /home/xibeidaxue/newdisk2/WJ/PARrad/canonical/phase1/validation.jsonl
+  test_manifest: /home/xibeidaxue/newdisk2/WJ/PARrad/canonical/phase1/test.jsonl
+  split_unit: subject
+  preserve_continuous_sessions: true
+  window_frames: 64
+  window_stride: 64
+  train_window_mode: label_run
+  min_label_run_frames: 8
+  label_boundary_ignore_seconds: 1.0
+  streaming_sequence_frames: 256
+  streaming_chunk_frames: 64
+training:
+  seed: 42
+  device: auto
+  output_dir: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage1_causal_md_gru_token_warmup
+  batch_size: 64
+  evaluation_batch_size: 128
+  evaluation_recording_batch_size: 16
+  num_workers: 0
+  epochs: 15
+  streaming_finetune_epochs: 0
+  learning_rate: 0.001
+  warmup_ratio: 0.05
+  min_lr_ratio: 0.1
+  early_stopping_patience: 5
+  weight_decay: 0.01
+  grad_clip_norm: 1.0
+  amp: true
+llm: {}
+stage:
+  variant: parrad
+  num_classes: 14
+  class_weights: balanced
+  initial_radar_checkpoint: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage1_causal_md_gru_pilot/radar_encoder.pt
+  freeze_radar_backbone: true
+  frame_classification_weight: 0.5
+  token_classification_weight: 1.0
+  label_run_temporal_smoothness_weight: 2.0
+  streaming_temporal_smoothness_weight: 2.0
+  semantic_supervision: pretrained_md_gru_dual_head_token_warmup
+  dataset_scope: cross_subject_train_020304_validation_05_test_06_continuous_eval

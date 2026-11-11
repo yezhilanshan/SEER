@@ -1,0 +1,31 @@
+model:
+  llm_dim: 640
+  llm_layers: 4
+  llm_heads: 4
+  cross_attn_dim: 256
+  cross_attn_heads: 4
+  lora_rank: 16
+data:
+  train_manifest: data/train-stage2.jsonl
+training:
+  seed: 42
+  device: auto
+  output_dir: outputs/gemma3_270m_stage2
+  batch_size: 2
+  num_workers: 2
+  epochs: 30
+  learning_rate: 0.0001
+  radar_learning_rate: 0.00001
+  weight_decay: 0.01
+  grad_clip_norm: 1.0
+  amp: true
+llm:
+  backend: gemma3
+  name_or_path: google/gemma-3-270m-it
+  torch_dtype: bfloat16
+stage:
+  stage1_checkpoint: outputs/stage1/radar_encoder.pt
+  align_weight: 1.0
+  consistency_weight: 1.0
+  contrastive_temperature: 0.07
+  checkpoint_streaming: true

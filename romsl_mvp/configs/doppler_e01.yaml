@@ -1,0 +1,11 @@
+{
+  "verified": false,
+  "doppler_col": null,
+  "units": null,
+  "positive_direction": null,
+  "source": null,
+  "sign_verified": false,
+  "sign_verification_source": null,
+  "verified_by": null,
+  "reason": "Awaiting author field definitions, units and sign convention."
+}

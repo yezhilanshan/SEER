@@ -1,0 +1,35 @@
+scope: implementation_preparation_only
+formal_training_enabled: false
+seed: 42
+num_classes: 9
+md_bins: 128
+feature_dim: 16
+hidden_dim: 16
+gru_layers: 3
+preprocessing: per_frame_population_zscore_no_log
+cnn_fidelity: figure_interpretation_unconfirmed
+cnn_target_trainable_parameters: 8301
+training_snippet_frames: [100, 1000]
+training_batch_length_policy: shared_length_no_padding
+training_initial_state: zero_per_random_snippet
+streaming_forward_state: persistent_per_recording
+streaming_backward_state: zero_per_window
+window_frames: 512
+hop_frames: 171
+dice_mode: global
+label_smoothing_off_target: 0.2
+optimizer: Adam
+learning_rate: 0.001
+probe_batch_size: 8
+probe_lengths: [100, 512, 1000]
+probe_warmup_steps: 2
+probe_timed_steps: 5
+max_optimizer_steps: null
+validation_interval_steps: null
+early_stopping_patience_checks: null
+frame_period_s_assumed: 0.09
+frame_origin: first_command_approximation_not_measured
+hospital_status: unconfirmed
+outer_fold_grouping: subject
+outer_fold_count: 5
+fold_status: candidate_only_not_formal_Hospital_protocol

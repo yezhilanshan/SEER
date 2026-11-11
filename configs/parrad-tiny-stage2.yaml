@@ -1,0 +1,56 @@
+model:
+  frame_period_s: 0.09
+  frames_per_update: 2
+  rd_channels: 1
+  rd_height: 93
+  rd_width: 128
+  md_bins: 128
+  radar_dim: 16
+  motion_dim: 8
+  radar_tokens_per_update: 4
+  sensor_vocab_size: 2
+  use_sensor_embedding: true
+  fusion_heads: 4
+  rd_tcn_dilations: [1, 2]
+  md_tcn_dilations: [1, 2]
+  event_tokens: 8
+  llm_dim: 32
+  llm_layers: 4
+  llm_heads: 4
+  cross_attn_dim: 8
+  cross_attn_heads: 2
+  semantic_dim: 8
+  lora_rank: 4
+  max_commit_radar_tokens: 32
+  dropout: 0.0
+data:
+  train_manifest: data/synthetic_parrad/manifest.jsonl
+  split_unit: subject
+  preserve_continuous_sessions: true
+  window_frames: 64
+  window_stride: 64
+  train_window_mode: label_run
+  min_label_run_frames: 1
+training:
+  seed: 7
+  device: cpu
+  output_dir: outputs/parrad_tiny_stage2
+  batch_size: 2
+  num_workers: 0
+  epochs: 1
+  learning_rate: 0.001
+  radar_learning_rate: 0.0001
+  weight_decay: 0.0
+llm:
+  backend: tiny
+  vocab_size: 64
+  prompt_ids: [1, 2, 3]
+stage:
+  variant: parrad
+  stage1_checkpoint: outputs/parrad_tiny_stage1/radar_encoder.pt
+  semantic_supervision: class_templates
+  templates_per_class: 3
+  align_weight: 1.0
+  consistency_weight: 1.0
+  contrastive_temperature: 0.1
+  checkpoint_streaming: false

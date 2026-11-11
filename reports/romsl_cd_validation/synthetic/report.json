@@ -1,0 +1,54 @@
+{
+  "mode": "synthetic",
+  "labels_emitted": false,
+  "geometry_status": "BLOCKED_GEOMETRY",
+  "doppler_status": "BLOCKED_DOPPLER",
+  "geometry_reason": "BLOCKED_GEOMETRY: verified must be true after review",
+  "doppler_reason": "BLOCKED_DOPPLER: field and sign verification required",
+  "synthetic_cases": {
+    "variable": {
+      "valid_frames": 100,
+      "empty_or_invalid_frames": 0,
+      "weight_formula": ".25 + .75 * clip(dynamic_ratio/.25,0,1)",
+      "dynamic_threshold_mps": 0.1,
+      "diagnostic_std_floor": 0.001,
+      "diagnostic_near_one_fraction_limit": 0.95,
+      "status": "VARIABLE",
+      "mean": 0.7749999761581421,
+      "std": 0.30000001192092896,
+      "min": 0.25,
+      "max": 1.0,
+      "p05_p50_p95": [
+        0.25,
+        1.0,
+        1.0
+      ],
+      "fraction_near_one": 0.6,
+      "effective_weight_sum": 77.5
+    },
+    "saturated": {
+      "valid_frames": 100,
+      "empty_or_invalid_frames": 0,
+      "weight_formula": ".25 + .75 * clip(dynamic_ratio/.25,0,1)",
+      "dynamic_threshold_mps": 0.1,
+      "diagnostic_std_floor": 0.001,
+      "diagnostic_near_one_fraction_limit": 0.95,
+      "status": "LOW_DIAGNOSTIC_VARIATION",
+      "mean": 1.0,
+      "std": 0.0,
+      "min": 1.0,
+      "max": 1.0,
+      "p05_p50_p95": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fraction_near_one": 1.0,
+      "effective_weight_sum": 100.0
+    }
+  },
+  "C_ready": false,
+  "D_semantics_ready": false,
+  "D_weight_status": "UNMEASURED",
+  "D_ready": false
+}

@@ -1,0 +1,22 @@
+const { chromium } = require('C:/Users/文件/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const path = require('path');
+const fs = require('fs');
+(async()=>{
+ const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+ const page=await browser.newPage({viewport:{width:1440,height:1100}});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('file:///'+path.join(__dirname,'SEER研究演进思维导图.html').replaceAll('\\','/'));
+ await page.locator('#expand').click();
+ const open=await page.locator('details[open]').count();if(open!==69)throw Error('expand '+open);
+ await page.locator('#collapse').click();
+ if(await page.locator('details[open]').count()!==0)throw Error('collapse');
+ await page.locator('#T69 summary').click();
+ if(await page.locator('#T69').getAttribute('open')===null)throw Error('node');
+ await page.screenshot({path:path.join(__dirname,'qa/map-desktop.png'),fullPage:true});
+ await page.setViewportSize({width:390,height:844});
+ const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth);
+ if(overflow||errors.length)throw Error(JSON.stringify({overflow,errors}));
+ await page.screenshot({path:path.join(__dirname,'qa/map-mobile.png'),fullPage:false});
+ fs.writeFileSync(path.join(__dirname,'qa/map-verification.json'),JSON.stringify({nodes:69,expand:true,collapse:true,mobileOverflow:false,errors},null,2));
+ await browser.close();console.log('Map: 69 nodes, expand/collapse, mobile layout and JS checks passed');
+})().catch(e=>{console.error(e);process.exit(1)});

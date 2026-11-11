@@ -1,0 +1,15 @@
+
+=================================== ERRORS ====================================
+________________ ERROR collecting tests/test_parrad_convert.py ________________
+ImportError while importing test module 'D:\lab\SEER\tests\test_parrad_convert.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\User\anaconda\envs\interview\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests\test_parrad_convert.py:9: in <module>
+    import h5py
+E   ModuleNotFoundError: No module named 'h5py'
+=========================== short test summary info ===========================
+ERROR tests/test_parrad_convert.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 1.57s

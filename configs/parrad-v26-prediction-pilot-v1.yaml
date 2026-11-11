@@ -1,0 +1,30 @@
+experiment: command_boundary_proxy_prediction_diagnostic
+formal_go: false
+device: cuda
+frontend_config: configs/parrad-md-gru-stage3-sequence-v2.yaml
+stage1: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage1_causal_md_gru_token_warmup/radar_encoder.pt
+stage1_sha256: 42065f59311cb41e6c23c7734b66392028d634d7c11264bfa3325cb2be7b7289
+stage2: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage2_event_joint_formal_v1/best.pt
+stage2_sha256: 939aa977b2616d8ceb11f47ec1470701dc04bd7d1af64cc5ac20ebed3ab88f9a
+output_dir: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v26_prediction_pilot_20261014_v4
+manifests:
+  train: /home/xibeidaxue/newdisk2/WJ/PARrad/canonical/offline_expanded_20261011_split_v1/train.jsonl
+  validation: /home/xibeidaxue/newdisk2/WJ/PARrad/canonical/offline_expanded_20261011_split_v1/validation.jsonl
+  test: /home/xibeidaxue/newdisk2/WJ/PARrad/canonical/offline_expanded_20261011_split_v1/test.jsonl
+sensor_names: [TI_xWR14xx, TI_xWR68xx]
+max_prefix: 32
+prediction_horizon: 1
+predictor:
+  motion_dim: 256
+  radar_dim: 256
+  event_dim: 896
+  parameter_budget: 400000
+  logvar_min: -6.0
+  logvar_max: 2.0
+training:
+  seed: 42
+  steps: 300
+  batch_size: 8
+  lr: 0.001
+  weight_decay: 0.01
+  clip_norm: 1.0

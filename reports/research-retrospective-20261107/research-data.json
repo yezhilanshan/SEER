@@ -1,0 +1,1067 @@
+{
+  "date": "2026-11-07",
+  "groups": [
+    {
+      "title": "架构起点与数据适配",
+      "period": "早期设计至 2026年9月",
+      "conclusion": "先确立连续状态和事件记忆，再以轻量模型与真实雷达数据逐步验证。设计版本的增加不等于各版本都完成了端到端实验。",
+      "items": [
+        {
+          "id": "T01",
+          "title": "v2.0 七模块与双路径",
+          "problem": "固定片段识别无法表达连续行为与长期历史。",
+          "attempt": "设计雷达编码、物理变化提议、语义状态、事件确认、分层记忆及按需语言生成。",
+          "result": "形成持续理解中产生事件的总体目标；方案本身不是效果证据。",
+          "next": "逐步冻结模块结构，降低前端和LLM计算负担。",
+          "sources": [
+            "计划/想法三/方案书v2.0.md"
+          ],
+          "status": "设计记录"
+        },
+        {
+          "id": "T02",
+          "title": "v2.1 Fork and Replay",
+          "problem": "候选误触发后需要恢复旧事件状态；前端Token维度过大。",
+          "attempt": "触发时冻结Active快照、Candidate吸收后续雷达；拒绝后回放；前端收紧到4×256，采用Prefix LM掩码。",
+          "result": "明确三个主要可学习模块和若干轻量头；为后续状态管理提供契约。",
+          "next": "v2.2进一步解决跨模态参数量、查询依赖和时间尺度。",
+          "sources": [
+            "计划/想法三/方案书v2.1.md"
+          ],
+          "status": "设计记录"
+        },
+        {
+          "id": "T03",
+          "title": "v2.2 与 v2.3 计算和时间契约",
+          "problem": "直接跨模态映射参数过多，任意用户指令会改变客观事件状态。",
+          "attempt": "512维瓶颈注意力、固定Event Prompt、5 Hz语义更新、按物理时间常数更新原型；逐帧骨架监督和Commit一致性。",
+          "result": "文档固定了主要实现规格。v2.3沿用大量v2.2内容，不能仅凭文件名认定独立实验收益。",
+          "next": "迁移到实际可用数据和小模型，分阶段验证训练链。",
+          "sources": [
+            "计划/想法三/方案书v2.2.md",
+            "计划/想法三/方案书v2.3.md"
+          ],
+          "status": "设计记录"
+        },
+        {
+          "id": "T04",
+          "title": "PARrad 前端与 label run 流式训练",
+          "problem": "真实数据以RD/MD与命令标签为主，不能假装具备完整点云骨架监督。",
+          "attempt": "适配PARrad；按标签run预训练，再在完整录制上连续状态训练；修复padding污染BatchNorm及短尾窗口。",
+          "result": "3+1轮pilot测试accuracy18.56%、Macro-F1 13.94%；工程跑通未等于识别可用，GPU温度与降频也限制吞吐。",
+          "next": "扩训练并建立Stage2 EventFormer、Stage3转换学习及独立诊断。",
+          "sources": [
+            "docs/superpowers/plans/2026-09-20-parrad-label-run-streaming-progress.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T05",
+          "title": "v2.4 语义与物理双投影",
+          "problem": "事件Token既要保留语义又要包含雷达证据，Streaming与Commit双向约束可能冲突。",
+          "attempt": "引入Semantic/Evidence双投影，Commit Teacher向Streaming Student蒸馏；Fork and Shadow解释为旧/新事件竞争。",
+          "result": "形成后续可解释性和稳定性探针框架；不据设计宣称消除幻觉。",
+          "next": "围绕真实在线分段质量展开根因排查。",
+          "sources": [
+            "计划/想法三/方案书v2.4.md"
+          ],
+          "status": "设计记录"
+        }
+      ]
+    },
+    {
+      "title": "旧在线事件链的根因排查",
+      "period": "2026年9月29日至10月4日",
+      "conclusion": "从Verify和候选成熟度一路检查到表示、读出与训练目标。多数修补没有达到放行门槛，但逐步排除了简单解释。",
+      "items": [
+        {
+          "id": "T06",
+          "title": "起点 上游分段与 Verify 审计",
+          "problem": "原在线回放边界Precision23.16%、Recall44.90%、F1 0.3056，误分割严重。",
+          "attempt": "重标hard negative并检查Verify、上游来源与候选。",
+          "result": "重训Verify后F1由0.4167降至0.3885，过分割1.46升至1.78；更强负样本没有解决问题。",
+          "next": "检查候选是否过早、Shadow信号是否不足。",
+          "sources": [
+            "docs/stage3-upstream-audit-2026-09-29.md",
+            "docs/stage3-verify-candidate-audit-2026-09-29.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T07",
+          "title": "Shadow 与强制延长候选",
+          "problem": "怀疑Candidate早期状态不成熟，无法与Active区分。",
+          "attempt": "做同录制候选影子诊断、强制更长观察窗口和等长候选探针。",
+          "result": "等长1336候选余弦0.5135→0.5093，没有清楚成熟拐点；不支持单靠等待救活。",
+          "next": "隔离初始化方式和maturity gate。",
+          "sources": [
+            "docs/stage3-candidate-shadow-diagnostic-2026-09-29.md",
+            "docs/stage3-forced-horizon-probe-2026-09-29.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T08",
+          "title": "初始化与 maturity gate 的 2×2",
+          "problem": "候选初始状态与门控可能造成新旧状态难区分。",
+          "attempt": "组合初始状态与成熟度门控，逐层定位其影响。",
+          "result": "四臂AUROC约0.42–0.51；门控对maturity弱敏感，不能把失败简单归因于成熟度。",
+          "next": "冻结层逐层做容量匹配可解性探针。",
+          "sources": [
+            "docs/stage3-fork-init-gate-ablation-2026-09-30.md",
+            "docs/stage3-fork-layer-localization-2026-09-30.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T09",
+          "title": "冻结层可解性",
+          "problem": "需要判断事件转换信息是否已在上游丢失。",
+          "attempt": "比较F、隐藏层、事件状态和投影向量的线性可解性。",
+          "result": "2.16秒处F/Ê/E/z约0.788/0.743/0.736/0.705，没有整体信息断崖；距离读出明显更弱。",
+          "next": "保留表示，先比较历史长度、读出容量及方向信息。",
+          "sources": [
+            "docs/stage3-frozen-layer-decodability-2026-10-01.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T10",
+          "title": "短历史与读出容量",
+          "problem": "弱性能可能来自读出太小或历史不足。",
+          "attempt": "K1/K3/K8拼历史，关系读出与MLP容量对照，比较cos/L2距离。",
+          "result": "加历史没有稳定改善；MLP32 0.6283低于投影基线0.6736；cos/L2约0.504/0.540近随机。",
+          "next": "转向监督任务和语义物理互补，而非盲目加宽模型。",
+          "sources": [
+            "docs/stage3-frozen-short-horizon-sequential-results-2026-10-02.md",
+            "docs/stage3-radar-readout-pilot-2026-10-02.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T11",
+          "title": "语义与物理互补",
+          "problem": "期望F与E/z结合能补足单分支。",
+          "attempt": "冻结表示做F+E、F+z受控比较，报告固定误报率操作点。",
+          "result": "组合未稳定胜过F；部分召回改善伴随更高FPR，阈值跨受试者迁移困难。",
+          "next": "尝试transition-aware表示监督，保留检索约束。",
+          "sources": [
+            "docs/stage3-semantic-physical-complementarity-results-2026-10-02.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T12",
+          "title": "Transition aware 投影恢复",
+          "problem": "过渡监督可能使语义检索坐标漂移。",
+          "attempt": "做投影恢复、rehearsal与关系监督，检查冻结参照及检索保护。",
+          "result": "历史诊断出现检索下降21.43个百分点；任务目标与评估口径并不天然一致。",
+          "next": "将主实验门槛预注册，固定预算并做重复折。",
+          "sources": [
+            "docs/stage3-transition-aware-projection-recovery-results-2026-10-03.md",
+            "docs/stage3-transition-aware-rehearsal-audit-2026-10-03.md",
+            "docs/stage3-transition-aware-relational-results-2026-10-03.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T13",
+          "title": "主试验 复现 预算与均衡",
+          "problem": "一次pilot收益可能来自折或预算选择。",
+          "attempt": "主实验、独立复现、20/50/100步预算与subject均衡对照。",
+          "result": "pilot约+2.48pp，复现约+0.48pp，第三折转负；50步+1.60pp仅保留研究基线，类别均衡无收益。",
+          "next": "停止把单次开发折改善当稳定结论，转向更明确的接口和候选问题。",
+          "sources": [
+            "docs/stage3-transition-aware-primary-results-2026-10-03.md",
+            "docs/stage3-transition-aware-primary-replication-results-2026-10-03.md",
+            "docs/stage3-transition-aware-budget-results-2026-10-04.md",
+            "docs/stage3-transition-aware-subject-balance-results-2026-10-04.md"
+          ],
+          "status": "已实验"
+        }
+      ]
+    },
+    {
+      "title": "分层记忆与雷达语言接口",
+      "period": "2026年10月4日至6日",
+      "conclusion": "记忆晋升和问答链可运行，但自由生成、单事件命名与完整顺序暴露了不同层次的接口问题。",
+      "items": [
+        {
+          "id": "T14",
+          "title": "Stage4 分层记忆首轮",
+          "problem": "需要判断L0/L1/L2压缩能否支撑长历史问答。",
+          "attempt": "固定前端，训练压缩器100步，真实约600秒录制回放并触发两级晋升。",
+          "result": "压缩CE下降，但实际回答不是有效事件描述；190个确认事件同时有大量边界误报。",
+          "next": "先限制问答任务，再做单事件与短上下文诊断。",
+          "sources": [
+            "docs/stage4-memory-pilot-results-2026-10-04.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T15",
+          "title": "聊天 QA 到单事件 QA",
+          "problem": "复杂自由回答混合了输入、提示、解码器和多事件错误。",
+          "attempt": "逐步测试聊天、单事件存在性、动作命名和短上下文。",
+          "result": "存在性与格式可改善，可靠命名和完整顺序仍不足；不能据链路可运行宣称理解通过。",
+          "next": "隔离压缩、事件编号及时间顺序编码。",
+          "sources": [
+            "docs/stage4-chat-qa-pilot-results-2026-10-04.md",
+            "docs/stage4-single-event-qa-results-2026-10-05.md",
+            "docs/stage4-short-context-qa-results-2026-10-05.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T16",
+          "title": "压缩与事件编号假设",
+          "problem": "怀疑压缩丢信息或没有明确事件分隔。",
+          "attempt": "比较4个摘要Token与32个原始Token，加入事件编号前缀。",
+          "result": "存在性约68.8%/70.8%，不支持压缩器为唯一主因；编号前缀反而降低部分存在性结果。",
+          "next": "以纯文字Oracle检查语言读者本身是否可靠。",
+          "sources": [
+            "docs/stage4-short-context-qa-results-2026-10-05.md",
+            "docs/stage4-event-boundary-qa-results-2026-10-05.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T17",
+          "title": "时间 QA 前置门槛与解码修复",
+          "problem": "纯文字输入仍无法可靠完成多事件问答。",
+          "attempt": "none/order/time残差融合方案先过文本门槛；检查提示和文本解码合同。",
+          "result": "时间QA本轮门槛失败、实际更新0；文字四事件顺序14/48不能与旧dev 0/24相减。",
+          "next": "先修复文本合同，再在独立实验中研究时序融合。",
+          "sources": [
+            "docs/stage4-temporal-qa-results-2026-10-05.md",
+            "docs/stage4-decoder-repair-2026-10-05.md",
+            "docs/stage4-text-decoder-results-2026-10-05.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T18",
+          "title": "Reader 融合与语义对齐",
+          "problem": "雷达Token没有自动进入冻结语言读者的语义坐标。",
+          "attempt": "比较none/order/time融合及雷达语义CE、蒸馏等目标。",
+          "result": "旧24个四事件dev完整顺序仍0/24；单事件零步18.98%，CE500步76.14%，固定蒸馏47.53%。",
+          "next": "优先建立可靠单事件接口，再研究多事件；文字列表100%不代表雷达读出100%。",
+          "sources": [
+            "docs/stage4-reader-fusion-results-2026-10-06.md",
+            "docs/stage4-radar-semantic-alignment-results-2026-10-06.md",
+            "docs/stage4-radar-semantic-alignment-v2-results-2026-10-06.md"
+          ],
+          "status": "已实验"
+        }
+      ]
+    },
+    {
+      "title": "v2.5 证据累计与候选过滤",
+      "period": "2026年10月6日至10日",
+      "conclusion": "从门控迁移到Proposal训练、触发器和双源池过滤，结果集中指向低误报预算下选择性不足，以及Oracle训练与时间局部任务的域差。",
+      "items": [
+        {
+          "id": "T19",
+          "title": "v2.5 拆分提议 验证 定位",
+          "problem": "旧Verify同时混合变化、成熟度和边界问题。",
+          "attempt": "删除Verify Logistic与独立损失，使用Candidate Episode、顺序证据累计、确认后定位与Active重建。",
+          "result": "实现了独立v25路径；设计中的负证据撤销与完整在线能力不能由代码存在推出。",
+          "next": "训练前先验证旧权重迁移及检索保留。",
+          "sources": [
+            "计划/想法三/方案书v2.5.md",
+            "计划/想法三/方案书v2.5 (2).md",
+            "docs/v2.5-implementation-status-2026-10-06.md"
+          ],
+          "status": "设计与实现"
+        },
+        {
+          "id": "T20",
+          "title": "门控迁移失败与兼容过渡",
+          "problem": "sigmoid权重直接复制到tanh不等价。",
+          "attempt": "做零步热启动、精确输出坐标转换和正alpha兼容架构。",
+          "result": "raw负alpha72.46%、状态严重外推且有非有限值；兼容转换保住原检索，raw迁移训练未启动。",
+          "next": "在兼容坐标下只训练Evidence头。",
+          "sources": [
+            "docs/v2.5-gate-migration-diagnostic-results-2026-10-07.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T21",
+          "title": "兼容 Evidence 训练",
+          "problem": "要验证事件Token能否读出雷达统计且不破坏检索。",
+          "attempt": "冻结前端与事件状态，独立Evidence头500步。",
+          "result": "可读出部分物理统计、检索基本保持；共享表示未更新，不能说物理信息被新写入事件状态。",
+          "next": "训练独立物理Proposal，验证实际低误报操作点。",
+          "sources": [
+            "docs/v2.5-compatible-evidence-results-2026-10-07.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T22",
+          "title": "Physical Proposal 与 OR 融合",
+          "problem": "高召回提议希望补足语义分支。",
+          "attempt": "训练Local/Radar及OR，在固定FP预算比较。",
+          "result": "500步@8FP融合44.18%，低于Local50.00%及Radar56.39%；OR并未自然产生互补。",
+          "next": "零更新归因：候选覆盖、触发器、损失与峰形。",
+          "sources": [
+            "docs/v2.5-physical-proposal-results-2026-10-08-server-readback.md",
+            "docs/v2.5-proposal-zero-diagnostic-results-2026-10-08.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T23",
+          "title": "迟滞触发与峰形",
+          "problem": "分数长平台可能导致峰被抑制。",
+          "attempt": "测试因果迟滞触发与不同释放条件。",
+          "result": "更严释放未解决长平台，部分融合召回仅20.74–28.55%。",
+          "next": "检查监督和损失，而非继续叠触发规则。",
+          "sources": [
+            "docs/v2.5-proposal-causal-trigger-results-2026-10-08.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T24",
+          "title": "监督诊断与 unweighted BCE",
+          "problem": "怀疑加权Gaussian BCE损害选择性。",
+          "attempt": "检查正负权重实际质量，再移除加权做A/B。",
+          "result": "Radar@8下降11.51pp，8/8单元退化；加权不是当前低召回的简单根因。",
+          "next": "尝试窗口峰辅助，但pairwise排序仍是另一未执行假设。",
+          "sources": [
+            "docs/stage3a-proposal-supervision-diagnostic-results-2026-10-08.md",
+            "docs/stage3a-proposal-loss-ablation-results-2026-10-08.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T25",
+          "title": "窗口峰辅助 CE",
+          "problem": "希望将宽分数平台收缩为可发出的峰。",
+          "attempt": "固定主损失与预算加入window peak辅助。",
+          "result": "三预算Radar召回均降；平台P95由9.20增至10.08秒。",
+          "next": "不将该失败外推到从未执行的pairwise排序损失。",
+          "sources": [
+            "docs/stage3a-window-peak-ablation-results-2026-10-09.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T26",
+          "title": "GRU 残差融合与 matched 读出",
+          "problem": "GRU信息是否能直接改进Radar分数。",
+          "attempt": "残差融合、等参数读出，以及State/Delta/Combined比较。",
+          "result": "融合B召回37.36%，低于55.26%/56.11%对照；Rescue57、Harm189；点级AP上升不等于事件召回上升。",
+          "next": "保留双源候选池，避免复用已失败残差分数。",
+          "sources": [
+            "docs/stage3ag-residual-fusion-results-2026-10-09.md",
+            "docs/proposal-readout-matched-results-2026-10-09.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T27",
+          "title": "变化量诊断与 TCN 监督遗漏",
+          "problem": "简单变化量是否可直接当边界信号，TCN是否真正参与输出。",
+          "attempt": "MD GRU差分、方向/距离诊断并检查TCN梯度和gate。",
+          "result": "简单距离接近随机；发现RD TCN注入gate仍为0、frame_hidden取点在其之前。只证明监督路径遗漏，不证明TCN无效。",
+          "next": "区分增加RD和替换时序骨干，优先检查真实信息路径。",
+          "sources": [
+            "docs/md-gru-transition-signal-results-2026-10-09.md",
+            "docs/radar-gru-two-diagnostics-results-2026-10-09.md",
+            "docs/tcn-radar-encoder-inspection-2026-10-09.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T28",
+          "title": "双源池与候选可过滤性",
+          "problem": "合并后召回91.48%，但39.92候选每分钟的负担过大。",
+          "attempt": "固定池训练18个差异/稳定性线性Probe，主方法观察1.08秒。",
+          "result": "召回85.51%，FP24.407/min；召回损失5.966pp、假候选仅降23.40%，未过50%过滤且损失≤5pp门槛。",
+          "next": "转而核查语义训练任务和协议GT，不能说完整表示没有信息。",
+          "sources": [
+            "docs/candidate-filterability-results-2026-10-09.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T29",
+          "title": "Oracle 到时间局部任务域差",
+          "problem": "Oracle配对上有效的语义关系未必能用于在线候选。",
+          "attempt": "冻结Oracle50，比较随机Oracle配对O、固定时间锚点T及Proposal P。",
+          "result": "dev AUROC O/T/P为0.7692/0.4807/0.4548；T已近随机，不能主要归咎Proposal选择。",
+          "next": "修正语义配对任务；并行退回更简单的离线描述链。",
+          "sources": [
+            "docs/stage3b-semantic-pilot-results-2026-10-09.md",
+            "docs/stage3b-oracle-proposal-domain-gap-results-2026-10-10.md"
+          ],
+          "status": "已实验"
+        }
+      ]
+    },
+    {
+      "title": "离线描述与数据及识别基线",
+      "period": "2026年10月10日至16日",
+      "conclusion": "主动降低系统复杂度，并逐步加强公平分类基线。生成模型的表面优势被数量控制对照重新解释，标签时钟和跨人泛化成为独立问题。",
+      "items": [
+        {
+          "id": "T30",
+          "title": "离线 Radar to Text MVP",
+          "problem": "在线事件链、分支状态与记忆机制使端到端归因困难。",
+          "attempt": "固定片段RD/MD CNN→BiGRU→8个Radar Tokens→Projector→Qwen；先Stage1再冻结LLM对齐。",
+          "result": "首轮subject06完整序列25.00%，模板11.16%；但动作Recall46.28%低于模板55.51%。",
+          "next": "拆解编码、对齐、分类头与生成覆盖错误。",
+          "sources": [
+            "docs/offline-radar-to-text.md",
+            "docs/radar-text-server-pilot-2026-10-10.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T31",
+          "title": "错误归因与分类头 H0 到 H4",
+          "problem": "不确定生成漏动作来自上游、Align退化还是弱读出。",
+          "attempt": "冻结多层探针、平滑模板、前缀无雷达、错配/扰动及H0–H4头消融。",
+          "result": "BiGRU有益、Align未整体退化；延长线性头训练比单独类权重更有效，稳态混淆与尾动作缺失仍明显。",
+          "next": "在同窗口、同编码器下建立更强公平基线。",
+          "sources": [
+            "docs/radar-text-error-attribution-2026-10-11.md",
+            "docs/radar-text-head-ablation-2026-10-11.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T32",
+          "title": "强分类模板与同编码器 P0",
+          "problem": "原分类基线太弱，难以判断LLM贡献。",
+          "attempt": "严格482共同窗口、同冻结Align特征，训练H1/H4线性读出。",
+          "result": "Align H1/H4/Qwen序列准确率18.88%/18.67%/24.69%；H1 Recall65.91%高于Qwen46.06%。",
+          "next": "控制动作数量和分段，检验序列优势是否来自计数。",
+          "sources": [
+            "docs/radar-text-strong-baselines-2026-10-11.md",
+            "docs/radar-text-align-readout-p0-2026-10-11.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T33",
+          "title": "P1 数量校准 HMM 与 Viterbi",
+          "problem": "分类过度输出和生成漏动作可能解释序列差异。",
+          "attempt": "固定Encoder，对比原分类、HMM、预测数量段Viterbi与Qwen。",
+          "result": "482窗序列准确率18.88%/25.52%/27.18%/24.69%；强数量模板超过Qwen，原生成优势不再保留。",
+          "next": "避免将优势直接归因LLM；继续检查有序接口和数据泛化。",
+          "sources": [
+            "docs/radar-text-p1-evidence-count-2026-10-11.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T34",
+          "title": "RD only X Fi 迁移",
+          "problem": "预训练空间骨干是否更好。",
+          "attempt": "比较原小CNN、随机ResNet18和预训练ResNet18，空间骨干冻结、统一新读出。",
+          "result": "test逐帧Macro-F1 62.01%/62.25%/62.52%，验证集仍选择原CNN；不足支持直接替换或生成改善。",
+          "next": "扩充受试者后独立从头训练，检验泛化。",
+          "sources": [
+            "docs/rd-only-xfi-transfer-2026-10-11.md",
+            "docs/xfi-mmwave-rd-transfer-assessment-2026-10-11.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T35",
+          "title": "PARrad 扩充和 RD 从头训练",
+          "problem": "旧数据规模小，历史测试已反复观察。",
+          "attempt": "15人45session、89份记录、599799帧；9/3/3划分，单列旧06与新17/18。",
+          "result": "ResNet18从头test受试者平均Macro-F1 50.16%，新17/18平均36.75%，跨人泛化仍弱。",
+          "next": "检查预处理和标签时基；不以扩大训练掩盖监督问题。",
+          "sources": [
+            "docs/parrad-expanded-preparation-2026-10-11.md",
+            "docs/parrad-expanded-split-2026-10-11.md",
+            "docs/rd-resnet18-scratch-results-2026-10-13.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T36",
+          "title": "预处理审计与 Signed Log 消融",
+          "problem": "怀疑已处理RD上额外Signed Log损害信息。",
+          "attempt": "P0保留/P1删除，统一初始化、采样、20轮和验证选优。",
+          "result": "主指标58.268%→58.118%，差−0.150pp；未达追加seed阈值。AMP成功更新差1次，不能称完全一致。",
+          "next": "保留原基线，分开处理标签和域差。",
+          "sources": [
+            "docs/parrad-preprocessing-assessment-2026-10-13.md",
+            "reports/parrad_preprocessing_audit.md",
+            "reports/parrad_signed_log_ablation.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T37",
+          "title": "Split BiRNN 方法复现",
+          "problem": "需要有代表性的连续识别对照。",
+          "attempt": "23人153份MD，Split与普通BiGRU各五折6400步。",
+          "result": "修正输出Weighted F1 80.06%/79.30%；即时前向58.23%，最终修正平均等待37.17秒。",
+          "next": "精度和等待同时报告，不当成已验证低延迟在线方案。",
+          "sources": [
+            "docs/split-birnn-preparation-results-2026-10-14.md",
+            "docs/split-birnn-training-results-2026-10-14.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T38",
+          "title": "命令标签与真实动作时间审计",
+          "problem": "PARrad CSV命令时刻不等于真实动作起止；首命令等于录制起点的假设缺独立依据。",
+          "attempt": "做150例候选审阅及14类42段双雷达复核，并查询公开目录和H5元数据。",
+          "result": "可见提前/滞后与双视角差异，但缺同步视频音频或硬件时钟，不能测出真实执行延迟或宣判错标。",
+          "next": "迁移具有官方实例区间的HARrad，并保留未知区域。",
+          "sources": [
+            "docs/candidate-filterability-results-2026-10-09.md",
+            "docs/v261-clip-review-results-2026-10-16.md"
+          ],
+          "status": "已实验"
+        }
+      ]
+    },
+    {
+      "title": "v2.6 预测驱动与 HARrad 重训",
+      "period": "2026年10月14日至11月6日",
+      "conclusion": "先证明事件状态具有超越普通时序模型的额外预测价值，再谈预测梯度驱动自主Reset。两次重训与随机重置诊断提供了局部支持，但当前Stage1仍未放行。",
+      "items": [
+        {
+          "id": "T39",
+          "title": "v2.6 用预测状态替代显式 Verify",
+          "problem": "v2.5大量手工候选与验证机制仍未解决选择性。",
+          "attempt": "预测驱动Keep/Reset；冻结target防塌缩，并用语义/实例锚定避免纯动力学分段。",
+          "result": "形成PSEM设计；运动学分段不必然等于语义事件，预测损失不能代替语义监督。",
+          "next": "先以冻结前端做P0/P1预测对照。",
+          "sources": [
+            "计划/想法三/方案书v2.6.md"
+          ],
+          "status": "设计记录"
+        },
+        {
+          "id": "T40",
+          "title": "PARrad 预测 pilot 与 P0 mask 审计",
+          "problem": "首轮Event预测不如Persistence。",
+          "attempt": "四神经头各300步、P0零更新分解动态性与采样。",
+          "result": "Persistence MSE0.03366，Event0.07351；发现mask混用观测有效与事件归属，所有合法h1配对都未跨边界。",
+          "next": "拆mask，用零初始化残差头做P1。",
+          "sources": [
+            "docs/v26-prediction-pilot-results-2026-10-15.md",
+            "docs/v26-p0-diagnostic-results-2026-10-15.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T41",
+          "title": "P1 残差预测和 P1 C 多跨度",
+          "problem": "需要排除坏初始化和过短horizon。",
+          "attempt": "P1-A/B恢复跨界配对，P1-C统一完整历史、h1/3/5和E错配常量消融。",
+          "result": "残差GRU Skill+1.21%，Event−1.62%；h3/h5 motion MLP+11.73%/+19.24%，Event+7.20%/+15.71%；常量E多处更好。",
+          "next": "不以该结果启动Reset；重新检查表示和监督。",
+          "sources": [
+            "docs/v26-p1-results-2026-10-15.md",
+            "docs/v26-p1c-preparation-results-2026-10-15.md",
+            "docs/v26-p1c-results-2026-10-15.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T42",
+          "title": "v2.6.1 PARrad 四臂联合",
+          "problem": "希望Dynamics与语义通过共享Adapter互相帮助。",
+          "attempt": "MLP/A-only/B-only/A+B，三seed固定预算，检查语义滞留和命令代理时间。",
+          "result": "h5 Skill22.78%/21.53%/21.49%；语义B17.40%、AB17.23%，无稳定联合净收益；旧类滞留与跨动作下降仍在。",
+          "next": "先做可靠监督的识别单任务基线，转到HARrad。",
+          "sources": [
+            "docs/v261-joint-results-2026-10-16.md",
+            "docs/v261-semantic-diagnostic-results-2026-10-16.md",
+            "docs/v261-joint-diagnosis-next-steps-2026-10-16.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T43",
+          "title": "HARrad 格式审计与语义基线",
+          "problem": "需要自然连续录制、明确实例区间和跨人划分。",
+          "attempt": "审计9人37录制233515帧、12类3852区间；subject1–6训练、7验证，保留36.6%未知区域。",
+          "result": "MD GRU/RD CNN GRU三seed验证Macro-F1 78.89%/84.52%，RD均胜；官方随机划分存在受试者录制共享。",
+          "next": "冻结RD前端训练流式EventFormer，再检查重置依赖。",
+          "sources": [
+            "docs/harrad-format-audit-2026-10-16.md",
+            "docs/harrad-semantic-baseline-results-2026-10-17.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T44",
+          "title": "EventFormer 预热与官方起点回放",
+          "problem": "片段识别好不等于连续状态可用。",
+          "attempt": "35录制导出，语义预热5轮3775步，比较官方起点Reset与全程不Reset。",
+          "result": "旧预热best77.01%，连续无Reset12.89%；官方起点整流76.73%，小差异支持批/chunk与FP16数值影响。",
+          "next": "建立监督边界基线，独立检验Reset需求。",
+          "sources": [
+            "docs/harrad-event-warmup-progress-2026-10-17.md",
+            "docs/harrad-oracle-start-replay-2026-10-17.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T45",
+          "title": "连续监督边界基线",
+          "problem": "自主Reset前需要可用边界信号。",
+          "attempt": "冻结CNN/GRU训练33154参数起止头，31条训练录制，20轮620步。",
+          "result": "subject7 ±4帧起/止F1 55.94%/67.33%，胜变化量与周期；起点Recall47.95%，未知输出负担仍大。",
+          "next": "不能直接把头接成已通过的自主Reset；分离语义与Dynamics。",
+          "sources": [
+            "docs/harrad-boundary-baseline-2026-10-17.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T46",
+          "title": "HARrad Dynamics 语义联合预训练",
+          "problem": "PARrad上的联合失败是否由标签代理引起。",
+          "attempt": "M/A/B/AB四臂三seed各1000更新，冻结CNN与Qwen。",
+          "result": "h5 Skill M29.64%、A30.91%、AB28.36%；语义B60.43%、AB58.80%，共享等权联合仍无净收益。",
+          "next": "改成独立表示，测试对齐与调制是否互补。",
+          "sources": [
+            "docs/harrad-joint-prediction-results-2026-10-18.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T47",
+          "title": "对齐乘调制 2×2",
+          "problem": "独立语义对齐和事件引导调制能否避免共享目标冲突。",
+          "attempt": "B0、仅对齐、仅调制、组合四组三seed12000更新。",
+          "result": "Macro-F1 62.02%/62.96%/62.97%/61.54%，均低于同面板初值64.52%；关调制只降约0.05pp。",
+          "next": "保留独立A/B前端，研究Reset机制是否技术上连通。",
+          "sources": [
+            "docs/harrad-alignment-modulation-results-2026-10-22.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T48",
+          "title": "10月22日 Reset 闭环机制试验",
+          "problem": "要验证future和语义梯度能否真实影响Policy及状态。",
+          "attempt": "保留G、重置L/E；Stage2A1000、2B300、pilot两臂各50；正式control/full三seed计划。",
+          "result": "机制梯度预检通过；本地历史记录停在control seed42 80/1000，0步边界F1 47.75%且FP79.26/min，不是终态收益。",
+          "next": "没有找到可信正式终态报告；与11月新Stage1路线分别记录。",
+          "sources": [
+            "docs/harrad-reset-closed-loop-progress-2026-10-22.md"
+          ],
+          "status": "有启动记录 终态未核实"
+        },
+        {
+          "id": "T49",
+          "title": "11月统一前端重训与 Stage1",
+          "problem": "为想法三/六比较消除前端差异，重新检验冻结事件状态预测。",
+          "attempt": "旧RD seed42共用前端；新EventFormer片段79.67%、官方起点79.71%；未来3/9/15原帧对应0.2/0.6/1秒。",
+          "result": "GRU MSE0.75589/0.92940/0.94881；Event0.76464/0.91524/0.95046，仅0.6秒均值更好，Stage1 No-Go。",
+          "next": "做分场景、逐seed、随机边界和NoReset诊断。",
+          "sources": [
+            "docs/idea3-idea6-harrad-unified-results-2026-11-05.md",
+            "docs/harrad-stage1-event-prediction-results-2026-11-05.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T50",
+          "title": "Stage1 A B C 诊断",
+          "problem": "0.6秒收益是否由特定录制、慢转换或同类重复掩盖。",
+          "attempt": "按场景复算，录制级配对Bootstrap；单份随机边界重训3seed。",
+          "result": "慢转换与同类重复无稳定优势；稳定长动作内部较一致；0.6秒收益主要来自seed43。正确Reset优于随机，但不足超GRU全跨度。",
+          "next": "重复随机边界分布并加入NoReset，避免一份随机排列偶然性。",
+          "sources": [
+            "docs/harrad-stage1-diagnostic-results-2026-11-05.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T51",
+          "title": "实验二 十份随机排列与 No Reset",
+          "problem": "需要分离真实事件对齐和限制状态历史长度的作用。",
+          "attempt": "GT、NoReset、10随机组各3seed，共36模型36000更新；保持重置次数及更新间隔多重集，实际间隔最多差2帧。",
+          "result": "GT MSE0.76553/0.92015/0.95065，随机0.78025/0.93875/0.96827，NoReset0.78939/0.94152/0.96707；GT均优，Random与NoReset无统一排序。",
+          "next": "支持事件对齐价值；仍受subject7、GT预热、年龄输入和间隔近似匹配限制，Stage1仍No-Go。",
+          "sources": [
+            "docs/experiment2-reset-results-2026-11-06.md"
+          ],
+          "status": "已实验"
+        }
+      ]
+    },
+    {
+      "title": "想法五 潜在记忆与生成诊断",
+      "period": "2026年10月18日至19日",
+      "conclusion": "绕开显式切分不等于绕开雷达语言接口。已实现多尺度记忆与LMT更新，但核心动态重检索收益尚未进入正式G2验证。",
+      "items": [
+        {
+          "id": "T52",
+          "title": "无显式分段的 Latent Memory",
+          "problem": "显式边界错误会传到下游记忆与语言。",
+          "attempt": "连续cells进入短中长记忆，Initial LMT分组Bootstrap，Evolved LMT驱动多轮重新检索。",
+          "result": "代码、真实模型前向与梯度链已有验证；均值压缩是有损基线，不是Jenks；E0–E4正式效果未完成。",
+          "next": "设G0先确认直接读出与文本Oracle，再进G2动态重检索。",
+          "sources": [
+            "计划/想法五/方案书v1.0.md",
+            "docs/latent-memory-implementation-2026-10-18.md"
+          ],
+          "status": "设计与实现"
+        },
+        {
+          "id": "T53",
+          "title": "G0 32窗 200步",
+          "problem": "LLM未必能保留顺序、重复和ongoing，可能无法作为记忆测量器。",
+          "attempt": "训练Projector/time projection，冻结Qwen与适配器，固定4/8/16秒32窗。",
+          "result": "序列5/32、含ongoing2/32，严格32/32未过；8秒和16秒序列均0；G2未启动。",
+          "next": "先做提示词与解码文本对照。",
+          "sources": [
+            "计划/想法五/G0诊断结果与G2准入结论v1.0.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T54",
+          "title": "提示与解码对照",
+          "problem": "原提示可能鼓励摘要和去重；嵌入路径重复惩罚也可能影响结果。",
+          "attempt": "明确逐项转写，统一输入路径，比较重复惩罚1.1/1.0及自由输出。",
+          "result": "109旧例完整状态5→53，惩罚1.0为69；仍有循环截断。事后宽容解析不能替换原严格指标。",
+          "next": "暂停提示搜索，回放终止分支。",
+          "sources": [
+            "计划/想法五/提示词与解码对照结果v1.0.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T55",
+          "title": "终止机制与语法检查",
+          "problem": "同时存在漏输出与已完整后循环，不能靠增大512上限解决。",
+          "attempt": "分析900输出、681错例回放；验证438正确编码路径及1680动作边界。",
+          "result": "决定点在句号结束/逗号继续，句号后EOS被强制；语法允许合法重复，非空GT完整后循环12例。",
+          "next": "固定输出前缀，仅改变剩余证据作配对实验。",
+          "sources": [
+            "计划/想法五/终止机制诊断v1.0.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T56",
+          "title": "结束继续配对及 A B 判别",
+          "problem": "分数响应是否能变成可靠结束判断。",
+          "attempt": "144对相同前缀对照；另试独立A/B完成状态裁判与标签交换。",
+          "result": "惩罚1.0配对正确101/144，1.1降至79/144；独立A/B接口840条件中835换标签仍选A，不可当终止裁判。",
+          "next": "结束A/B支线，转向不依赖标签映射的完整序列似然。",
+          "sources": [
+            "计划/想法五/固定前缀结束继续配对诊断v1.0.md",
+            "计划/想法五/完成状态独立判断诊断v1.0.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T57",
+          "title": "序列似然文本与雷达对照",
+          "problem": "生成失败不能直接证明冻结Qwen没有序列区分能力。",
+          "attempt": "新文本面板错序/错类/错重复/ongoing候选评分，再用旧200步Projector做正确/零/错配雷达。",
+          "result": "文本胜138/144、144/144、96/96、144/144；雷达148对108/63/79，但等Token仅17/26、16/26、15/26。",
+          "next": "扩充均衡等Token面板，检查已有训练是否真正增强序列信息。",
+          "sources": [
+            "计划/想法五/序列似然诊断v1.0.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T58",
+          "title": "96窗检查点与接口归因",
+          "problem": "正答案似然升高可能只是通用语言偏好。",
+          "attempt": "固定96窗213对候选，比较0/100/200步及正确、零、错配、块置乱。",
+          "result": "新fit优势未稳定提高；正确答案在错配/置乱下也升高，正确与错误margin未稳定扩大。4412前向、0新增训练。",
+          "next": "CE与CE加序列对比监督是下一项建议，尚未实施；G0/G2状态不变。",
+          "sources": [
+            "计划/想法五/雷达语义接口检查点对照v1.0.md"
+          ],
+          "status": "已实验"
+        }
+      ]
+    },
+    {
+      "title": "想法六 CIF LIF 与 SAEF MVP",
+      "period": "2026年10月24日至11月5日",
+      "conclusion": "将事件形成收敛为语义证据积分发火，再从拼接弱监督转向自然整流有监督MVP。真实结果呈召回与过分割取舍，尚未证明LIF和状态证据普遍优越。",
+      "items": [
+        {
+          "id": "T59",
+          "title": "CIF 到 LIF 草案与首版",
+          "problem": "普通积分的微弱噪声会累积，动作实例不等于语音Token。",
+          "attempt": "CIF教师、LIF蒸馏微调、事件分类及有界流式缓存；保留相邻同类。",
+          "result": "首版机制和CLI人工特征smoke完成；34新增测试与旧HARrad69通过4跳过，真实训练未在该首版验收中完成。",
+          "next": "用户选择自然整流最小架构，独立于旧拼接训练器。",
+          "sources": [
+            "计划/想法六/毫米波连续行为理解：LIF事件门 + LLM描述生成 方案书（草案）.md",
+            "docs/harrad-cif-lif-implementation-2026-10-27.md"
+          ],
+          "status": "设计与机制验证"
+        },
+        {
+          "id": "T60",
+          "title": "SAEF MVP 自然录制四臂",
+          "problem": "拼接片段有域差，需直接验证连续事件形成。",
+          "attempt": "B0阈值上升沿、B1 IF、B2局部LIF、B3局部加状态LIF；共享冻结动作读出；fit/calibration/validation自主发火。",
+          "result": "完整流、未知区域、时间积分、阈值校准和闭环入口具备；未接LLM。11月4日本地audit缺服务器资产不能当真实失败终态。",
+          "next": "以随后真实锁定评估和统一比较更新历史状态。",
+          "sources": [
+            "计划/想法六/最小可行架构.md",
+            "docs/harrad-saef-mvp.md"
+          ],
+          "status": "设计与实现后已实测"
+        },
+        {
+          "id": "T61",
+          "title": "闭环阈值 tau 扫描与锁定复核",
+          "problem": "高召回是否伴随过多发火，状态反馈是否改变工作点。",
+          "attempt": "在训练calibration扫描tau/阈值，锁定B2/B3-A/B3-B并评subject7及8–9。",
+          "result": "锁定CSV中subject7边界F1 B2/B3-A/B3-B为84.40%/83.06%/80.68%；8–9合并76.42%/74.96%/70.71%。",
+          "next": "这些旧event_f1与后续保守事件F1定义不同，不能混用；以统一口径复核完整事件。",
+          "sources": [
+            "outputs/saef-closed-loop-pareto-v1/summary.json",
+            "outputs/saef-locked-evaluation-v1/subject7-metrics.csv",
+            "outputs/saef-locked-evaluation-v1/subject8-9-metrics.csv"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T62",
+          "title": "想法三与六统一前端比较",
+          "problem": "不同前端、读出和指标会制造方案优劣假象。",
+          "attempt": "共用旧RD前端，原生系统及相同EventFormer读出；6完整录制43277帧834实例，严格类别正确且IoU≥0.5。",
+          "result": "8–9等权保守事件F1想法三30.92%、B2 25.19%、B3-A29.02%、B3-B22.82%；想法三误报低但漏边界多。",
+          "next": "B3-A在subject7较好、跨人略弱；B3-B增召回损害事件F1。单seed不同操作点，不能宣称机制定论。",
+          "sources": [
+            "docs/idea3-idea6-harrad-unified-results-2026-11-05.md"
+          ],
+          "status": "已实验"
+        }
+      ]
+    },
+    {
+      "title": "ROMSL 骨架辅助运动结构预训练",
+      "period": "2026年11月5日至6日已有报告",
+      "conclusion": "从精确骨架重建改为运动幅值、径向可观测性和回波支持度监督。A/B有可重复资产，C/D正式几何仍未核实；代理实验显示径向目标未胜出且D权重退化。",
+      "items": [
+        {
+          "id": "T63",
+          "title": "从精确骨架到可观测运动结构",
+          "problem": "雷达未必能恢复所有骨架细节，需要更符合传感器可见性的监督。",
+          "attempt": "提出A骨架、B五维运动幅值、C径向投影、D回波支持度加权，采用PointNet加GRU。",
+          "result": "这是想法六目录中的独立预训练分支，不是已验证的SAEF或LLM模块升级。",
+          "next": "MM-Fi E01先跑A/B并锁定训练验证测试协议。",
+          "sources": [
+            "计划/想法六/骨架监督的新想法.md",
+            "计划/想法六/雷达可观测性引导的运动结构预训练方案书.md"
+          ],
+          "status": "设计记录"
+        },
+        {
+          "id": "T64",
+          "title": "E01 A B 首轮",
+          "problem": "先确认监督标签和冻结探针链可用。",
+          "attempt": "S01–06训练、07–08验证、09–10测试，16帧窗口，seed42。",
+          "result": "A/B Clip Macro-F1均100%，B共同运动MAE0.140065低于A0.150482；分类饱和，B对属性有直接目标优势。",
+          "next": "增加随机编码器、单位审计、三seed及少样本探针。",
+          "sources": [
+            "reports/romsl_formal/report.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T65",
+          "title": "随机编码器与数据版本诊断",
+          "problem": "高分类分数可能来自容易任务或输入结构。",
+          "attempt": "随机编码器零更新、同探针；逐录制比较ZIP与filtered版本。",
+          "result": "随机Macro-F1 71.67%，A/B100%；270录制中184条版本有差异，单帧相同不能说明版本相同。",
+          "next": "固定受试者ZIP版本并审计运动单位、归一化与聚合。",
+          "sources": [
+            "reports/romsl_random/report.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T66",
+          "title": "单位计算审计与三 seed 少样本",
+          "problem": "速度单位是否缺dt，单seed分类饱和是否稳定。",
+          "attempt": "独立重算270录制，检查dt0.1秒、相对根速度、训练归一化及反标准化；加seed43/44和1/2/3/6条每类探针。",
+          "result": "标签最大差4.71e-7；A100±0%、B97.78±3.85%；B MAE更低，但分类无一致优势；一条每类B90±12.02%高于A84.44±16.78%，方差大。",
+          "next": "名义m/s仍以骨架按米解释为条件；低类别标注不等于降低骨架监督成本。",
+          "sources": [
+            "reports/romsl_results_audit/report.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T67",
+          "title": "正式 C D 几何与 Doppler 闸门",
+          "problem": "缺可验证世界到雷达外参、真实雷达原点、Doppler列与单位。",
+          "attempt": "实现R/t或4×4检查、LOS、速度投影与单位符号校验，预设权重退化检测。",
+          "result": "合成和回归42项通过，但正式配置verified=false；不能把坐标轴统一当真实外参。",
+          "next": "采用训练数据配准生成明确标记的代理候选，另立探索实验。",
+          "sources": [
+            "reports/romsl_cd_validation/report.md",
+            "romsl_mvp/README.md"
+          ],
+          "status": "实现完成 正式条件未满足"
+        },
+        {
+          "id": "T68",
+          "title": "数据驱动外参候选",
+          "problem": "作者资料缺失，希望先研究代理几何可行性。",
+          "attempt": "仅训练S01–06拟合、07–08诊断；Kabsch加鲁棒点到骨架肢段ICP、多起点和敏感性。",
+          "result": "验证中位距离约11.14cm，留一人局部旋转≤0.72°、平移≤3.38cm；PROXY_GEOMETRY_ONLY，verified=false。",
+          "next": "局部稳定不排除散射中心偏差；只授权为C_proxy/D_proxy探索依据。",
+          "sources": [
+            "reports/romsl_proxy_geometry/report.md"
+          ],
+          "status": "已实验"
+        },
+        {
+          "id": "T69",
+          "title": "C proxy 与 D proxy 三 seed",
+          "problem": "径向目标和回波加权是否比B更有效。",
+          "attempt": "同A/B缓存与预算，代理外参；第5列按m/s待确认解释，D沿固定公式加权。",
+          "result": "C/D Macro-F1均84.88±7.79%，低于B97.78±3.85%；训练48055和验证16019有效帧权重全1，三个seed模型张量逐项相同。",
+          "next": "D未形成有效干预，不能推出回波加权思想无效；正式C/D仍需外参字段核验与新预注册。",
+          "sources": [
+            "reports/romsl_proxy_cd/report.md"
+          ],
+          "status": "已实验"
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "计划/想法三/方案书v2.0.md": "S001",
+    "计划/想法三/方案书v2.1.md": "S002",
+    "计划/想法三/方案书v2.2.md": "S003",
+    "计划/想法三/方案书v2.3.md": "S004",
+    "docs/superpowers/plans/2026-09-20-parrad-label-run-streaming-progress.md": "S005",
+    "计划/想法三/方案书v2.4.md": "S006",
+    "docs/stage3-upstream-audit-2026-09-29.md": "S007",
+    "docs/stage3-verify-candidate-audit-2026-09-29.md": "S008",
+    "docs/stage3-candidate-shadow-diagnostic-2026-09-29.md": "S009",
+    "docs/stage3-forced-horizon-probe-2026-09-29.md": "S010",
+    "docs/stage3-fork-init-gate-ablation-2026-09-30.md": "S011",
+    "docs/stage3-fork-layer-localization-2026-09-30.md": "S012",
+    "docs/stage3-frozen-layer-decodability-2026-10-01.md": "S013",
+    "docs/stage3-frozen-short-horizon-sequential-results-2026-10-02.md": "S014",
+    "docs/stage3-radar-readout-pilot-2026-10-02.md": "S015",
+    "docs/stage3-semantic-physical-complementarity-results-2026-10-02.md": "S016",
+    "docs/stage3-transition-aware-projection-recovery-results-2026-10-03.md": "S017",
+    "docs/stage3-transition-aware-rehearsal-audit-2026-10-03.md": "S018",
+    "docs/stage3-transition-aware-relational-results-2026-10-03.md": "S019",
+    "docs/stage3-transition-aware-primary-results-2026-10-03.md": "S020",
+    "docs/stage3-transition-aware-primary-replication-results-2026-10-03.md": "S021",
+    "docs/stage3-transition-aware-budget-results-2026-10-04.md": "S022",
+    "docs/stage3-transition-aware-subject-balance-results-2026-10-04.md": "S023",
+    "docs/stage4-memory-pilot-results-2026-10-04.md": "S024",
+    "docs/stage4-chat-qa-pilot-results-2026-10-04.md": "S025",
+    "docs/stage4-single-event-qa-results-2026-10-05.md": "S026",
+    "docs/stage4-short-context-qa-results-2026-10-05.md": "S027",
+    "docs/stage4-event-boundary-qa-results-2026-10-05.md": "S028",
+    "docs/stage4-temporal-qa-results-2026-10-05.md": "S029",
+    "docs/stage4-decoder-repair-2026-10-05.md": "S030",
+    "docs/stage4-text-decoder-results-2026-10-05.md": "S031",
+    "docs/stage4-reader-fusion-results-2026-10-06.md": "S032",
+    "docs/stage4-radar-semantic-alignment-results-2026-10-06.md": "S033",
+    "docs/stage4-radar-semantic-alignment-v2-results-2026-10-06.md": "S034",
+    "计划/想法三/方案书v2.5.md": "S035",
+    "计划/想法三/方案书v2.5 (2).md": "S036",
+    "docs/v2.5-implementation-status-2026-10-06.md": "S037",
+    "docs/v2.5-gate-migration-diagnostic-results-2026-10-07.md": "S038",
+    "docs/v2.5-compatible-evidence-results-2026-10-07.md": "S039",
+    "docs/v2.5-physical-proposal-results-2026-10-08-server-readback.md": "S040",
+    "docs/v2.5-proposal-zero-diagnostic-results-2026-10-08.md": "S041",
+    "docs/v2.5-proposal-causal-trigger-results-2026-10-08.md": "S042",
+    "docs/stage3a-proposal-supervision-diagnostic-results-2026-10-08.md": "S043",
+    "docs/stage3a-proposal-loss-ablation-results-2026-10-08.md": "S044",
+    "docs/stage3a-window-peak-ablation-results-2026-10-09.md": "S045",
+    "docs/stage3ag-residual-fusion-results-2026-10-09.md": "S046",
+    "docs/proposal-readout-matched-results-2026-10-09.md": "S047",
+    "docs/md-gru-transition-signal-results-2026-10-09.md": "S048",
+    "docs/radar-gru-two-diagnostics-results-2026-10-09.md": "S049",
+    "docs/tcn-radar-encoder-inspection-2026-10-09.md": "S050",
+    "docs/candidate-filterability-results-2026-10-09.md": "S051",
+    "docs/stage3b-semantic-pilot-results-2026-10-09.md": "S052",
+    "docs/stage3b-oracle-proposal-domain-gap-results-2026-10-10.md": "S053",
+    "docs/offline-radar-to-text.md": "S054",
+    "docs/radar-text-server-pilot-2026-10-10.md": "S055",
+    "docs/radar-text-error-attribution-2026-10-11.md": "S056",
+    "docs/radar-text-head-ablation-2026-10-11.md": "S057",
+    "docs/radar-text-strong-baselines-2026-10-11.md": "S058",
+    "docs/radar-text-align-readout-p0-2026-10-11.md": "S059",
+    "docs/radar-text-p1-evidence-count-2026-10-11.md": "S060",
+    "docs/rd-only-xfi-transfer-2026-10-11.md": "S061",
+    "docs/xfi-mmwave-rd-transfer-assessment-2026-10-11.md": "S062",
+    "docs/parrad-expanded-preparation-2026-10-11.md": "S063",
+    "docs/parrad-expanded-split-2026-10-11.md": "S064",
+    "docs/rd-resnet18-scratch-results-2026-10-13.md": "S065",
+    "docs/parrad-preprocessing-assessment-2026-10-13.md": "S066",
+    "reports/parrad_preprocessing_audit.md": "S067",
+    "reports/parrad_signed_log_ablation.md": "S068",
+    "docs/split-birnn-preparation-results-2026-10-14.md": "S069",
+    "docs/split-birnn-training-results-2026-10-14.md": "S070",
+    "docs/v261-clip-review-results-2026-10-16.md": "S071",
+    "计划/想法三/方案书v2.6.md": "S072",
+    "docs/v26-prediction-pilot-results-2026-10-15.md": "S073",
+    "docs/v26-p0-diagnostic-results-2026-10-15.md": "S074",
+    "docs/v26-p1-results-2026-10-15.md": "S075",
+    "docs/v26-p1c-preparation-results-2026-10-15.md": "S076",
+    "docs/v26-p1c-results-2026-10-15.md": "S077",
+    "docs/v261-joint-results-2026-10-16.md": "S078",
+    "docs/v261-semantic-diagnostic-results-2026-10-16.md": "S079",
+    "docs/v261-joint-diagnosis-next-steps-2026-10-16.md": "S080",
+    "docs/harrad-format-audit-2026-10-16.md": "S081",
+    "docs/harrad-semantic-baseline-results-2026-10-17.md": "S082",
+    "docs/harrad-event-warmup-progress-2026-10-17.md": "S083",
+    "docs/harrad-oracle-start-replay-2026-10-17.md": "S084",
+    "docs/harrad-boundary-baseline-2026-10-17.md": "S085",
+    "docs/harrad-joint-prediction-results-2026-10-18.md": "S086",
+    "docs/harrad-alignment-modulation-results-2026-10-22.md": "S087",
+    "docs/harrad-reset-closed-loop-progress-2026-10-22.md": "S088",
+    "docs/idea3-idea6-harrad-unified-results-2026-11-05.md": "S089",
+    "docs/harrad-stage1-event-prediction-results-2026-11-05.md": "S090",
+    "docs/harrad-stage1-diagnostic-results-2026-11-05.md": "S091",
+    "docs/experiment2-reset-results-2026-11-06.md": "S092",
+    "计划/想法五/方案书v1.0.md": "S093",
+    "docs/latent-memory-implementation-2026-10-18.md": "S094",
+    "计划/想法五/G0诊断结果与G2准入结论v1.0.md": "S095",
+    "计划/想法五/提示词与解码对照结果v1.0.md": "S096",
+    "计划/想法五/终止机制诊断v1.0.md": "S097",
+    "计划/想法五/固定前缀结束继续配对诊断v1.0.md": "S098",
+    "计划/想法五/完成状态独立判断诊断v1.0.md": "S099",
+    "计划/想法五/序列似然诊断v1.0.md": "S100",
+    "计划/想法五/雷达语义接口检查点对照v1.0.md": "S101",
+    "计划/想法六/毫米波连续行为理解：LIF事件门 + LLM描述生成 方案书（草案）.md": "S102",
+    "docs/harrad-cif-lif-implementation-2026-10-27.md": "S103",
+    "计划/想法六/最小可行架构.md": "S104",
+    "docs/harrad-saef-mvp.md": "S105",
+    "outputs/saef-closed-loop-pareto-v1/summary.json": "S106",
+    "outputs/saef-locked-evaluation-v1/subject7-metrics.csv": "S107",
+    "outputs/saef-locked-evaluation-v1/subject8-9-metrics.csv": "S108",
+    "计划/想法六/骨架监督的新想法.md": "S109",
+    "计划/想法六/雷达可观测性引导的运动结构预训练方案书.md": "S110",
+    "reports/romsl_formal/report.md": "S111",
+    "reports/romsl_random/report.md": "S112",
+    "reports/romsl_results_audit/report.md": "S113",
+    "reports/romsl_cd_validation/report.md": "S114",
+    "romsl_mvp/README.md": "S115",
+    "reports/romsl_proxy_geometry/report.md": "S116",
+    "reports/romsl_proxy_cd/report.md": "S117"
+  },
+  "inventory_count": 286
+}

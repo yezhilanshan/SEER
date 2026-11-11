@@ -1,0 +1,17 @@
+experiment: v26_p1_a_and_b_fixed_budget
+formal_go: false
+device: cuda
+original_root: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v26_prediction_pilot_20261014_v4
+original_protocol_sha256: b5b5a5311f6de9a7b7a54ee5afee49274ed1e4494c1359433d0af67663b63613
+p0_snapshot: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v26_p0_diagnostic_20261015_v1/protocol.json
+p0_snapshot_sha256: f3fd0a39d7e3a88f4edf07eb190c568e6eb5f3fae86c78004504327df6413ca3
+output_dir: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/v26_p1_20261015_v1
+stage1: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage1_causal_md_gru_token_warmup/radar_encoder.pt
+stage2: /home/xibeidaxue/newdisk2/WJ/PARrad/outputs/stage2_event_joint_formal_v1/best.pt
+training:
+  seed: 42
+  steps: 300
+  batch_size: 8
+  lr: 0.001
+  weight_decay: 0.01
+  clip_norm: 1.0
